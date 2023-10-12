@@ -1,0 +1,578 @@
+<div id=D__ID>
+    <div class="container mt-95">
+        <div class="formbox">
+            <form id="F__ID">
+                <span id=title__ID></span>
+                <div id="participant_div__ID">
+                    <div class="formgroup">
+                        <fieldset class="dynbreaks">
+                            <label><span class="question">Participant</span>
+                                <input type=text name="Participant" class=formcontrol id=Participant__ID
+                                    data-id="Participant" />
+                            </label><br>
+                            <label><span class="question">Participant ID</span>
+                                <input type=text name="Participant_uid" class=formcontrol readonly />
+                            </label>
+                        </fieldset>
+                    </div>
+                </div>
+                <div class="formgroup">
+                    <fieldset class="">
+                        <span class="question">
+                            <h3> Adverse and Serious Adverse Events</h3>
+                            <h4>CBTi Safety Measures</h4>
+                        </span>
+                    </fieldset>
+                </div>
+
+                <div class="formgroup zoom">
+                    <div class="questiongroup ">
+                        <fieldset class="">
+                            <span class="question">Adverse Event Probing Questions:</span>
+                            <span class="question">
+                                <p>1. Do you wish to report any concerns/complaints associated with your treatment so
+                                    far in this study?</p>
+                            </span>
+                            <textarea name="concerns" class="form-control" style="width:100%"></textarea>
+                            <span class="question">2. Have there been any unexpected symptoms/events associated with the
+                                study treatment?</span>
+                            <textarea name="symptoms" class="form-control" style="width:100%"></textarea>
+                    </div>
+                </div>
+
+                <div class="formgroup">
+                    <fieldset class="">
+                        <span class="question">
+                            CBTi symptom rating:<br>
+                            From the following list of possible events which you may have experienced, rate how much it
+                            interfered with your day time functioning on a scale from <span style='font-weight:bold'>not
+                                at all</span> to <span style='font-weight:bold'>very much</span> over the last <span
+                                style='font-weight:bold'>2 weeks.</span>
+                        </span>
+                    </fieldset>
+                </div>
+                <div class="formgroup zoom">
+                    <div class="questiongroup ">
+                        <fieldset class="">
+                            <span class="question">1. Low mood </span>
+                            <div class="grid-container-5">
+                                <div>
+                                    <input id="mood_0__ID" name="mood" type="radio" value="0" required>
+                                    <label id="mood_button_text_0__ID" class="rd_btn  width_80" for="mood_0__ID">Not at
+                                        all</label>
+                                </div>
+                                <div>
+                                    <input id="mood_1__ID" name="mood" type="radio" value="1">
+                                    <label id="mood_button_text_1__ID" class="rd_btn  width_80" for="mood_1__ID">Not
+                                        really</label>
+                                </div>
+                                <div>
+                                    <input id="mood_2__ID" name="mood" type="radio" value="2">
+                                    <label id="mood_button_text_2__ID" class="rd_btn  width_80"
+                                        for="mood_2__ID">Undecided</label>
+                                </div>
+                                <div>
+                                    <input id="mood_3__ID" name="mood" type="radio" value="3">
+                                    <label id="mood_button_text_3__ID" class="rd_btn  width_80"
+                                        for="mood_3__ID">Somewhat</label>
+                                </div>
+                                <div>
+                                    <input id="mood_4__ID" name="mood" type="radio" value="4">
+                                    <label id="mood_button_text_4__ID" class="rd_btn  width_80" for="mood_4__ID"> Very
+                                        much </label>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </div>
+                </div>
+                <div class="formgroup zoom">
+                    <div class="questiongroup ">
+                        <fieldset class="">
+                            <span class="question">2. Fatigue and/or exhaustion </span>
+                            <div class="grid-container-5">
+                                <div>
+                                    <input id="fatigue_0__ID" name="fatigue" type="radio" value="0" required>
+                                    <label id="fatigue_button_text_0__ID" class="rd_btn  width_80"
+                                        for="fatigue_0__ID">Not at all</label>
+                                </div>
+                                <div>
+                                    <input id="fatigue_1__ID" name="fatigue" type="radio" value="1">
+                                    <label id="fatigue_button_text_1__ID" class="rd_btn  width_80"
+                                        for="fatigue_1__ID">Not really</label>
+                                </div>
+                                <div>
+                                    <input id="fatigue_2__ID" name="fatigue" type="radio" value="2">
+                                    <label id="fatigue_button_text_2__ID" class="rd_btn  width_80"
+                                        for="fatigue_2__ID">Undecided</label>
+                                </div>
+                                <div>
+                                    <input id="fatigue_3__ID" name="fatigue" type="radio" value="3">
+                                    <label id="fatigue_button_text_3__ID" class="rd_btn  width_80"
+                                        for="fatigue_3__ID">Somewhat</label>
+                                </div>
+                                <div>
+                                    <input id="fatigue_4__ID" name="fatigue" type="radio" value="4">
+                                    <label id="fatigue_button_text_4__ID" class="rd_btn  width_80" for="fatigue_4__ID">
+                                        Very much </label>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </div>
+                </div>
+                <div class="formgroup zoom">
+                    <div class="questiongroup ">
+                        <fieldset class="">
+                            <span class="question">3. Extreme sleepiness </span>
+                            <div class="grid-container-5">
+                                <div>
+                                    <input id="sleepiness_0__ID" name="sleepiness" type="radio" value="0" required>
+                                    <label id="sleepiness_button_text_0__ID" class="rd_btn  width_80"
+                                        for="sleepiness_0__ID">Not at all</label>
+                                </div>
+                                <div>
+                                    <input id="sleepiness_1__ID" name="sleepiness" type="radio" value="1">
+                                    <label id="sleepiness_button_text_1__ID" class="rd_btn  width_80"
+                                        for="sleepiness_1__ID">Not really</label>
+                                </div>
+                                <div>
+                                    <input id="sleepiness_2__ID" name="sleepiness" type="radio" value="2">
+                                    <label id="sleepiness_button_text_2__ID" class="rd_btn  width_80"
+                                        for="sleepiness_2__ID">Undecided</label>
+                                </div>
+                                <div>
+                                    <input id="sleepiness_3__ID" name="sleepiness" type="radio" value="3">
+                                    <label id="sleepiness_button_text_3__ID" class="rd_btn  width_80"
+                                        for="sleepiness_3__ID">Somewhat</label>
+                                </div>
+                                <div>
+                                    <input id="sleepiness_4__ID" name="sleepiness" type="radio" value="4">
+                                    <label id="sleepiness_button_text_4__ID" class="rd_btn  width_80"
+                                        for="sleepiness_4__ID"> Very much </label>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </div>
+                </div>
+                <div class="formgroup zoom">
+                    <div class="questiongroup ">
+                        <fieldset class="">
+                            <span class="question">4. Feeling agitated </span>
+                            <div class="grid-container-5">
+                                <div>
+                                    <input id="agitated_0__ID" name="agitated" type="radio" value="0" required>
+                                    <label id="agitated_button_text_0__ID" class="rd_btn  width_80"
+                                        for="agitated_0__ID">Not at all</label>
+                                </div>
+                                <div>
+                                    <input id="agitated_1__ID" name="agitated" type="radio" value="1">
+                                    <label id="agitated_button_text_1__ID" class="rd_btn  width_80"
+                                        for="agitated_1__ID">Not really</label>
+                                </div>
+                                <div>
+                                    <input id="agitated_2__ID" name="agitated" type="radio" value="2">
+                                    <label id="agitated_button_text_2__ID" class="rd_btn  width_80"
+                                        for="agitated_2__ID">Undecided</label>
+                                </div>
+                                <div>
+                                    <input id="agitated_3__ID" name="agitated" type="radio" value="3">
+                                    <label id="agitated_button_text_3__ID" class="rd_btn  width_80"
+                                        for="agitated_3__ID">Somewhat</label>
+                                </div>
+                                <div>
+                                    <input id="agitated_4__ID" name="agitated" type="radio" value="4">
+                                    <label id="agitated_button_text_4__ID" class="rd_btn  width_80"
+                                        for="agitated_4__ID"> Very much </label>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </div>
+                </div>
+                <div class="formgroup zoom">
+                    <div class="questiongroup ">
+                        <fieldset class="">
+                            <span class="question">5. Difficulty remembering things </span>
+                            <div class="grid-container-5">
+                                <div>
+                                    <input id="remembering_0__ID" name="remembering" type="radio" value="0" required>
+                                    <label id="remembering_button_text_0__ID" class="rd_btn  width_80"
+                                        for="remembering_0__ID">Not at all</label>
+                                </div>
+                                <div>
+                                    <input id="remembering_1__ID" name="remembering" type="radio" value="1">
+                                    <label id="remembering_button_text_1__ID" class="rd_btn  width_80"
+                                        for="remembering_1__ID">Not really</label>
+                                </div>
+                                <div>
+                                    <input id="remembering_2__ID" name="remembering" type="radio" value="2">
+                                    <label id="remembering_button_text_2__ID" class="rd_btn  width_80"
+                                        for="remembering_2__ID">Undecided</label>
+                                </div>
+                                <div>
+                                    <input id="remembering_3__ID" name="remembering" type="radio" value="3">
+                                    <label id="remembering_button_text_3__ID" class="rd_btn  width_80"
+                                        for="remembering_3__ID">Somewhat</label>
+                                </div>
+                                <div>
+                                    <input id="remembering_4__ID" name="remembering" type="radio" value="4">
+                                    <label id="remembering_button_text_4__ID" class="rd_btn  width_80"
+                                        for="remembering_4__ID"> Very much </label>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </div>
+                </div>
+                <div class="formgroup zoom">
+                    <div class="questiongroup ">
+                        <fieldset class="">
+                            <span class="question">6. Bodily pain </span>
+                            <div class="grid-container-5">
+                                <div>
+                                    <input id="pain_0__ID" name="pain" type="radio" value="0" required>
+                                    <label id="pain_button_text_0__ID" class="rd_btn  width_80" for="pain_0__ID">Not at
+                                        all</label>
+                                </div>
+                                <div>
+                                    <input id="pain_1__ID" name="pain" type="radio" value="1">
+                                    <label id="pain_button_text_1__ID" class="rd_btn  width_80" for="pain_1__ID">Not
+                                        really</label>
+                                </div>
+                                <div>
+                                    <input id="pain_2__ID" name="pain" type="radio" value="2">
+                                    <label id="pain_button_text_2__ID" class="rd_btn  width_80"
+                                        for="pain_2__ID">Undecided</label>
+                                </div>
+                                <div>
+                                    <input id="pain_3__ID" name="pain" type="radio" value="3">
+                                    <label id="pain_button_text_3__ID" class="rd_btn  width_80"
+                                        for="pain_3__ID">Somewhat</label>
+                                </div>
+                                <div>
+                                    <input id="pain_4__ID" name="pain" type="radio" value="4">
+                                    <label id="pain_button_text_4__ID" class="rd_btn  width_80" for="pain_4__ID"> Very
+                                        much </label>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </div>
+                </div>
+                <div class="formgroup zoom">
+                    <div class="questiongroup ">
+                        <fieldset class="">
+                            <span class="question">7. Headache and/or migraine </span>
+                            <div class="grid-container-5">
+                                <div>
+                                    <input id="migraine_0__ID" name="migraine" type="radio" value="0" required>
+                                    <label id="migraine_button_text_0__ID" class="rd_btn  width_80"
+                                        for="migraine_0__ID">Not at all</label>
+                                </div>
+                                <div>
+                                    <input id="migraine_1__ID" name="migraine" type="radio" value="1">
+                                    <label id="migraine_button_text_1__ID" class="rd_btn  width_80"
+                                        for="migraine_1__ID">Not really</label>
+                                </div>
+                                <div>
+                                    <input id="migraine_2__ID" name="migraine" type="radio" value="2">
+                                    <label id="migraine_button_text_2__ID" class="rd_btn  width_80"
+                                        for="migraine_2__ID">Undecided</label>
+                                </div>
+                                <div>
+                                    <input id="migraine_3__ID" name="migraine" type="radio" value="3">
+                                    <label id="migraine_button_text_3__ID" class="rd_btn  width_80"
+                                        for="migraine_3__ID">Somewhat</label>
+                                </div>
+                                <div>
+                                    <input id="migraine_4__ID" name="migraine" type="radio" value="4">
+                                    <label id="migraine_button_text_4__ID" class="rd_btn  width_80"
+                                        for="migraine_4__ID"> Very much </label>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </div>
+                </div>
+                <div class="formgroup zoom">
+                    <div class="questiongroup ">
+                        <fieldset class="">
+                            <span class="question">8. Euphoria and/or intense increase in mood </span>
+                            <div class="grid-container-5">
+                                <div>
+                                    <input id="euphoria_0__ID" name="euphoria" type="radio" value="0" required>
+                                    <label id="euphoria_button_text_0__ID" class="rd_btn  width_80"
+                                        for="euphoria_0__ID">Not at all</label>
+                                </div>
+                                <div>
+                                    <input id="euphoria_1__ID" name="euphoria" type="radio" value="1">
+                                    <label id="euphoria_button_text_1__ID" class="rd_btn  width_80"
+                                        for="euphoria_1__ID">Not really</label>
+                                </div>
+                                <div>
+                                    <input id="euphoria_2__ID" name="euphoria" type="radio" value="2">
+                                    <label id="euphoria_button_text_2__ID" class="rd_btn  width_80"
+                                        for="euphoria_2__ID">Undecided</label>
+                                </div>
+                                <div>
+                                    <input id="euphoria_3__ID" name="euphoria" type="radio" value="3">
+                                    <label id="euphoria_button_text_3__ID" class="rd_btn  width_80"
+                                        for="euphoria_3__ID">Somewhat</label>
+                                </div>
+                                <div>
+                                    <input id="euphoria_4__ID" name="euphoria" type="radio" value="4">
+                                    <label id="euphoria_button_text_4__ID" class="rd_btn  width_80"
+                                        for="euphoria_4__ID"> Very much </label>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </div>
+                </div>
+                <div class="formgroup zoom">
+                    <div class="questiongroup ">
+                        <fieldset class="">
+                            <span class="question">9. Difficulty concentrating and focussing on things </span>
+                            <div class="grid-container-5">
+                                <div>
+                                    <input id="concentrating_0__ID" name="concentrating" type="radio" value="0"
+                                        required>
+                                    <label id="concentrating_button_text_0__ID" class="rd_btn  width_80"
+                                        for="concentrating_0__ID">Not at all</label>
+                                </div>
+                                <div>
+                                    <input id="concentrating_1__ID" name="concentrating" type="radio" value="1">
+                                    <label id="concentrating_button_text_1__ID" class="rd_btn  width_80"
+                                        for="concentrating_1__ID">Not really</label>
+                                </div>
+                                <div>
+                                    <input id="concentrating_2__ID" name="concentrating" type="radio" value="2">
+                                    <label id="concentrating_button_text_2__ID" class="rd_btn  width_80"
+                                        for="concentrating_2__ID">Undecided</label>
+                                </div>
+                                <div>
+                                    <input id="concentrating_3__ID" name="concentrating" type="radio" value="3">
+                                    <label id="concentrating_button_text_3__ID" class="rd_btn  width_80"
+                                        for="concentrating_3__ID">Somewhat</label>
+                                </div>
+                                <div>
+                                    <input id="concentrating_4__ID" name="concentrating" type="radio" value="4">
+                                    <label id="concentrating_button_text_4__ID" class="rd_btn  width_80"
+                                        for="concentrating_4__ID"> Very much </label>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </div>
+                </div>
+                <div class="formgroup zoom">
+                    <div class="questiongroup ">
+                        <fieldset class="">
+                            <span class="question">10. Reduced motivation and/or energy </span>
+                            <div class="grid-container-5">
+                                <div>
+                                    <input id="motivation_0__ID" name="motivation" type="radio" value="0" required>
+                                    <label id="motivation_button_text_0__ID" class="rd_btn  width_80"
+                                        for="motivation_0__ID">Not at all</label>
+                                </div>
+                                <div>
+                                    <input id="motivation_1__ID" name="motivation" type="radio" value="1">
+                                    <label id="motivation_button_text_1__ID" class="rd_btn  width_80"
+                                        for="motivation_1__ID">Not really</label>
+                                </div>
+                                <div>
+                                    <input id="motivation_2__ID" name="motivation" type="radio" value="2">
+                                    <label id="motivation_button_text_2__ID" class="rd_btn  width_80"
+                                        for="motivation_2__ID">Undecided</label>
+                                </div>
+                                <div>
+                                    <input id="motivation_3__ID" name="motivation" type="radio" value="3">
+                                    <label id="motivation_button_text_3__ID" class="rd_btn  width_80"
+                                        for="motivation_3__ID">Somewhat</label>
+                                </div>
+                                <div>
+                                    <input id="motivation_4__ID" name="motivation" type="radio" value="4">
+                                    <label id="motivation_button_text_4__ID" class="rd_btn  width_80"
+                                        for="motivation_4__ID"> Very much </label>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </div>
+                </div>
+                <div class="formgroup zoom">
+                    <div class="questiongroup ">
+                        <fieldset class="">
+                            <span class="question">11. Changes in hunger and/or appetite </span>
+                            <div class="grid-container-5">
+                                <div>
+                                    <input id="appetite_0__ID" name="appetite" type="radio" value="0" required>
+                                    <label id="appetite_button_text_0__ID" class="rd_btn  width_80"
+                                        for="appetite_0__ID">Not at all</label>
+                                </div>
+                                <div>
+                                    <input id="appetite_1__ID" name="appetite" type="radio" value="1">
+                                    <label id="appetite_button_text_1__ID" class="rd_btn  width_80"
+                                        for="appetite_1__ID">Not really</label>
+                                </div>
+                                <div>
+                                    <input id="appetite_2__ID" name="appetite" type="radio" value="2">
+                                    <label id="appetite_button_text_2__ID" class="rd_btn  width_80"
+                                        for="appetite_2__ID">Undecided</label>
+                                </div>
+                                <div>
+                                    <input id="appetite_3__ID" name="appetite" type="radio" value="3">
+                                    <label id="appetite_button_text_3__ID" class="rd_btn  width_80"
+                                        for="appetite_3__ID">Somewhat</label>
+                                </div>
+                                <div>
+                                    <input id="appetite_4__ID" name="appetite" type="radio" value="4">
+                                    <label id="appetite_button_text_4__ID" class="rd_btn  width_80"
+                                        for="appetite_4__ID"> Very much </label>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </div>
+                </div>
+                <div class="formgroup zoom">
+                    <div class="questiongroup ">
+                        <fieldset class="">
+                            <span class="question">12. Blurred vision </span>
+                            <div class="grid-container-5">
+                                <div>
+                                    <input id="vision_0__ID" name="vision" type="radio" value="0" required>
+                                    <label id="vision_button_text_0__ID" class="rd_btn  width_80" for="vision_0__ID">Not
+                                        at all</label>
+                                </div>
+                                <div>
+                                    <input id="vision_1__ID" name="vision" type="radio" value="1">
+                                    <label id="vision_button_text_1__ID" class="rd_btn  width_80" for="vision_1__ID">Not
+                                        really</label>
+                                </div>
+                                <div>
+                                    <input id="vision_2__ID" name="vision" type="radio" value="2">
+                                    <label id="vision_button_text_2__ID" class="rd_btn  width_80"
+                                        for="vision_2__ID">Undecided</label>
+                                </div>
+                                <div>
+                                    <input id="vision_3__ID" name="vision" type="radio" value="3">
+                                    <label id="vision_button_text_3__ID" class="rd_btn  width_80"
+                                        for="vision_3__ID">Somewhat</label>
+                                </div>
+                                <div>
+                                    <input id="vision_4__ID" name="vision" type="radio" value="4">
+                                    <label id="vision_button_text_4__ID" class="rd_btn  width_80" for="vision_4__ID">
+                                        Very much </label>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </div>
+                </div>
+                <div class="formgroup zoom">
+                    <div class="questiongroup ">
+                        <fieldset class="">
+                            <span class="question">13. Dizziness </span>
+                            <div class="grid-container-5">
+                                <div>
+                                    <input id="dizziness_0__ID" name="dizziness" type="radio" value="0" required>
+                                    <label id="dizziness_button_text_0__ID" class="rd_btn  width_80"
+                                        for="dizziness_0__ID">Not at all</label>
+                                </div>
+                                <div>
+                                    <input id="dizziness_1__ID" name="dizziness" type="radio" value="1">
+                                    <label id="dizziness_button_text_1__ID" class="rd_btn  width_80"
+                                        for="dizziness_1__ID">Not really</label>
+                                </div>
+                                <div>
+                                    <input id="dizziness_2__ID" name="dizziness" type="radio" value="2">
+                                    <label id="dizziness_button_text_2__ID" class="rd_btn  width_80"
+                                        for="dizziness_2__ID">Undecided</label>
+                                </div>
+                                <div>
+                                    <input id="dizziness_3__ID" name="dizziness" type="radio" value="3">
+                                    <label id="dizziness_button_text_3__ID" class="rd_btn  width_80"
+                                        for="dizziness_3__ID">Somewhat</label>
+                                </div>
+                                <div>
+                                    <input id="dizziness_4__ID" name="dizziness" type="radio" value="4">
+                                    <label id="dizziness_button_text_4__ID" class="rd_btn  width_80"
+                                        for="dizziness_4__ID"> Very much </label>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </div>
+                </div>
+                <div class="formgroup zoom">
+                    <div class="questiongroup ">
+                        <fieldset class="">
+                            <span class="question">14. Irritability </span>
+                            <div class="grid-container-5">
+                                <div>
+                                    <input id="irritability_0__ID" name="irritability" type="radio" value="0" required>
+                                    <label id="irritability_button_text_0__ID" class="rd_btn  width_80"
+                                        for="irritability_0__ID">Not at all</label>
+                                </div>
+                                <div>
+                                    <input id="irritability_1__ID" name="irritability" type="radio" value="1">
+                                    <label id="irritability_button_text_1__ID" class="rd_btn  width_80"
+                                        for="irritability_1__ID">Not really</label>
+                                </div>
+                                <div>
+                                    <input id="irritability_2__ID" name="irritability" type="radio" value="2">
+                                    <label id="irritability_button_text_2__ID" class="rd_btn  width_80"
+                                        for="irritability_2__ID">Undecided</label>
+                                </div>
+                                <div>
+                                    <input id="irritability_3__ID" name="irritability" type="radio" value="3">
+                                    <label id="irritability_button_text_3__ID" class="rd_btn  width_80"
+                                        for="irritability_3__ID">Somewhat</label>
+                                </div>
+                                <div>
+                                    <input id="irritability_4__ID" name="irritability" type="radio" value="4">
+                                    <label id="irritability_button_text_4__ID" class="rd_btn  width_80"
+                                        for="irritability_4__ID"> Very much </label>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </div>
+                </div>
+                <div class="formgroup right">
+                    <button type="submit" id="submit__ID" class="submit_btn">Submit</button>
+                </div>
+            </form>
+        </div>
+        <script>
+            //---------------------------------------------
+            function F__ID() {
+                //-------------------------------------
+                /*VmInclude: '__COMPONENT__/f/form.01.js'*/
+                /*VmInclude: '__HOST__/assets/js/shared-form.js'*/
+                //-------------------------------------
+                m.after_insert = function (data,index) {
+                    var P_record=$vm.vm['__ID'].input.participant_record;
+                    //console.log("tp: "+tp)
+                    var tp=$vm.module_list[$vm.vm['__ID'].name].timepoint;
+                    var records={};
+                    jQuery.ajaxSetup({async:false});
+                    $vm.request({cmd:"find-s",table:$vm.module_list['progress-mod-form'].Table,options:{}},function(res){
+                        if(res.permission==false){
+                            alert("No permission");
+                            return;
+                        }
+                        if(res.result.length==0){
+                        }
+                        else{
+                            if(tp=='w1') res.result[0].Data.AE_1='AE 1';
+                            else if(tp=='w3') res.result[0].Data.AE_2='AE 2';
+                            records=res.result[0]
+                            //console.log(JSON.stringify(records))
+                        }
+                    })
+                    if (m.prefix == undefined) { $vm.load_module('progress-mod-form', '', {record:records,progress:'AE',time:tp,goback:1,participant_record:P_record}); }
+                    else {$vm.load_module(m.prefix + 'progress-mod-form', '', {record:records,progress:'AE',time:tp,goback:1,participant_record:P_record});}
+                    jQuery.ajaxSetup({async:true});
+                }
+      //-------------------------------------
+
+            }
+        </script>
+        <style>
+            #submit_box__ID {
+                text-align: right;
+            }
+
+            /*VmInclude:__HOST__/assets/css/wapp-form.css*/
+        </style>
+    </div>

@@ -1,0 +1,164 @@
+<div id=D__ID class="bg">
+    <div class="container mt-95 body_color">
+        <div class="formbox">
+            <form id=F__ID>
+                <div class="formgroup zoom">
+                    <div class="questiongroup">
+                        <fieldset class="">
+                            <span class="question">
+                                <p>Thank you for completing these questions. Your responses indicate that you are
+                                    eligible to
+                                    participate in the study. Please proceed by opening and reading the 
+                                    <a href='assets/pdf/26-09-2023_SLEEPFIX Study_Patient Information Sheet_Version 1.0.pdf' target=_blank>Participant Information Sheet</a>
+                                    carefully and at your own pace, and if you would like to consent to the study please
+                                    tick the box on
+                                    the consent form at the end.</p>
+                            </span>
+                            <input id="consent_0__ID" type="checkbox" value="0" name="consent">
+                            <label id="consent_button_text_0__ID" class="rd_btn" for="consent_0__ID"><span
+                                    class="ticked">&check;&nbsp;&nbsp;&nbsp;</span>Yes, I hereby agree to participate in all aspects of this research study </label><br>
+                        </fieldset>
+                    </div>
+                </div>
+                <div id="S0_17__ID">
+                    <div class="formgroup zoom">
+                        <fieldset class="">
+                            <span class="question">Name</span>
+                            <div class="grid-container-1">
+                                <div>
+                                    <label>
+                                        <span class="question"></span>
+                                        <input id="abcd" type=text name="name" class="formcontrol" placeholder=""
+                                            required />
+                                    </label>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </div>
+                    <div class="formgroup zoom">
+                        <fieldset class="">
+                            <span class="question">Email address</span>
+                            <div class="grid-container-1">
+                                <div>
+                                    <label>
+                                        <span class="question"></span>
+                                        <input id="abcd" type=email name="email" class="formcontrol" placeholder=""
+                                            required />
+                                    </label>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </div>
+                    <div class="formgroup zoom">
+                        <fieldset class="">
+                            <span class="question">Phone number</span>
+                            <div class="grid-container-1">
+                                <div>
+                                    <label>
+                                        <span class="question"></span>
+                                        <input id="abcd" type=tel name="phone" class="formcontrol" maxlength="10" pattern="\d{10}" required />
+                                    </label>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </div>
+                    <div class="formgroup zoom">
+                        <div class="questiongroup">
+                            <fieldset class="">
+                                <span class="question">
+                                    <p>I prefer to be contacted by:</p>
+                                </span>
+                                <input id="cont_pref_0__ID" name="cont_pref" type="radio" value="0" required>
+                                <label id="cont_pref_button_text_0__ID" class="rd_btn"
+                                    for="cont_pref_0__ID">Email</label>
+                                <input id="cont_pref_1__ID" name="cont_pref" type="radio" value="1">
+                                <label id="cont_pref_button_text_1__ID" class="rd_btn"
+                                    for="cont_pref_1__ID">Text</label>
+                                <input id="cont_pref_2__ID" name="cont_pref" type="radio" value="2">
+                                <label id="cont_pref_button_text_2__ID" class="rd_btn"
+                                    for="cont_pref_2__ID">Both</label>
+                            </fieldset>
+                        </div>
+                    </div>
+                    <div class="formgroup zoom">
+                        <div class="questiongroup">
+                            <fieldset class="">
+                                <span class="question">
+                                    <p>I would like to receive a copy of the study results by Email when they become available:</p>
+                                </span>
+                                <input id="study_results_1__ID" name="study_results" type="radio" value="0" required>
+                                <label class="rd_btn" for="study_results_1__ID">Yes</label>
+                                <input id="study_results_2__ID" name="study_results" type="radio" value="1">
+                                <label class="rd_btn" for="study_results_2__ID">No</label>
+                            </fieldset>
+                        </div>
+                    </div>
+                    <div class="formgroup" id="link__ID" style="display:none!important">
+                        <div class="text-center">
+                            Continue ..<br><br>
+                            <i>Click on the link below to continue. Save the link to your favorits so you can easlily find it, if you need to return to the quesstionnaires.</i><br><br>
+                            <a id=asteroind_registration__ID target="_blank" style="color:#000;" ><span style='font-size:1.2rem;font-weight:bold;' id=refnum__ID></span></a>
+                            <br><br>
+                        </div>
+                    </div>
+                    <div style="display:none">
+                        <input type=text class=form-control name=_Password>
+                        <input type=text class=form-control name=List>
+                    </div>
+    
+                    <div class="formgroup right">
+                        <button id="submit__ID" type="submit" class="submit_btn">Submit</button>
+                    </div>
+                </div>
+                <!--<div class="formgroup">
+                    <fieldset class="">
+                        <span>
+                            <p><b>You’re all done! Thank you for taking the time to complete this survey. Your participation is appreciated.</b></p> 
+                                <p>If you have any questions or concerns regarding this questionnaire, please contact James Puterflam (PhD student) at james.puterflam@sydney.edu.au</p>
+                            <p>&nbsp;</p>
+                        </span>
+                    </fieldset>
+                </div>-->
+            </form>
+        </div>
+    </div>
+    <script>
+        function F__ID() {
+            VmInclude: '__HOST__/assets/js/form.01.js'
+            //---------------------------------------
+            $('#D__ID').on('load', function () {
+                $('#S0_17__ID').hide();
+                //console.log(JSON.stringify(m))
+                $('#F__ID input[name=_Password').val($vm.vm_password(8,false));
+            });
+            $("#F__ID input[name=consent]").on('change', function () {
+                if ($('#F__ID input[name=consent]:checked').val() == '0') {
+                    $('#S0_17__ID').show();
+                    $("#F__ID input[name=name]").prop('required', 'true');
+                    $("#F__ID input[name=email]").prop('required', 'true');
+                    $("#F__ID input[name=telephone]").prop('required', 'true');
+                    $("#F__ID input[name=cont_pref]").prop('required', 'true');
+                }
+                else {
+                    $('#S0_17__ID').hide();
+                    $("#F__ID input[name=name]").removeAttr('required');
+                    $("#F__ID input[name=email]").removeAttr('required');
+                    $("#F__ID input[name=telephone]").removeAttr('required');
+                    $("#F__ID input[name=cont_pref]").removeAttr('required');
+                }
+            })
+            //---------------------------------------
+            m.before_submit=function(data,index){
+                data.List='demographics-bl-form,BPI-bl-form,PSQI-bl-form,PHQ-2-bl-form,GAD-7-bl-form,PBAS-bl-form,EQ-5D-bl-form,eHEALs-bl-form'
+            }
+            //---------------------------------------
+
+            m.after_insert = function (data, res) {
+                if (m.prefix == undefined) { $vm.load_module('thank-you', '', {}); }
+                else $vm.load_module(m.prefix + 'thank-you', '', {});
+            }
+        }
+    </script>
+    <style>
+        /*VmInclude:__HOST__/assets/css/wapp-form.css*/
+    </style>

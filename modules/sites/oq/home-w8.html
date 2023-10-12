@@ -1,0 +1,98 @@
+<div id=D__ID>
+	<div id=page__ID >
+        <div class="main-container">
+                    <div class="">
+                        <h2  class="" >Entry to</h2>
+                        <h4 class="" >Questionnaire Portal</h4>
+                        <h4 class="" >Baseline</h4>
+                        <hr style='border-top:1px solid #fff;'></hr>
+                        <div class="">
+                            <input id=username__ID placeholder="Username" class="formcontrol" autocomplete="off" />
+                        </div>
+                        <br>
+                        <div class="">
+                            <input class="formcontrol" id=password__ID type="password" placeholder="Password"  />
+                        </div>
+                            <br><span id="ErrMsg__ID" style='color:red'></span>
+                        <div class="">
+                            <input id=signin__ID type=button value='Sign in' class="btn" value="Sign In" />&nbsp;&nbsp;&nbsp;
+                        </div>
+                    </div>
+          </div>
+	</div>
+<script>
+    function F__ID(){
+        //-------------------------------------
+        var m=$vm.module_list['__MODULE__'];
+        //-------------------------------------
+		$('#username__ID').val('');
+        $('#password__ID').val('');
+        
+		var search=window.location.search
+		if(search.indexOf('username=')!=-1){
+			var txt=search.split('username=')[1];
+			var username=txt.split('&')[0];
+			$('#username__ID').val(username);
+            $vm.un=username;
+		}
+		if(search.indexOf('password=')!=-1){
+			var txt=search.split('password=')[1];
+			var password=txt.split('&')[0];
+			$('#password__ID').val(password);
+            $vm.pw=password;
+		}
+        $('#D__ID').on('load',function(){
+            $('#signout__ID').hide();
+		})
+        $('#signin__ID').on('click',function(){
+			//------------------------------------
+			$('#ErrMsg__ID').text("");
+            var username=$('#username__ID').val();
+            var password=$('#password__ID').val();
+            $vm.request({cmd:"client-signin",table:m.Table,field:'_Password',username:username,password:password},function(res){
+                if(res.status=="np"){
+                    $('#ErrMsg__ID').text("Invalid Username or Password.")
+                    return;
+                }
+                if(res.status=="ok"){
+                    $vm.user_name=res.sys.username;
+                    $vm.set_token(res.sys.token,username);
+                    $vm.online_questionnaire=1;
+                    $('#vm_username').text('Signed in as '+res.sys.username);
+/*                    var x = document.getElementById("signout__ID");
+                    console.log(x)
+                    x.style.display = "block"
+*/                  
+                    //console.log('x')
+                    //console.log(JSON.stringify(res.result))
+                    $vm.load_module("panel-oq-w1",'',{record:res.result});
+                }
+                else{
+                    $('#ErrMsg__ID').text("Invalid participant login ID or password.")
+                }
+            });
+    	});
+    }
+</script>
+   <style>
+    #page__ID{
+        height:100%;
+        display: flex;
+        align-items: center;
+    }
+    .main-container2{
+        background-color:#aaaaaa;
+    color:rgb(0, 0, 0);
+    text-align: center;
+    max-width:600px;
+    margin-left:auto;
+    margin-right:auto;
+    font-family: 'Nunito Sans';
+    font-size: large;
+    padding: 20px;
+    border-radius: 10px;
+  }
+      
+    /*VmInclude:__HOST__/assets/css/wapp-form.css*/
+</style>
+</div>

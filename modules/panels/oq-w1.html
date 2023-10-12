@@ -1,0 +1,173 @@
+<div id=page__ID class="mt-95 textcenter">
+    <div class="container">
+		<div id=panel__ID class="">
+			<div class="">
+				<h2><br>Questionnaire Portal<br>
+				Follow-up Questionnaires</h2>
+				  <hr></hr>
+				<h4 class= "">Please complete each of the following questionnaires.</h4>
+				<div id=items__ID  class= ""></div>
+				<h4 class= "">
+					Once they are completed please click on ‘sign-out’ below, to exit the system. <br>Thank you!
+				</h4>
+				<h3 id="thankyou__ID" style="display:none" class= "">
+					Thank you for completing the end-of-study survey.
+				</h3>
+				<a name=signinout onclick="$vm.signout();" class="btn">Sign out</a><br><br>
+			</div>
+		</div>
+    </div>
+
+</div>
+<!-- <div id=panel__ID>
+    Please answer the following questionnaires. Follow the instruction on each of them.<br><br>
+	<div id=items__ID></div>
+</div>
+</div>-->
+
+<script>
+	function F__ID(){
+		//--------------------------------------------------------
+        var id_list;
+		//--------------------------------------------------------
+		$('#D__ID').on('load',function(){
+		})
+		//--------------------------------------------------------
+		$('#D__ID').on('show',function(){
+            var record=$vm.vm['__ID'].input.record;
+			id_list='AEC-w1-form'
+            if(id_list==undefined){
+                alert("No questionnaire was found");
+                return;
+            }
+			setup_panel();
+		})
+
+		//--------------------------------------------------------
+		var status=[]
+		//---------------------------------
+		var setup_panel=function(){
+			//----------------------------------
+		    var ids=id_list.split(',');
+		    var txt="" //"<ul>";
+		    //----------------------------------
+		    for(var i=0;i<ids.length;i++){
+				var m=ids[i];
+		        if(status[m]==undefined){
+		            status[m]={rid:0}
+				}
+				var task_name="not found";
+				var mm=$vm.module_list[m];
+				if(mm!=undefined){
+					task_name=mm.task_name;
+					var tn=task_name.split(" - ")
+					task_name=tn[1];
+					status[m].Table=mm.Table;
+				}
+				//txt+="<li class='formcontrol' m="+m+">"+task_name+"</li><br>";
+				txt+="<label class='rd_btn width_btn_full' m="+m+">"+task_name+"</label><br>"
+		    }
+            txt+""; //"</ul>";
+		    $('#items__ID').html(txt);
+		    //----------------------------------
+			$('#items__ID label').each(function(){
+		        var $li=$(this);
+				$li.removeClass('li_allowed__ID')
+				$li.addClass('li_not_allowed__ID')
+				$li.removeClass('done__ID');
+			})
+			//----------------------------------
+			$('#items__ID label').each(function(){
+		        var $li=$(this);
+		        var m=$li.attr('m');
+		        //if(status[m].rid==0){
+                    jQuery.ajaxSetup({async:false});
+                    $vm.request({cmd:"find-s",table:$vm.module_list[m].Table,options:{}},function(res){
+                        if(res.permission==false){
+                            alert("No permission");
+                            return;
+                        }
+                        if(res.result.length==0){
+                        }
+                        else{
+                            status[m].rid=1;
+							$li.removeClass('li_not_allowed__ID')
+							$li.addClass('done__ID');
+							if(status[m].Table==$vm.module_list["EQ-5D-fu-form"].Table){
+								$('#thankyou__ID').css('display','block');
+							}
+                        }
+                    })
+                    jQuery.ajaxSetup({async:true});
+		        //}
+		        if(status[m].rid==0){				
+					$li.removeClass('li_not_allowed__ID')
+					$li.addClass('li_allowed__ID')
+		            var task_name=$li.html();
+		            var module=$li.attr('m');
+		            $li.html("<u style='cursor:pointer' m="+module+">"+task_name+"</u>");
+		            $li.find('u').on('click',function(){
+		                var m=$(this).attr('m');
+                        var record=$vm.vm['__ID'].input.record;
+						$vm.load_module(m,'',{participant_record:record,goback:1});
+		            });
+		            return false; // break out the loop
+		        }
+		    })
+		    //----------------------------------
+		}
+		//--------------------------------------------------------
+	}
+</script>
+<style>
+/*	#D__ID{
+		height:100%;
+        overflow:auto;
+		animation: vm_module_fadein 1.0s;
+	}
+	#page__ID{
+		height:100%;
+		display: flex;
+		padding-top:50px;
+	}
+	.panel__ID{
+		color:#000;
+		font-weight: normal;
+		background-color: rgb(245,245,245,0.9);
+	    padding: 30px 20px 10px 20px;
+	    border-radius: 15px;
+	}
+	@media screen and (max-width:786px){
+		#page__ID{
+			display: block;
+		}
+	}*/
+
+    /*#panel__ID li{
+		cursor:pointer;
+	}*/
+    #panel__ID label{
+		cursor:pointer;
+	}
+	/*ul {
+		list-style:none;
+	}*/
+	.done__ID{
+		background-color: #66ad5d!important;
+		color: #fff!important;
+		cursor:not-allowed!important;
+	}
+	.li_not_allowed__ID{
+		background-color:rgb(201, 94, 94)!important;
+		color: #fff!important;
+		cursor:not-allowed!important;
+	}
+ 	.li_allowed__ID{
+		background-color:rgb(214, 189, 50);
+		color: #000!important;
+		cursor:pointer!important;
+	}
+
+    /*VmInclude:__HOST__/assets/css/wapp-form.css*/
+
+</style>

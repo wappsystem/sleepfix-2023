@@ -1,0 +1,59 @@
+<div id=D__ID>
+    <div class="container mt-95">
+        <div class="formbox">
+            <form id="F__ID">
+                <span id=title__ID></span>
+                <div class="formgroup zoom">
+                    <fieldset class="">
+                      <span class="question"></span>
+                      <div class="grid-container-2">
+                        <div>
+                          <label>
+                            <span class="question">Randomisation ID</span>
+                            <input type=text id="Randomisation_ID" class="formcontrol " readonly />
+                          </label>
+                        </div>
+                        <div>
+                            <label>
+                              <span class="question">Randomisation Number</span>
+                              <input type=text name="Randomisation_Number" class="formcontrol " />
+                            </label>
+                          </div>
+                          <div>
+                            <label>
+                              <span class="question">Group</span>
+                              <input type=text name="Group" class="formcontrol " />
+                            </label>
+                          </div>
+                          </div>
+                    </fieldset>
+                  </div>
+                  <div class="formgroup right">
+                        <button type="submit" id="submit__ID" class="submit_btn">Submit</button>
+                  </div>
+            </form>
+        </div>
+    </div>
+    <script>
+    function F__ID() {
+      //-------------------------------------
+      /*VmInclude: __HOST__/assets/js/form.01.js*/
+      //-------------------------------------
+      var load = m.load;
+        m.load = function () {
+            load();
+            rand_num='';
+            if (m.input.record == undefined) {
+            }
+            else {
+                $('#Randomisation_ID').val(m.input.record.UID)
+            }
+        }
+        //-------------------------------------
+
+    }
+    </script>
+<style>
+    /*VmInclude:__HOST__/assets/css/wapp-form.css*/
+  </style>
+</div>

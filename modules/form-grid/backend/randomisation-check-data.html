@@ -1,0 +1,66 @@
+<div id=D__ID>
+    <section>
+    VmInclude:__HOST__/assets/html/grid.01.html
+    </section>
+    <script>
+        function F__ID(){
+            //-------------------------------------
+            /*VmInclude:__HOST__/assets/js/grid.01.js*/
+            //-------------------------------------
+            $('#new__ID').hide();
+            //-------------------------------------
+            var fields="Progress|Baseline,Group";
+            m.fields="Participant_ID|Participant,"+fields+"";
+            //-------------------------------------
+            m.load=function(){
+                m.query={"Data.Baseline": {"$eq" : "eHealth"}}
+            }
+            //-------------------------------------
+            m.cell_render=function(records,I,field,td){
+                //console.log(JSON.stringify(records[I].Data))
+                switch(field){
+                    case 'Baseline':
+                        var v=records[I].Data.Baseline;
+                        if(v=='eHealth'){
+                            td.html("<i class='fa fa-smile'></i>");
+                            td.css('color','green')
+                        }
+                        else{
+                            td.html("")
+                        }
+                    break;
+                    case 'Group':
+                        if(records[I].Data.Baseline=='eHealth' && (records[I].Data.Group=="" || records[I].Data.Group==undefined)){
+                            html="<u style='cursor:pointer'>Randomise</u>"
+                        }
+                        else {
+                            html=records[I].Data.Group
+                        }
+                        td.html(html);
+                        td.find('u').on('click',function(){
+                            var tables=$vm.module_list["participant-data"].Table;
+                            var uid=parseInt(records[I].Data.Participant_uid);
+                            var query={UID:uid}
+                            var result={};
+                            jQuery.ajaxSetup({ async: false });
+                            $vm.request({cmd:'find',table:tables,query:query,limit:1},function(res){
+                                if (res.result.length != 0) {
+                                    result=res.result[0];
+                                    //console.log(JSON.stringify(result))
+                                }
+                                else $vm.alert("Sorry, something went wrong!")
+                            })
+                            jQuery.ajaxSetup({ async: true });
+                            $vm.load_module_v2('participant-form','',{record:result})
+                        });
+                    break;
+                    //m.input.record._id
+                };
+            }
+        }
+	//-------------------------------------
+    </script>
+    <style>
+        /*VmInclude:__HOST__/assets/css/grid.css*/
+    </style>
+</div>

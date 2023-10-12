@@ -1,0 +1,264 @@
+<div id=D__ID>
+	<!--third html start -->
+	<div class="container mt-95">
+		<!-- form container start -->
+		<div class="formbox">
+			<!-- form start -->
+			<form id="F__ID">
+				<span id=title__ID>Participant's Details</span>
+				<!-- participant name and study id -->
+				<div class="formgroup">
+					<fieldset class="">
+						<div class="grid-container-1">
+							<div><label style="width:100%"><span class="question">Participant ID</span>
+									<input type=text id="record__ID" class=formcontrol readonly />
+								</label>
+							</div>
+						</div>
+						<span class="question">
+							Contact preference
+						</span>
+						<div class="grid-container-1">
+							<label>
+								<input id="cont_pref_0__ID" name="cont_pref" type="radio" value="0" required>
+								<label id="cont_pref_button_text_0__ID" class="rd_btn width_btn_130"
+									for="cont_pref_0__ID">Email</label>
+								<input id="cont_pref_1__ID" name="cont_pref" type="radio" value="1">
+								<label id="cont_pref_button_text_1__ID" class="rd_btn width_btn_130"
+									for="cont_pref_1__ID">Text</label>
+								<input id="cont_pref_2__ID" name="cont_pref" type="radio" value="2">
+								<label id="cont_pref_button_text_2__ID" class="rd_btn width_btn_130"
+									for="cont_pref_2__ID">Both</label>
+							</label>
+						</div>
+						<div class="grid-container-3">
+							<div><label style="width:100%"><span class="question">Name</span>
+									<input type=text name="name" class=formcontrol />
+								</label>
+							</div>
+							<div><label style="width:100%"><span class="question">Telephone</span>
+									<input type=text name="telephone" class=formcontrol />
+								</label>
+							</div>
+							<div><label style="width:100%"><span class="question">Email</span>
+									<input type=text name="email" class=formcontrol />
+								</label>
+							</div>
+						</div>
+					</fieldset>
+				</div>
+				<div id="full_page__ID">
+					<div class="formgroup">
+						<div class="questiongroup ">
+							<fieldset class="">
+								<div class="grid-container-2">
+									<div>
+										<label><span class="question">Access Code</span>
+											<input type=text name="Access_Code" class="formcontrol" />
+										</label>
+									</div>
+									<div>
+										<label><span class="question">Notes</span>
+											<textarea name="Notes" class="formcontrol  width_80"></textarea>
+										</label>
+									</div>
+								</div>
+							</fieldset>
+						</div>
+					</div>
+					<div class="formgroup">
+						<fieldset class="">
+							<div class="grid-container-2">
+								<div><label><span class="question">Password</span>
+										<input type=text name="_Password" class=formcontrol style="width:90%" />
+									</label>
+								</div>
+								<div><label><span class="question">Group</span>
+										<input type=text name="Group" class=formcontrol  style="width:90%" readonly />
+									</label>
+								</div>
+							</div>
+							<div id="randomisation_div__ID">
+								<div class="grid-container-2">
+									<div><label><span class="question">Randomisation Number</span>
+											<input type=text name="Randomisation_Number" class=formcontrol readonly
+												placeholder='click here to randomise' style="width:90%" />
+										</label>
+									</div>
+									<div><label><span class="question">Randomised by</span>
+											<input type=text name="Randomised_by" class=formcontrol readonly style="width:90%" />
+										</label>
+									</div>
+								</div>
+							</div>
+						</fieldset>
+					</div>
+				</div>
+				<div class="formgroup" id="sent_date__ID">
+					<fieldset class="">
+						<div >
+							<div class="grid-container-1">
+								<div><label><span class="question">Baseline questioonaire link sent</span>
+										<input type=date name="BL_Sent" id="bl_sent__ID" class=formcontrol style="width:90%" />
+									</label>
+								</div>
+							</div>
+						</div>
+					</fieldset>
+				</div>
+				<div class="formgroup right">
+					<button type="submit" id="submit__ID" class="btn">Submit</button>
+				</div>
+			</form>
+		</div>
+	</div>
+	<script>
+		function F__ID() {
+			//-------------------------------------
+			VmInclude: '__HOST__/assets/js/form.01.js'
+			//-------------------------------------
+            var rand_num='';
+			var load = m.load;
+			var part_uid;
+			m.load = function () {
+				load();
+                rand_num='';
+				if (m.input.record == undefined) {
+					$('.row_participant__ID').hide()
+					$('#F__ID input[name=_Password').val($vm.vm_password(8, false));
+					$('#sent_date__ID').hide()
+				}
+				else {
+					$('.row_participant__ID').show()
+					$('#record__ID').val(m.input.record.UID)
+					//console.log(m.input.sent)
+					if(m.input.sent==undefined) {
+						$('#sent_date__ID').hide();
+						$('#full_page__ID').show();
+					}
+					else {
+						$('#full_page__ID').hide();
+						if($('#F__ID input[name=BL_Sent').val()==undefined || $('#F__ID input[name=BL_Sent').val()=='') $('#bl_sent__ID').val(get_now_date())
+					}
+				}
+			}
+			//-------------------------------------
+			var get_now_date = function () {
+                var today = new Date();
+                var dd = today.getDate();
+                var mm = today.getMonth() + 1; //January is 0!
+                var yyyy = today.getFullYear();
+                var hh = today.getHours()
+                var mn = today.getMinutes()
+                var ss = today.getSeconds()
+                if (dd < 10) { dd = '0' + dd; }
+                if (mm < 10) { mm = '0' + mm; }
+                if (mn < 10) { mn = '0' + mn; }
+                if (hh < 10) { hh = '0' + hh; }
+                if (ss < 10) { ss = '0' + ss; }
+                return yyyy + '-' + mm + '-' + dd;
+            }
+			//-------------------------------------
+			$('#F__ID input[name=Randomisation_Number]').on('click', function () {
+				var I1 = $('#F__ID input[name=Randomisation_Number').val();
+				if (I1 == '') {
+					$vm.request({ cmd: "find", table: m.Table, sort: { I1: -1 }, skip: 0, limit: 1 }, function (res) {
+						if (res.sys.permission == false) {
+							$vm.alert("No permission. Private database table, ask the table's owner for permissions.");
+							return;
+						}
+						var max_I1 = 0;
+						if (res.result.length > 0) {
+							if (res.result[0].I1 !== undefined) max_I1 = res.result[0].I1
+						}
+						max_I1++;
+						//$('#F__ID input[name=Randomisation_Number').val(max_I1);
+						$('#F__ID input[name=Randomisation_Number').val('R'+max_I1.toString().padStart(3, "0"));
+						rand_num=max_I1.toString();
+						$('#F__ID input[name=Randomised_by').val($vm.user_name);
+					})
+				}
+			})
+			//-------------------------------------
+			m.before_submit = function (data, index) {
+                var I1 = rand_num; 
+				if (I1 != '' && I1 != '-') {
+					index.I1 = parseInt(I1);
+                    var nd=new Date()
+                    index.I2=nd.getFullYear()+"-"+$vm.pad(nd.getMonth()+1,2)+"-"+$vm.pad(nd.getDate(),2);
+                    jQuery.ajaxSetup({ async: false });
+                        var tb = $vm.module_list["randomisation-table-data"].Table;
+                        var query={UID:index.I1}
+                        $vm.request({ cmd: "find", table: tb,query:query, limit:1 }, function (res) {
+                            if (res.result.length != 0) {
+                                //console.log(JSON.stringify(res.result[0].Data.Group))
+                                data.Group=res.result[0].Data.Group;
+                                index.I3=res.result[0].Data.Group;
+                                //if(index.I3=="Digital sleep health education") data.Start_Date=index.I2;
+                            }
+                        });
+                        var tb = $vm.module_list["access-code-data"].Table;
+                        var query={UID:index.I1}
+                        $vm.request({ cmd: "find", table: tb,query:query, limit:1 }, function (res) {
+                            if (res.result.length != 0) {
+                                //console.log(JSON.stringify(res.result[0].Data.Group))
+                                data.Access_Code=res.result[0].Data.Access_Code;
+                            }
+                        });
+                    jQuery.ajaxSetup({ async: true });
+                }
+			}
+			//-------------------------------------
+			m.after_update = function (data,index) {
+                //console.log('Data: '+JSON.stringify(data));
+                //console.log(JSON.stringify(m.input.record.UID))
+                var pid=(m.input.record.UID).toString();
+                var record={};
+                var tb = $vm.module_list["progress-mod-form"].Table;
+                query={'Data.Participant':pid}
+                //console.log(query);
+                jQuery.ajaxSetup({async:false});
+                $vm.request({ cmd: "find", table: tb,query:query, limit:1 }, function (res) {
+                    if(res.permission==false){
+                        alert("No permission");
+                        return;
+                    }
+                    if(res.result.length==0){
+                    }
+                    else{
+                        record=res.result[0]
+                        record.Data.Group=data.Group;
+                        //record.Data.Start_date=index.result.I2;
+                        record.Data.Access_Code=data.Access_Code;
+                        record.Data.Notes=data.Notes;
+                        //console.log(JSON.stringify(record))
+                        $vm.request({cmd:'update',id:record._id,table:tb,data:record.Data},function(res){
+                            //-----------------------------
+                            if(res.status=="lk"){
+                                $vm.alert("This record is locked.");
+                                return;
+                            }
+                            //-----------------------------
+                            if(res.status=="np"){
+                                alert("No permission to update this record.");
+                                return;
+                            }
+                        })
+                    }
+                })
+                jQuery.ajaxSetup({async:true});
+                $vm.refresh=1;
+                m.change_status++;
+                window.history.go(-1);   
+            }
+
+
+		}
+	</script>
+	<style>
+		#D__ID {
+		}
+
+		/*VmInclude:__HOST__/assets/css/wapp-form.css*/
+	</style>
+</div>

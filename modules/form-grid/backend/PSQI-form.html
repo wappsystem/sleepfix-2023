@@ -1,0 +1,886 @@
+<div id=D__ID>
+  <div class="container mt-95">
+    <div class="formbox">
+      <form id="F__ID">
+        <span id=title__ID></span>
+        <div id="participant_div__ID">
+          <div class="formgroup">
+            <fieldset class="dynbreaks">
+              <label><span class="question">Participant</span>
+                <input type=text name="Participant" class=formcontrol id=Participant__ID data-id="Participant" />
+              </label><br>
+              <label><span class="question">Participant ID</span>
+                <input type=text name="Participant_uid" class=formcontrol readonly />
+              </label>
+            </fieldset>
+          </div>
+        </div>
+        <h3 style='margin-left:30px'>Pittsburgh Sleep Quality Index</h3>
+        <div class="formgroup">
+          <fieldset class="">
+            <span class="question">
+              <p>Instructions:</p>
+            </span>
+            <span>The following questions relate to your usual sleep habits during the PAST 2 WEEKS ONLY. Your answers
+              should indicate the most accurate reply for the majority days and nights during this time period. Please
+              answer all questions.</span>
+          </fieldset>
+        </div>
+        <div class="formgroup zoom">
+          <fieldset class="">
+            <span class="question">1. During the past 2 weeks, what time have you usually gone to bed at night?</span>
+            <div class="grid-container-1">
+              <div>
+                <label>
+                  <span class="question">Bedtime </span>
+                  <input type=time name="PSQI1" class="formcontrol " placeholder="" required />
+                </label>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+        <div class="formgroup zoom">
+          <fieldset class="">
+            <span class="question">2. During the past 2 weeks, how long (in minutes) has it taken you to fall asleep
+              each night?</span>
+            <div class="grid-container-1">
+              <div>
+                <label>
+                  <span class="question">Number of minutes</span>
+                  <input  type=number name="PSQI2" class="formcontrol " min=0 max=1000 step=1 placeholder=""
+                    required />
+                </label>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+        <div class="formgroup zoom">
+          <fieldset class="">
+            <span class="question">3. During the past 2 weeks, what time have you usually gotten up in the
+              morning?</span>
+            <div class="grid-container-1">
+              <div>
+                <label>
+                  <span class="question">Getting up time</span>
+                  <input  type=time name="PSQI3" class="formcontrol " placeholder="" required />
+                </label>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+        <div class="formgroup zoom">
+          <fieldset class="">
+            <span class="question">4. During the past 2 weeks, how many hours of actual sleep did you get at night?
+              (this may be different than the number of hours you spent in bed)</span>
+            <div class="grid-container-1">
+              <div>
+                <label>
+                  <span class="question">Hours of sleep per night</span>
+                  <input type=number name="PSQI4" class="formcontrol " min=0 max=16 step=0.5 placeholder=""
+                    required />
+                </label>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+        <div class="formgroup">
+          <fieldset class="">
+            <span class="question">
+              <p>5. During the past 2 weeks, how often have you had trouble sleeping because you ...</p>
+            </span>
+            <span><i>For each of the remaining questions, check the best response.</i></span>
+          </fieldset>
+        </div>
+        <div class="formgroup zoom">
+          <div class="questiongroup ">
+            <fieldset class="">
+              <span class="question">a. Cannot get to sleep within 30 minutes</span>
+              <div class="grid-container-4">
+                <div>
+                  <input id="PSQI5a_0__ID" name="PSQI5a" type="radio" value="0" required>
+                  <label id="PSQI5a_button_text_0__ID" class="rd_btn  width_80  rd_btn_two_rows" for="PSQI5a_0__ID">Not during the
+                    past 2 weeks</label>
+                </div>
+                <div>
+                  <input id="PSQI5a_1__ID" name="PSQI5a" type="radio" value="1">
+                  <label id="PSQI5a_button_text_1__ID" class="rd_btn  width_80  rd_btn_two_rows" for="PSQI5a_1__ID">Less than once a
+                    week</label>
+                </div>
+                <div>
+                  <input id="PSQI5a_2__ID" name="PSQI5a" type="radio" value="2">
+                  <label id="PSQI5a_button_text_2__ID" class="rd_btn  width_80  rd_btn_two_rows" for="PSQI5a_2__ID">Once or twice a
+                    week</label>
+                </div>
+                <div>
+                  <input id="PSQI5a_3__ID" name="PSQI5a" type="radio" value="3">
+                  <label id="PSQI5a_button_text_3__ID" class="rd_btn  width_80  rd_btn_two_rows" for="PSQI5a_3__ID">Three or more
+                    times a week</label>
+                </div>
+              </div>
+            </fieldset>
+          </div>
+        </div>
+        <div class="formgroup zoom">
+          <div class="questiongroup ">
+            <fieldset class="">
+              <span class="question">b. Wake up in the middle of the night or early morning</span>
+              <div class="grid-container-4">
+                <div>
+                  <input id="PSQI5b_0__ID" name="PSQI5b" type="radio" value="0" required>
+                  <label id="PSQI5b_button_text_0__ID" class="rd_btn  width_80  rd_btn_two_rows" for="PSQI5b_0__ID">Not during the
+                    past 2 weeks</label>
+                </div>
+                <div>
+                  <input id="PSQI5b_1__ID" name="PSQI5b" type="radio" value="1">
+                  <label id="PSQI5b_button_text_1__ID" class="rd_btn  width_80  rd_btn_two_rows" for="PSQI5b_1__ID">Less than once a
+                    week</label>
+                </div>
+                <div>
+                  <input id="PSQI5b_2__ID" name="PSQI5b" type="radio" value="2">
+                  <label id="PSQI5b_button_text_2__ID" class="rd_btn  width_80  rd_btn_two_rows" for="PSQI5b_2__ID">Once or twice a
+                    week</label>
+                </div>
+                <div>
+                  <input id="PSQI5b_3__ID" name="PSQI5b" type="radio" value="3">
+                  <label id="PSQI5b_button_text_3__ID" class="rd_btn  width_80  rd_btn_two_rows" for="PSQI5b_3__ID">Three or more
+                    times a week</label>
+                </div>
+              </div>
+            </fieldset>
+          </div>
+        </div>
+        <div class="formgroup zoom">
+          <div class="questiongroup ">
+            <fieldset class="">
+              <span class="question">c. Have to get up to use the bathroom</span>
+              <div class="grid-container-4">
+                <div>
+                  <input id="PSQI5c_0__ID" name="PSQI5c" type="radio" value="0" required>
+                  <label id="PSQI5c_button_text_0__ID" class="rd_btn  width_80  rd_btn_two_rows" for="PSQI5c_0__ID">Not during the
+                    past 2 weeks</label>
+                </div>
+                <div>
+                  <input id="PSQI5c_1__ID" name="PSQI5c" type="radio" value="1">
+                  <label id="PSQI5c_button_text_1__ID" class="rd_btn  width_80  rd_btn_two_rows" for="PSQI5c_1__ID">Less than once a
+                    week</label>
+                </div>
+                <div>
+                  <input id="PSQI5c_2__ID" name="PSQI5c" type="radio" value="2">
+                  <label id="PSQI5c_button_text_2__ID" class="rd_btn  width_80  rd_btn_two_rows" for="PSQI5c_2__ID">Once or twice a
+                    week</label>
+                </div>
+                <div>
+                  <input id="PSQI5c_3__ID" name="PSQI5c" type="radio" value="3">
+                  <label id="PSQI5c_button_text_3__ID" class="rd_btn  width_80  rd_btn_two_rows" for="PSQI5c_3__ID">Three or more
+                    times a week</label>
+                </div>
+              </div>
+            </fieldset>
+          </div>
+        </div>
+        <div class="formgroup zoom">
+          <div class="questiongroup ">
+            <fieldset class="">
+              <span class="question">d. Cannot breathe comfortably</span>
+              <div class="grid-container-4">
+                <div>
+                  <input id="PSQI5d_0__ID" name="PSQI5d" type="radio" value="0" required>
+                  <label id="PSQI5d_button_text_0__ID" class="rd_btn  width_80  rd_btn_two_rows" for="PSQI5d_0__ID">Not during the
+                    past 2 weeks</label>
+                </div>
+                <div>
+                  <input id="PSQI5d_1__ID" name="PSQI5d" type="radio" value="1">
+                  <label id="PSQI5d_button_text_1__ID" class="rd_btn  width_80  rd_btn_two_rows" for="PSQI5d_1__ID">Less than once a
+                    week</label>
+                </div>
+                <div>
+                  <input id="PSQI5d_2__ID" name="PSQI5d" type="radio" value="2">
+                  <label id="PSQI5d_button_text_2__ID" class="rd_btn  width_80  rd_btn_two_rows" for="PSQI5d_2__ID">Once or twice a
+                    week</label>
+                </div>
+                <div>
+                  <input id="PSQI5d_3__ID" name="PSQI5d" type="radio" value="3">
+                  <label id="PSQI5d_button_text_3__ID" class="rd_btn  width_80  rd_btn_two_rows" for="PSQI5d_3__ID">Three or more
+                    times a week</label>
+                </div>
+              </div>
+            </fieldset>
+          </div>
+        </div>
+        <div class="formgroup zoom">
+          <div class="questiongroup ">
+            <fieldset class="">
+              <span class="question">e. Cough or snore loudly </span>
+              <div class="grid-container-4">
+                <div>
+                  <input id="PSQI5e_0__ID" name="PSQI5e" type="radio" value="0" required>
+                  <label id="PSQI5e_button_text_0__ID" class="rd_btn  width_80  rd_btn_two_rows" for="PSQI5e_0__ID">Not during the
+                    past 2 weeks</label>
+                </div>
+                <div>
+                  <input id="PSQI5e_1__ID" name="PSQI5e" type="radio" value="1">
+                  <label id="PSQI5e_button_text_1__ID" class="rd_btn  width_80  rd_btn_two_rows" for="PSQI5e_1__ID">Less than once a
+                    week</label>
+                </div>
+                <div>
+                  <input id="PSQI5e_2__ID" name="PSQI5e" type="radio" value="2">
+                  <label id="PSQI5e_button_text_2__ID" class="rd_btn  width_80  rd_btn_two_rows" for="PSQI5e_2__ID">Once or twice a
+                    week</label>
+                </div>
+                <div>
+                  <input id="PSQI5e_3__ID" name="PSQI5e" type="radio" value="3">
+                  <label id="PSQI5e_button_text_3__ID" class="rd_btn  width_80  rd_btn_two_rows" for="PSQI5e_3__ID">Three or more
+                    times a week</label>
+                </div>
+              </div>
+            </fieldset>
+          </div>
+        </div>
+        <div class="formgroup zoom">
+          <div class="questiongroup ">
+            <fieldset class="">
+              <span class="question">f. Feel too cold</span>
+              <div class="grid-container-4">
+                <div>
+                  <input id="PSQI5f_0__ID" name="PSQI5f" type="radio" value="0" required>
+                  <label id="PSQI5f_button_text_0__ID" class="rd_btn  width_80  rd_btn_two_rows" for="PSQI5f_0__ID">Not during the
+                    past 2 weeks</label>
+                </div>
+                <div>
+                  <input id="PSQI5f_1__ID" name="PSQI5f" type="radio" value="1">
+                  <label id="PSQI5f_button_text_1__ID" class="rd_btn  width_80  rd_btn_two_rows" for="PSQI5f_1__ID">Less than once a
+                    week</label>
+                </div>
+                <div>
+                  <input id="PSQI5f_2__ID" name="PSQI5f" type="radio" value="2">
+                  <label id="PSQI5f_button_text_2__ID" class="rd_btn  width_80  rd_btn_two_rows" for="PSQI5f_2__ID">Once or twice a
+                    week</label>
+                </div>
+                <div>
+                  <input id="PSQI5f_3__ID" name="PSQI5f" type="radio" value="3">
+                  <label id="PSQI5f_button_text_3__ID" class="rd_btn  width_80  rd_btn_two_rows" for="PSQI5f_3__ID">Three or more
+                    times a week</label>
+                </div>
+              </div>
+            </fieldset>
+          </div>
+        </div>
+        <div class="formgroup zoom">
+          <div class="questiongroup ">
+            <fieldset class="">
+              <span class="question">g. Feel too hot</span>
+              <div class="grid-container-4">
+                <div>
+                  <input id="PSQI5g_0__ID" name="PSQI5g" type="radio" value="0" required>
+                  <label id="PSQI5g_button_text_0__ID" class="rd_btn  width_80  rd_btn_two_rows" for="PSQI5g_0__ID">Not during the
+                    past 2 weeks</label>
+                </div>
+                <div>
+                  <input id="PSQI5g_1__ID" name="PSQI5g" type="radio" value="1">
+                  <label id="PSQI5g_button_text_1__ID" class="rd_btn  width_80  rd_btn_two_rows" for="PSQI5g_1__ID">Less than once a
+                    week</label>
+                </div>
+                <div>
+                  <input id="PSQI5g_2__ID" name="PSQI5g" type="radio" value="2">
+                  <label id="PSQI5g_button_text_2__ID" class="rd_btn  width_80  rd_btn_two_rows" for="PSQI5g_2__ID">Once or twice a
+                    week</label>
+                </div>
+                <div>
+                  <input id="PSQI5g_3__ID" name="PSQI5g" type="radio" value="3">
+                  <label id="PSQI5g_button_text_3__ID" class="rd_btn  width_80  rd_btn_two_rows" for="PSQI5g_3__ID">Three or more
+                    times a week</label>
+                </div>
+              </div>
+            </fieldset>
+          </div>
+        </div>
+        <div class="formgroup zoom">
+          <div class="questiongroup ">
+            <fieldset class="">
+              <span class="question">h. Had bad dreams</span>
+              <div class="grid-container-4">
+                <div>
+                  <input id="PSQI5h_0__ID" name="PSQI5h" type="radio" value="0" required>
+                  <label id="PSQI5h_button_text_0__ID" class="rd_btn  width_80  rd_btn_two_rows" for="PSQI5h_0__ID">Not during the
+                    past 2 weeks</label>
+                </div>
+                <div>
+                  <input id="PSQI5h_1__ID" name="PSQI5h" type="radio" value="1">
+                  <label id="PSQI5h_button_text_1__ID" class="rd_btn  width_80  rd_btn_two_rows" for="PSQI5h_1__ID">Less than once a
+                    week</label>
+                </div>
+                <div>
+                  <input id="PSQI5h_2__ID" name="PSQI5h" type="radio" value="2">
+                  <label id="PSQI5h_button_text_2__ID" class="rd_btn  width_80  rd_btn_two_rows" for="PSQI5h_2__ID">Once or twice a
+                    week</label>
+                </div>
+                <div>
+                  <input id="PSQI5h_3__ID" name="PSQI5h" type="radio" value="3">
+                  <label id="PSQI5h_button_text_3__ID" class="rd_btn  width_80  rd_btn_two_rows" for="PSQI5h_3__ID">Three or more
+                    times a week</label>
+                </div>
+              </div>
+            </fieldset>
+          </div>
+        </div>
+        <div class="formgroup zoom">
+          <div class="questiongroup ">
+            <fieldset class="">
+              <span class="question">i. Have pain</span>
+              <div class="grid-container-4">
+                <div>
+                  <input id="PSQI5i_0__ID" name="PSQI5i" type="radio" value="0" required>
+                  <label id="PSQI5i_button_text_0__ID" class="rd_btn  width_80  rd_btn_two_rows" for="PSQI5i_0__ID">Not during the
+                    past 2 weeks</label>
+                </div>
+                <div>
+                  <input id="PSQI5i_1__ID" name="PSQI5i" type="radio" value="1">
+                  <label id="PSQI5i_button_text_1__ID" class="rd_btn  width_80  rd_btn_two_rows" for="PSQI5i_1__ID">Less than once a
+                    week</label>
+                </div>
+                <div>
+                  <input id="PSQI5i_2__ID" name="PSQI5i" type="radio" value="2">
+                  <label id="PSQI5i_button_text_2__ID" class="rd_btn  width_80  rd_btn_two_rows" for="PSQI5i_2__ID">Once or twice a
+                    week</label>
+                </div>
+                <div>
+                  <input id="PSQI5i_3__ID" name="PSQI5i" type="radio" value="3">
+                  <label id="PSQI5i_button_text_3__ID" class="rd_btn  width_80  rd_btn_two_rows" for="PSQI5i_3__ID">Three or more
+                    times a week</label>
+                </div>
+              </div>
+            </fieldset>
+          </div>
+        </div>
+        <div class="formgroup zoom">
+          <div class="questiongroup">
+            <fieldset class="">
+              <span class="question">
+                <p>j. Other reason(s), please describe </p>
+              </span>
+              <label>
+                <span class="question"></span>
+                <textarea class="formcontrol  fullwidth" name="PSQI5j" placeholder=""></textarea>
+              </label>
+            </fieldset>
+          </div>
+        </div>
+        <div class="formgroup zoom">
+          <div class="questiongroup ">
+            <fieldset class="">
+              <span class="question">How often, during the past 2 weeks, have you had trouble sleeping because of
+                this?</span>
+              <div class="grid-container-4">
+                <div>
+                  <input id="PSQI5ji_0__ID" name="PSQI5ji" type="radio" value="0">
+                  <label id="PSQI5ji_button_text_0__ID" class="rd_btn  width_80  rd_btn_two_rows" for="PSQI5ji_0__ID">Not during the
+                    past 2 weeks</label>
+                </div>
+                <div>
+                  <input id="PSQI5ji_1__ID" name="PSQI5ji" type="radio" value="1">
+                  <label id="PSQI5ji_button_text_1__ID" class="rd_btn  width_80  rd_btn_two_rows" for="PSQI5ji_1__ID">Less than once
+                    a week</label>
+                </div>
+                <div>
+                  <input id="PSQI5ji_2__ID" name="PSQI5ji" type="radio" value="2">
+                  <label id="PSQI5ji_button_text_2__ID" class="rd_btn  width_80  rd_btn_two_rows" for="PSQI5ji_2__ID">Once or twice a
+                    week</label>
+                </div>
+                <div>
+                  <input id="PSQI5ji_3__ID" name="PSQI5ji" type="radio" value="3">
+                  <label id="PSQI5ji_button_text_3__ID" class="rd_btn  width_80  rd_btn_two_rows" for="PSQI5ji_3__ID">Three or more
+                    times a week</label>
+                </div>
+              </div>
+            </fieldset>
+          </div>
+        </div>
+        <div class="formgroup zoom">
+          <div class="questiongroup ">
+            <fieldset class="">
+              <span class="question">6. During the past 2 weeks, how would you rate your sleep quality overall</span>
+              <div class="grid-container-4">
+                <div>
+                  <input id="PSQI6_0__ID" name="PSQI6" type="radio" value="0" required>
+                  <label id="PSQI6_button_text_0__ID" class="rd_btn  width_80  rd_btn_two_rows" for="PSQI6_0__ID">Very good</label>
+                </div>
+                <div>
+                  <input id="PSQI6_1__ID" name="PSQI6" type="radio" value="1">
+                  <label id="PSQI6_button_text_1__ID" class="rd_btn  width_80  rd_btn_two_rows" for="PSQI6_1__ID">Fairly good</label>
+                </div>
+                <div>
+                  <input id="PSQI6_2__ID" name="PSQI6" type="radio" value="2">
+                  <label id="PSQI6_button_text_2__ID" class="rd_btn  width_80  rd_btn_two_rows" for="PSQI6_2__ID">Fairly bad</label>
+                </div>
+                <div>
+                  <input id="PSQI6_3__ID" name="PSQI6" type="radio" value="3">
+                  <label id="PSQI6_button_text_3__ID" class="rd_btn  width_80  rd_btn_two_rows" for="PSQI6_3__ID">Very bad </label>
+                </div>
+              </div>
+            </fieldset>
+          </div>
+        </div>
+        <div class="formgroup zoom">
+          <div class="questiongroup ">
+            <fieldset class="">
+              <span class="question">7. During the past 2 weeks, how often have you taken medicine to help you sleep
+                (prescribed or "over the counter")?</span>
+              <div class="grid-container-4">
+                <div>
+                  <input id="PSQI7_0__ID" name="PSQI7" type="radio" value="0" required>
+                  <label id="PSQI7_button_text_0__ID" class="rd_btn  width_80  rd_btn_two_rows" for="PSQI7_0__ID">Not during the past
+                    2 weeks</label>
+                </div>
+                <div>
+                  <input id="PSQI7_1__ID" name="PSQI7" type="radio" value="1">
+                  <label id="PSQI7_button_text_1__ID" class="rd_btn  width_80  rd_btn_two_rows" for="PSQI7_1__ID">Less than once a
+                    week</label>
+                </div>
+                <div>
+                  <input id="PSQI7_2__ID" name="PSQI7" type="radio" value="2">
+                  <label id="PSQI7_button_text_2__ID" class="rd_btn  width_80  rd_btn_two_rows" for="PSQI7_2__ID">Once or twice a
+                    week</label>
+                </div>
+                <div>
+                  <input id="PSQI7_3__ID" name="PSQI7" type="radio" value="3">
+                  <label id="PSQI7_button_text_3__ID" class="rd_btn  width_80  rd_btn_two_rows" for="PSQI7_3__ID">Three or more times
+                    a week</label>
+                </div>
+              </div>
+            </fieldset>
+          </div>
+        </div>
+        <div class="formgroup zoom">
+          <div class="questiongroup ">
+            <fieldset class="">
+              <span class="question">8. During the past 2 weeks, how often have you had trouble staying awake while
+                driving, eating meals, or engaging in social activities?</span>
+              <div class="grid-container-4">
+                <div>
+                  <input id="PSQI8_0__ID" name="PSQI8" type="radio" value="0" required>
+                  <label id="PSQI8_button_text_0__ID" class="rd_btn  width_80  rd_btn_two_rows" for="PSQI8_0__ID">Not during the past
+                    2 weeks</label>
+                </div>
+                <div>
+                  <input id="PSQI8_1__ID" name="PSQI8" type="radio" value="1">
+                  <label id="PSQI8_button_text_1__ID" class="rd_btn  width_80  rd_btn_two_rows" for="PSQI8_1__ID">Less than once a
+                    week</label>
+                </div>
+                <div>
+                  <input id="PSQI8_2__ID" name="PSQI8" type="radio" value="2">
+                  <label id="PSQI8_button_text_2__ID" class="rd_btn  width_80  rd_btn_two_rows" for="PSQI8_2__ID">Once or twice a
+                    week</label>
+                </div>
+                <div>
+                  <input id="PSQI8_3__ID" name="PSQI8" type="radio" value="3">
+                  <label id="PSQI8_button_text_3__ID" class="rd_btn  width_80  rd_btn_two_rows" for="PSQI8_3__ID">Three or more times
+                    a week</label>
+                </div>
+              </div>
+            </fieldset>
+          </div>
+        </div>
+        <div class="formgroup zoom">
+          <div class="questiongroup ">
+            <fieldset class="">
+              <span class="question">9. During the past 2 weeks, how much of a problem has it been for you to keep up
+                enough enthusiasm to get things done?</span>
+              <div class="grid-container-4">
+                <div>
+                  <input id="PSQI9_0__ID" name="PSQI9" type="radio" value="0" required>
+                  <label id="PSQI9_button_text_0__ID" class="rd_btn  width_80  rd_btn_two_rows" for="PSQI9_0__ID">Not during the past
+                    2 weeks</label>
+                </div>
+                <div>
+                  <input id="PSQI9_1__ID" name="PSQI9" type="radio" value="1">
+                  <label id="PSQI9_button_text_1__ID" class="rd_btn  width_80  rd_btn_two_rows" for="PSQI9_1__ID">Less than once a
+                    week</label>
+                </div>
+                <div>
+                  <input id="PSQI9_2__ID" name="PSQI9" type="radio" value="2">
+                  <label id="PSQI9_button_text_2__ID" class="rd_btn  width_80  rd_btn_two_rows" for="PSQI9_2__ID">Once or twice a
+                    week</label>
+                </div>
+                <div>
+                  <input id="PSQI9_3__ID" name="PSQI9" type="radio" value="3">
+                  <label id="PSQI9_button_text_3__ID" class="rd_btn  width_80  rd_btn_two_rows" for="PSQI9_3__ID">Three or more times
+                    a week</label>
+                </div>
+              </div>
+            </fieldset>
+          </div>
+        </div>
+        <div class="formgroup zoom">
+          <div class="questiongroup ">
+            <fieldset class="">
+              <span class="question">10. Do you have a bed partner or roommate?</span>
+              <div class="grid-container-4">
+                <div>
+                  <input id="partner_roommate_0__ID" name="partner_roommate" type="radio" value="0" required>
+                  <label id="partner_roommate_button_text_0__ID" class="rd_btn  width_80  rd_btn_three_rows"
+                    for="partner_roommate_0__ID">No bed partner/roommate</label>
+                </div>
+                <div>
+                  <input id="partner_roommate_1__ID" name="partner_roommate" type="radio" value="1">
+                  <label id="partner_roommate_button_text_1__ID" class="rd_btn  width_80  rd_btn_three_rows"
+                    for="partner_roommate_1__ID">Partner/roommate in other room</label>
+                </div>
+                <div>
+                  <input id="partner_roommate_2__ID" name="partner_roommate" type="radio" value="2">
+                  <label id="partner_roommate_button_text_2__ID" class="rd_btn  width_80  rd_btn_three_rows"
+                    for="partner_roommate_2__ID">Partner/roommate in same room but different bed</label>
+                </div>
+                <div>
+                  <input id="partner_roommate_3__ID" name="partner_roommate" type="radio" value="3">
+                  <label id="partner_roommate_button_text_3__ID" class="rd_btn  width_80  rd_btn_three_rows"
+                    for="partner_roommate_3__ID">Partner in same bed</label>
+                </div>
+              </div>
+            </fieldset>
+          </div>
+        </div>
+        <div id="partner_roommate_hide__ID">
+          <div class="formgroup">
+            <fieldset class="">
+              <span class="question">
+                <p></p>
+              </span>
+              <span>If you have a roommate or bed partner, ask them how often in the past 2 weeks you had: </span>
+            </fieldset>
+          </div>
+          <div class="formgroup zoom">
+            <div class="questiongroup ">
+              <fieldset class="">
+                <span class="question">a. Loud snoring</span>
+                <div class="grid-container-4">
+                  <div>
+                    <input id="PSQI10a_0__ID" name="PSQI10a" type="radio" value="0" required>
+                    <label id="PSQI10a_button_text_0__ID" class="rd_btn  width_80  rd_btn_two_rows" for="PSQI10a_0__ID">Not during
+                      the past 2 weeks</label>
+                  </div>
+                  <div>
+                    <input id="PSQI10a_1__ID" name="PSQI10a" type="radio" value="1">
+                    <label id="PSQI10a_button_text_1__ID" class="rd_btn  width_80  rd_btn_two_rows" for="PSQI10a_1__ID">Less than
+                      once a week</label>
+                  </div>
+                  <div>
+                    <input id="PSQI10a_2__ID" name="PSQI10a" type="radio" value="2">
+                    <label id="PSQI10a_button_text_2__ID" class="rd_btn  width_80  rd_btn_two_rows" for="PSQI10a_2__ID">Once or twice
+                      a week</label>
+                  </div>
+                  <div>
+                    <input id="PSQI10a_3__ID" name="PSQI10a" type="radio" value="3">
+                    <label id="PSQI10a_button_text_3__ID" class="rd_btn  width_80  rd_btn_two_rows" for="PSQI10a_3__ID">Three or more
+                      times a week</label>
+                  </div>
+                </div>
+              </fieldset>
+            </div>
+          </div>
+          <div class="formgroup zoom">
+            <div class="questiongroup ">
+              <fieldset class="">
+                <span class="question">b. Long pauses between breaths while sleeping</span>
+                <div class="grid-container-4">
+                  <div>
+                    <input id="PSQI10b_0__ID" name="PSQI10b" type="radio" value="0" required>
+                    <label id="PSQI10b_button_text_0__ID" class="rd_btn  width_80  rd_btn_two_rows" for="PSQI10b_0__ID">Not during
+                      the past 2 weeks</label>
+                  </div>
+                  <div>
+                    <input id="PSQI10b_1__ID" name="PSQI10b" type="radio" value="1">
+                    <label id="PSQI10b_button_text_1__ID" class="rd_btn  width_80  rd_btn_two_rows" for="PSQI10b_1__ID">Less than
+                      once a week</label>
+                  </div>
+                  <div>
+                    <input id="PSQI10b_2__ID" name="PSQI10b" type="radio" value="2">
+                    <label id="PSQI10b_button_text_2__ID" class="rd_btn  width_80  rd_btn_two_rows" for="PSQI10b_2__ID">Once or twice
+                      a week</label>
+                  </div>
+                  <div>
+                    <input id="PSQI10b_3__ID" name="PSQI10b" type="radio" value="3">
+                    <label id="PSQI10b_button_text_3__ID" class="rd_btn  width_80  rd_btn_two_rows" for="PSQI10b_3__ID">Three or more
+                      times a week</label>
+                  </div>
+                </div>
+              </fieldset>
+            </div>
+          </div>
+          <div class="formgroup zoom">
+            <div class="questiongroup ">
+              <fieldset class="">
+                <span class="question">c. Legs twitching or jerking while you sleep</span>
+                <div class="grid-container-4">
+                  <div>
+                    <input id="PSQI10c_0__ID" name="PSQI10c" type="radio" value="0" required>
+                    <label id="PSQI10c_button_text_0__ID" class="rd_btn  width_80  rd_btn_two_rows" for="PSQI10c_0__ID">Not during
+                      the past 2 weeks</label>
+                  </div>
+                  <div>
+                    <input id="PSQI10c_1__ID" name="PSQI10c" type="radio" value="1">
+                    <label id="PSQI10c_button_text_1__ID" class="rd_btn  width_80  rd_btn_two_rows" for="PSQI10c_1__ID">Less than
+                      once a week</label>
+                  </div>
+                  <div>
+                    <input id="PSQI10c_2__ID" name="PSQI10c" type="radio" value="2">
+                    <label id="PSQI10c_button_text_2__ID" class="rd_btn  width_80  rd_btn_two_rows" for="PSQI10c_2__ID">Once or twice
+                      a week</label>
+                  </div>
+                  <div>
+                    <input id="PSQI10c_3__ID" name="PSQI10c" type="radio" value="3">
+                    <label id="PSQI10c_button_text_3__ID" class="rd_btn  width_80  rd_btn_two_rows" for="PSQI10c_3__ID">Three or more
+                      times a week</label>
+                  </div>
+                </div>
+              </fieldset>
+            </div>
+          </div>
+          <div class="formgroup zoom">
+            <div class="questiongroup ">
+              <fieldset class="">
+                <span class="question">d. Episodes of disorientation or confusion during sleep</span>
+                <div class="grid-container-4">
+                  <div>
+                    <input id="PSQI10d_0__ID" name="PSQI10d" type="radio" value="0" required>
+                    <label id="PSQI10d_button_text_0__ID" class="rd_btn  width_80  rd_btn_two_rows" for="PSQI10d_0__ID">Not during
+                      the past 2 weeks</label>
+                  </div>
+                  <div>
+                    <input id="PSQI10d_1__ID" name="PSQI10d" type="radio" value="1">
+                    <label id="PSQI10d_button_text_1__ID" class="rd_btn  width_80  rd_btn_two_rows" for="PSQI10d_1__ID">Less than
+                      once a week</label>
+                  </div>
+                  <div>
+                    <input id="PSQI10d_2__ID" name="PSQI10d" type="radio" value="2">
+                    <label id="PSQI10d_button_text_2__ID" class="rd_btn  width_80  rd_btn_two_rows" for="PSQI10d_2__ID">Once or twice
+                      a week</label>
+                  </div>
+                  <div>
+                    <input id="PSQI10d_3__ID" name="PSQI10d" type="radio" value="3">
+                    <label id="PSQI10d_button_text_3__ID" class="rd_btn  width_80  rd_btn_two_rows" for="PSQI10d_3__ID">Three or more
+                      times a week</label>
+                  </div>
+                </div>
+              </fieldset>
+            </div>
+          </div>
+          <div class="formgroup zoom">
+            <div class="questiongroup">
+              <fieldset class="">
+                <span class="question">
+                  <p>e. Other restlessness while you sleep; please describe</p>
+                </span>
+                <label>
+                  <span class="question"></span>
+                  <textarea class="formcontrol  fullwidth" name="other_restlessness" placeholder=""></textarea>
+                </label>
+              </fieldset>
+            </div>
+          </div>
+          <div class="formgroup zoom">
+            <div class="questiongroup ">
+              <fieldset class="">
+                <span class="question">How often, during the past 2 weeks, have you noticed this?</span>
+                <div class="grid-container-4">
+                  <div>
+                    <input id="PSQI10e_0__ID" name="PSQI10e" type="radio" value="0">
+                    <label id="PSQI10e_button_text_0__ID" class="rd_btn  width_80  rd_btn_two_rows" for="PSQI10e_0__ID">Not during
+                      the past 2 weeks</label>
+                  </div>
+                  <div>
+                    <input id="PSQI10e_1__ID" name="PSQI10e" type="radio" value="1">
+                    <label id="PSQI10e_button_text_1__ID" class="rd_btn  width_80  rd_btn_two_rows" for="PSQI10e_1__ID">Less than
+                      once a week</label>
+                  </div>
+                  <div>
+                    <input id="PSQI10e_2__ID" name="PSQI10e" type="radio" value="2">
+                    <label id="PSQI10e_button_text_2__ID" class="rd_btn  width_80  rd_btn_two_rows" for="PSQI10e_2__ID">Once or twice
+                      a week</label>
+                  </div>
+                  <div>
+                    <input id="PSQI10e_3__ID" name="PSQI10e" type="radio" value="3">
+                    <label id="PSQI10e_button_text_3__ID" class="rd_btn  width_80  rd_btn_two_rows" for="PSQI10e_3__ID">Three or more
+                      times a week</label>
+                  </div>
+                </div>
+              </fieldset>
+            </div>
+          </div>
+        </div>
+        <div class="formgroup right" id="check__ID" style="display:none">
+          <span >Please answer all questions</span>
+        </div>
+        <div class="formgroup right">
+          <button type="submit" id="submit__ID" class="submit_btn">Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <script>
+    function F__ID() {
+      //-------------------------------------
+      /*VmInclude: '__HOST__/assets/js/form.01.js'*/
+      /*VmInclude: '__HOST__/assets/js/shared-form.js'*/
+      //-------------------------------------
+      var load2 = m.load;
+      m.load = function () {
+        load2();
+        $('#title__ID').text($vm.module_list[$vm.vm['__ID'].name].task_name);
+        if ($('#F__ID input[name="partner_roommate"]:checked').val() == '0' || $('#F__ID input[name="partner_roommate"]:checked').val() == undefined ) {
+          $('#F__ID #partner_roommate_hide__ID').hide();
+          $('#F__ID #PSQI10a_0__ID').removeAttr('required');
+          $('#F__ID #PSQI10b_0__ID').removeAttr('required');
+          $('#F__ID #PSQI10c_0__ID').removeAttr('required');
+          $('#F__ID #PSQI10d_0__ID').removeAttr('required');
+        }
+        else {
+          $('#F__ID #partner_roommate_hide__ID').show();
+          $('#F__ID #PSQI10a_0__ID').prop('required', true);
+          $('#F__ID #PSQI10b_0__ID').prop('required', true);
+          $('#F__ID #PSQI10c_0__ID').prop('required', true);
+          $('#F__ID #PSQI10d_0__ID').prop('required', true);
+        }
+      }
+      //-------------------------------------
+      $('#F__ID input[name="partner_roommate"]').on('change', function () {
+        if ($('#F__ID input[name=partner_roommate]:checked').val() != '0') {
+          $('#F__ID #partner_roommate_hide__ID').show();
+          $('#F__ID #PSQI10a_0__ID').prop('required', true);
+          $('#F__ID #PSQI10b_0__ID').prop('required', true);
+          $('#F__ID #PSQI10c_0__ID').prop('required', true);
+          $('#F__ID #PSQI10d_0__ID').prop('required', true);
+        }
+        else {
+          $('#F__ID #partner_roommate_hide__ID').hide();
+          $('#F__ID #PSQI10a_0__ID').removeAttr('required');
+          $('#F__ID #PSQI10b_0__ID').removeAttr('required');
+          $('#F__ID #PSQI10c_0__ID').removeAttr('required');
+          $('#F__ID #PSQI10d_0__ID').removeAttr('required');
+        }
+      });
+
+      //-------------------------------------
+      var before_submit=m.before_submit;
+      m.before_submit=function(data,index){
+          var v1=$("input[name='PSQI1']").val();
+          var v2=$("input[name='PSQI2']").val();
+          var v3=$("input[name='PSQI3']").val();
+          var v4=$("input[name='PSQI4']").val();
+          var v5=$("input[name='PSQI5a']:checked").val();
+          var v6=$("input[name='PSQI5b']:checked").val();
+          var v7=$("input[name='PSQI5c']:checked").val();
+          var v8=$("input[name='PSQI5d']:checked").val();
+          var v9=$("input[name='PSQI5e']:checked").val();
+          var v10=$("input[name='PSQI5f']:checked").val();
+          var v11=$("input[name='PSQI5g']:checked").val();
+          var v12=$("input[name='PSQI5h']:checked").val();
+          var v13=$("input[name='PSQI5i']:checked").val();
+          var v14=$("input[name='PSQI5j']").val();
+          var v15=$("input[name='PSQI5ji']:checked").val();
+          var v16=$("input[name='PSQI6']:checked").val();
+          var v17=$("input[name='PSQI7']:checked").val();
+          var v18=$("input[name='PSQI8']:checked").val();
+          var v19=$("input[name='PSQI9']:checked").val();
+          var v20=$("input[name='PSQI10']:checked").val();
+          var v21=$("input[name='PSQI10a']:checked").val();
+          var v22=$("input[name='PSQI10b']:checked").val();
+          var v23=$("input[name='PSQI10c']:checked").val();
+          var v24=$("input[name='PSQI10d']:checked").val();
+          var v25=$("input[name='PSQI10e']").val();
+          var v26=$("input[name='PSQI10ei']:checked").val();
+          var vpsqi1=0;
+          if(v4>7) vpsqi1=0;
+          if(v4<=7 && v4>=6) vpsqi1=1;
+          if(v4<6 && v4>=5) vpsqi1=2;
+          if(v4<5) vpsqi1=3;
+          data.PSQIDURAT=vpsqi1.toString();
+          var pqsi5j=0;
+          if(v14=='' || v14 == undefined) pqsi5j=0; else pqsi5j=v15;
+          var vpsqi2=parseInt(v6)+parseInt(v7)+parseInt(v8)+parseInt(v9)+parseInt(v10)+parseInt(v11)+parseInt(v12)+parseInt(v13)+parseInt(pqsi5j);
+          if(vpsqi2==0) data.PSQIDISTB="0";
+          if(vpsqi2>=1 && vpsqi2<=9) data.PSQIDISTB="1";
+          if(vpsqi2>9 && vpsqi2<=18) data.PSQIDISTB="2";
+          if(vpsqi2>18) data.PSQIDISTB="3";
+          console.log('Sleep dist: '+vpsqi3i+' - '+ v5i+' - '+ data.PSQIDISTB)
+          var vpsqi3=0;
+          if(v2>=0 && v2<=15) vpsqi3=0;
+          if(v2>15 && v2<=30) vpsqi3=1;
+          if(v2>30 && v2<=60) vpsqi3=2;
+          if(v2>60) vpsqi3=3;
+          var vpsqi3i=parseInt(vpsqi3)
+          var v5i=parseInt(v5)        
+          if((vpsqi3i+v5i)==0) data.PSQILATEN="0";
+          if((vpsqi3i+v5i)>=1 && (vpsqi3i+v5i)<=2) data.PSQILATEN="1";
+          if((vpsqi3i+v5i)>=3 && (vpsqi3i+v5i)<=4) data.PSQILATEN="2";
+          if((vpsqi3i+v5i)>=5 && (vpsqi3i+v5i)<=6) data.PSQILATEN="3";
+          console.log('Sleep laten: '+vpsqi3i+' - '+ v5i+' - '+ data.PSQILATEN)
+          var v18i=parseInt(v18)
+          var v19i=parseInt(v19)
+          if((v18i+v19i)==0) data.PSQIDAYDYS="0";
+          if((v18i+v19i)>=1 && (v18i+v19i)<=2) data.PSQIDAYDYS="1";
+          if((v18i+v19i)>=3 && (v18i+v19i)<=4) data.PSQIDAYDYS="2";
+          if((v18i+v19i)>=5 && (v18i+v19i)<=6) data.PSQIDAYDYS="3";
+          var startTime = v1;
+          var endTime = v3;
+          var startTimeArray = startTime.split(":");
+          var startInputHrs = parseInt(startTimeArray[0]);
+          var startInputMins = parseInt(startTimeArray[1]);
+          var endTimeArray = endTime.split(":");
+          var endInputHrs = parseInt(endTimeArray[0]);
+          var endInputMins = parseInt(endTimeArray[1]);
+          var startMin = startInputHrs*60 + startInputMins;
+          var endMin = endInputHrs*60 + endInputMins;
+          console.log("bed time: "+startMin +' - '+endMin );
+          var result;
+          if (endMin < startMin) {
+              var minutesPerDay = 24*60; 
+              result = minutesPerDay - startMin;  // Minutes till midnight
+              result += endMin; // Minutes in the next day
+          } 
+          else {
+              result = endMin - startMin;
+          }
+
+          console.log("time in bed"+result);
+          v4=parseFloat(v4)*60*100;
+          var vpsqi4=v4/result;
+          console.log(v4+' - '+result+' - '+vpsqi4);
+          if(vpsqi4>=85) data.PSQIHSE="0";
+          if(vpsqi4<85 && vpsqi4>=75) data.PSQIHSE="1";
+          if(vpsqi4<75 && vpsqi4>=65) data.PSQIHSE="2";
+          if(vpsqi4<65) data.PSQIHSE="3";
+          data.PSQISLPQUAL=v16;
+          data.PSQIMEDS=v17;
+          data.PSQI=( parseInt(data.PSQIDURAT)+ parseInt(data.PSQIDISTB)+ parseInt(data.PSQILATEN)+ parseInt(data.PSQIDAYDYS)+  parseInt(data.PSQIHSE)+  parseInt(data.PSQISLPQUAL)+ parseInt(data.PSQIMEDS)).toString();
+          return before_submit(data,index);;
+      }
+      //-------------------------------------
+      m.after_insert = function (data,index) {
+          var P_record=$vm.vm['__ID'].input.participant_record;
+          var tp=$vm.module_list[$vm.vm['__ID'].name].timepoint;
+          var records={};
+          jQuery.ajaxSetup({async:false});
+          $vm.request({cmd:"find-s",table:$vm.module_list['progress-mod-form'].Table,options:{}},function(res){
+              if(res.permission==false){
+                  alert("No permission");
+                  return;
+              }
+              if(res.result.length==0){
+              }
+              else{
+                  if(tp=='bl') res.result[0].Data.Baseline='PSQI';
+                  else if(tp=='fu') res.result[0].Data.Week_6='PSQI';
+                  records=res.result[0]
+              }
+          })
+          if (m.prefix == undefined) { $vm.load_module('progress-mod-form', '', {record:records,progress:'PSQI',time:tp,goback:1,participant_record:P_record}); }
+          else {$vm.load_module(m.prefix + 'progress-mod-form', '', {record:records,progress:'PSQI',time:tp,goback:1,participant_record:P_record});}
+          jQuery.ajaxSetup({async:true});
+      }
+      //-------------------------------------
+    }
+  </script>
+  <style>
+    /*VmInclude:__HOST__/assets/css/wapp-form.css*/
+  </style>
+</div>

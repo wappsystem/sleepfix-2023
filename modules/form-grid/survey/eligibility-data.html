@@ -1,0 +1,39 @@
+<div id=D__ID>
+    <div>
+        VmInclude:__HOST__/assets/html/grid.01.html
+    </div>
+    <script>
+        function F__ID(){
+            //-------------------------------------
+            VmInclude:__HOST__/assets/js/grid.01.multiple.js       
+            //-------------------------------------
+            $('#title__ID').text($vm.module_list[$vm.vm['__ID'].name].task_name);            
+            //-------------------------------------
+            var fields="";
+            fields+="Record_ID|UID";
+            fields+=",Age,English,Smartphone,Pregnant,Shft_wrk,time_diff";
+            fields+=",Depression,Heart_failure,Epilepsy,Bipolar,Dementia,SBD,RLS,Narcolepsy"            
+            fields+=",CBT,driving_job,CPAP,DSD,Therapy";
+            fields+=",ISI,ISI_1,ISI_2,ISI_3,ISI_4,ISI_5,ISI_6,ISI_7";
+            fields+=",Snorer,Stop_breathing,ESS,ESS_1,ESS_2,ESS_3,ESS_4,ESS_5,ESS_6,ESS_7,ESS_8"
+            m.fields=""+fields+",Submit_date,Submitted_by,_Delete";
+            //m.fields="_Form,"+fields+",Submit_date,Submitted_by,_Delete";
+            //-------------------------------------
+/*            var cell_render = m.cell_render;
+            m.cell_render=function(records,I,field,td){
+                switch(field){
+                    case 'consent':
+                        if(records[I].Data[field]=="on") td.html("1");
+                        else td.html("")
+                    break;
+                }
+                return cell_render;
+            }
+*/            
+            //-------------------------------------
+        }
+    </script>
+    <style>
+        /*VmInclude:__HOST__/assets/css/grid.css*/
+    </style>
+</div>

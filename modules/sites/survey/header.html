@@ -1,0 +1,21 @@
+<div id=D__ID>
+  <header class="header">
+    <div class="">
+        <div class="header_text" >
+          <p>Eligibility Questionnaire</p>
+          <!--<p id="page_counter"></p>-->
+        </div>
+    </div>
+  </header>
+    <script>
+        //------------------------------------
+        $('#vm-mobile_title').on('click',function(){ $vm.load_module('home',$vm.root_layout_content_slot,{}) })
+        $('.vm-desk-logo').on('click',function(){ $vm.load_module('home',$vm.root_layout_content_slot,{}) })
+        //------------------------------------
+        $vm.header_ready=1;
+        //------------------------------------
+    </script>
+    <style>
+        /*VmInclude:__HOST__/assets/css/wapp-form.css*/
+    </style>
+</div>

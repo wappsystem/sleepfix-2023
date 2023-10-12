@@ -1,0 +1,18 @@
+<section>
+VmInclude:__HOST__/assets/html/grid.01.html
+</section>
+<script>
+function F__ID(){
+//-------------------------------------
+/*VmInclude:__HOST__/assets/js/grid.01.multiple.js*/
+/*VmInclude:__HOST__/assets/js/shared-data.js*/
+//-------------------------------------
+$('#title__ID').text($vm.module_list[$vm.vm['__ID'].name].task_name);
+//-------------------------------------
+var fields="LBP_med_use,medications,Sleep_med_use,medications_sleep";
+m.fields="_Form,_Status,_Notes,_Participant_ID,Participant,"+fields+",Update_date,Updated_by,Submit_date,Submitted_by"
+}
+</script>
+<style>
+/*VmInclude:__HOST__/assets/css/grid.css*/
+</style>

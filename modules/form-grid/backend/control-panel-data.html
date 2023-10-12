@@ -1,0 +1,321 @@
+<div id=D__ID>
+    <div>
+            <!--VmInclude:__HOST__/assets/html/grid.01.html-->
+        </div>
+    <script>
+        function F__ID(){
+            //-------------------------------------
+            VmInclude:'__HOST__/assets/js/grid.01.js'
+            //-------------------------------------
+            $('#title__ID').text('Control Panel');            
+            //-------------------------------------
+            //var fields="_Participant_ID|Participant,group,first_name,last_name,phone,email,contact,Notes - added in Particpants form|Notes,access_code,bl,Start_Date,w0_email,w3_email,w5_email,w8_email,w8,w8_rem_1,w8_rem_2,w16_email,w16,w16_rem_1,w16_rem_2,w26_email,w26,w26_rem_1,w26_rem_2,ac_email";
+            var fields="_Participant_ID|Participant,name,telephone,email,cont_pref,Notes - added in Particpants form|Notes,Group,Start_Date,AE1,AE_1,AE2,AE_2,SMOD1,SMOD2,SMOD3,w6_FU,Week_6,w6_rem_1,w6_rem_2,AC_Sent";
+            //var fields="_Participant_ID,Group,name,telephone,email,cont_pref,Access_Code";
+            m.fields=""+fields+",Submit_date,Submitted_by,_Delete";
+            //-------------------------------------
+            var today;
+            m.load=function(){
+                m.query={$or:[{ "Data.Group": { "$eq": "Control" }},{ "Data.Group": { "$eq": "Treatment" }}] }
+                today = new Date();                
+            }
+            //-------------------------------------
+            m.cell_render=function(records,I,field,td,set_value,source){
+                switch(field){
+                    case '_Participant_ID':
+                        td.html(records[I].UID);
+                        break;
+                    case 'cont_pref':
+                        if (records[I].Data.cont_pref==0) td.html('Email');
+                        if (records[I].Data.cont_pref==1) td.html('Text');
+                        if (records[I].Data.cont_pref==2) td.html('Both');
+                        break;
+
+                        case 'Start_Date':
+                    var s=records[I].Data.Start_Date
+                        if(s!='' && s!=null && s!=undefined){
+                            s=s.substring(0,10);
+                            var dt1=$vm.date_yyyymmdd_parse(s);
+                            html="<u style='cursor:pointer'>"+$vm.yyyymmdd_to_ddmmyyyy($vm.date_to_string_yyyymmdd(dt1))+"</u>";
+                        }
+                        else {
+                            html="<u style='cursor:pointer'>Start Date</u>"
+                        }
+                        td.html(html);
+                            td.find('u').on('click',function(){
+                                $vm.load_module_v2('start-date','',{record:records[I]})
+                            })
+                    break;
+                    case 'SMOD1':
+                        if(records[I].Data.Group=='Control'){
+                            var s=records[I].Data["Start_Date"]
+                            if(s!='' && s!=null && s!=undefined){
+                                s=s.substring(0,10);
+                                var dt1=$vm.date_yyyymmdd_parse(s);
+                                var dt2=$vm.date_add_days(dt1,0);
+                                var color='';
+                                s=records[I].Data['SMOD1'];
+                                if(s!='' && s!=null && s!=undefined){
+                                    html="<u style='cursor:pointer;color:black'>"+$vm.yyyymmdd_to_ddmmyyyy(s)+"</u>";
+                                    html+=' <i style="color:green;font-weight: 900" class="far fa-check-circle"></i>';
+                                }
+                                else{
+                                    if(dt2 > today) html="<u style='cursor:pointer;color:black'>"+$vm.yyyymmdd_to_ddmmyyyy($vm.date_to_string_yyyymmdd(dt2))+"</u>";
+                                    else html="<u style='cursor:pointer;color:red'>"+$vm.yyyymmdd_to_ddmmyyyy($vm.date_to_string_yyyymmdd(dt2))+"</u>";
+                                }
+                                td.html(html);
+                                var q_url=$vm.module_list["shm1-w0"].url;
+                                    td.find('u').on('click',function(){
+                                        $vm.load_module_v2('shem-data','',{record:records[I],timepoint:'w0_shem_1',title:'Sleep Health Module 1',link:q_url})
+                                    })
+                                }
+                        }
+                        else td.html("");
+                    break;
+                    case 'SMOD2':
+                        if(records[I].Data.Group=='Control'){
+                            var s=records[I].Data["Start_Date"]
+                            if(s!='' && s!=null && s!=undefined){
+                                s=s.substring(0,10);
+                                var dt1=$vm.date_yyyymmdd_parse(s);
+                                var dt2=$vm.date_add_days(dt1,7);
+                                var color='';
+                                s=records[I].Data['SMOD2'];
+                                if(s!='' && s!=null && s!=undefined){
+                                    html="<u style='cursor:pointer;color:black'>"+$vm.yyyymmdd_to_ddmmyyyy(s)+"</u>";
+                                    html+=' <i style="color:green;font-weight: 900" class="far fa-check-circle"></i>';
+                                }
+                                else{
+                                    if(dt2 > today) html="<u style='cursor:pointer;color:black'>"+$vm.yyyymmdd_to_ddmmyyyy($vm.date_to_string_yyyymmdd(dt2))+"</u>";
+                                    else html="<u style='cursor:pointer;color:red'>"+$vm.yyyymmdd_to_ddmmyyyy($vm.date_to_string_yyyymmdd(dt2))+"</u>";
+                                }
+                                td.html(html);
+                                var q_url=$vm.module_list["shm2-w1"].url;
+                                td.find('u').on('click',function(){
+                                    $vm.load_module_v2('shem-data','',{record:records[I],timepoint:'w3_shem_2',title:'Sleep Health Module 2',link:q_url})
+                                })
+                            }
+                        }
+                        else td.html("");
+                    break;
+                    case 'SMOD3':
+                        if(records[I].Data.Group=='Control'){
+                            var s=records[I].Data["Start_Date"]
+                            if(s!='' && s!=null && s!=undefined){
+                                s=s.substring(0,10);
+                                var dt1=$vm.date_yyyymmdd_parse(s);
+                                var dt2=$vm.date_add_days(dt1,14);
+                                var color='';
+                                s=records[I].Data['SMOD3'];
+                                if(s!='' && s!=null && s!=undefined){
+                                    html="<u style='cursor:pointer;color:black'>"+$vm.yyyymmdd_to_ddmmyyyy(s)+"</u>";
+                                    html+=' <i style="color:green;font-weight: 900" class="far fa-check-circle"></i>';
+                                }
+                                else{
+                                    if(dt2 > today) html="<u style='cursor:pointer;color:black'>"+$vm.yyyymmdd_to_ddmmyyyy($vm.date_to_string_yyyymmdd(dt2))+"</u>";
+                                    else html="<u style='cursor:pointer;color:red'>"+$vm.yyyymmdd_to_ddmmyyyy($vm.date_to_string_yyyymmdd(dt2))+"</u>";
+                                }
+                                td.html(html);
+                                var q_url=$vm.module_list["shm3-w2"].url;
+                                td.find('u').on('click',function(){
+                                    $vm.load_module_v2('shem-data','',{record:records[I],timepoint:'w5_shem_3',title:'Sleep Health Module 3',link:q_url})
+                                })
+                            }
+                        }
+                        else td.html(""); 
+                    break;
+                    case 'w6_FU':
+                        var s=records[I].Data["Start_Date"]
+                        if(s!='' && s!=null && s!=undefined){
+                            s=s.substring(0,10);
+                            var dt1=$vm.date_yyyymmdd_parse(s);
+                            var dt2=$vm.date_add_days(dt1,42);
+                            var color='';
+                            s=records[I].Data['w6_FU'];
+                            if(s!='' && s!=null && s!=undefined){
+                                html="<u style='cursor:pointer;color:black'>"+$vm.yyyymmdd_to_ddmmyyyy(s)+"</u>";
+                                html+=' <i style="color:green;font-weight: 900" class="far fa-check-circle"></i>';
+                            }
+                            else{
+                                if(dt2 > today) html="<u style='cursor:pointer;color:black'>"+$vm.yyyymmdd_to_ddmmyyyy($vm.date_to_string_yyyymmdd(dt2))+"</u>";
+                                else html="<u style='cursor:pointer;color:red'>"+$vm.yyyymmdd_to_ddmmyyyy($vm.date_to_string_yyyymmdd(dt2))+"</u>";
+                            }
+                            td.html(html);
+                            var db=""; if(window.location.toString().indexOf('tb=demo')!=-1) db="&tb=demo";
+                            var d="";  if(window.location.toString().indexOf('_d=1')!=-1) d="&_d=1";
+                            var p="";  if(window.location.toString().indexOf('_p=1')!=-1) p="&_p=1";
+                            var u="?username="+records[I].Data["Participant"]+"-"+records[I].Data["Participant"]+"&password="+records[I].Data._Password;
+                            var q_url=$vm.module_list["oq-fu"].url+u+db+d+p;
+                            td.find('u').on('click',function(){
+                                $vm.load_module_v2('fu-data','',{record:records[I],timepoint:'W6_fu',title:'Follow Up',link:q_url})
+                            })
+                        }
+                    break;
+                    case 'w6_rem_1':
+                        var s=records[I].Data["Start_Date"]
+                        if(s!='' && s!=null && s!=undefined){
+                            s=s.substring(0,10);
+                            var dt1=$vm.date_yyyymmdd_parse(s);
+                            var dt2=$vm.date_add_days(dt1,47);
+                            var color='';
+                            s=records[I].Data['w6_rem_1'];
+                            if(s!='' && s!=null && s!=undefined){
+                                html="<u style='cursor:pointer;color:black'>"+$vm.yyyymmdd_to_ddmmyyyy(s)+"</u>";
+                                html+=' <i style="color:green;font-weight: 900" class="far fa-check-circle"></i>';
+                            }
+                            else{
+                                if(dt2 > today) html="<u style='cursor:pointer;color:black'>"+$vm.yyyymmdd_to_ddmmyyyy($vm.date_to_string_yyyymmdd(dt2))+"</u>";
+                                else html="<u style='cursor:pointer;color:red'>"+$vm.yyyymmdd_to_ddmmyyyy($vm.date_to_string_yyyymmdd(dt2))+"</u>";
+                            }
+                            td.html(html);
+                            var db=""; if(window.location.toString().indexOf('tb=demo')!=-1) db="&tb=demo";
+                            var d="";  if(window.location.toString().indexOf('_d=1')!=-1) d="&_d=1";
+                            var p="";  if(window.location.toString().indexOf('_p=1')!=-1) p="&_p=1";
+                            var u="?username="+records[I].Data["Participant"]+"-"+records[I].Data["Participant"]+"&password="+records[I].Data._Password;
+                            var q_url=$vm.module_list["oq-fu"].url+u+db+d+p;
+                            td.find('u').on('click',function(){
+                                $vm.load_module_v2('fu-data','',{record:records[I],timepoint:'w6_rem_1',title:'Follow Up - Reminder 1',link:q_url})
+                            })
+                        }
+                    break;
+                    case 'w6_rem_2':
+                        var s=records[I].Data["Start_Date"]
+                        if(s!='' && s!=null && s!=undefined){
+                            s=s.substring(0,10);
+                            var dt1=$vm.date_yyyymmdd_parse(s);
+                            var dt2=$vm.date_add_days(dt1,52);
+                            var color='';
+                            s=records[I].Data['w6_rem_2'];
+                            if(s!='' && s!=null && s!=undefined){
+                                html="<u style='cursor:pointer;color:black'>"+$vm.yyyymmdd_to_ddmmyyyy(s)+"</u>";
+                                html+=' <i style="color:green;font-weight: 900" class="far fa-check-circle"></i>';
+                            }
+                            else{
+                                if(dt2 > today) html="<u style='cursor:pointer;color:black'>"+$vm.yyyymmdd_to_ddmmyyyy($vm.date_to_string_yyyymmdd(dt2))+"</u>";
+                                else html="<u style='cursor:pointer;color:red'>"+$vm.yyyymmdd_to_ddmmyyyy($vm.date_to_string_yyyymmdd(dt2))+"</u>";
+                            }
+                            td.html(html);
+                            var db=""; if(window.location.toString().indexOf('tb=demo')!=-1) db="&tb=demo";
+                            var d="";  if(window.location.toString().indexOf('_d=1')!=-1) d="&_d=1";
+                            var p="";  if(window.location.toString().indexOf('_p=1')!=-1) p="&_p=1";
+                            var u="?username="+records[I].Data["Participant"]+"-"+records[I].Data["Participant"]+"&password="+records[I].Data._Password;
+                            var q_url=$vm.module_list["oq-fu"].url+u+db+d+p;
+                            td.find('u').on('click',function(){
+                                $vm.load_module_v2('fu-data','',{record:records[I],timepoint:'w6_rem_2',title:'Follow Up - Reminder 2',link:q_url})
+                            })
+                        }
+                    break;
+                    case 'AC_Sent':
+                    var s=records[I].Data.AC_Sent
+                        if(s!='' && s!=null && s!=undefined){
+                            s=s.substring(0,10);
+                            var dt1=$vm.date_yyyymmdd_parse(s);
+                            html="<u style='cursor:pointer'>"+$vm.yyyymmdd_to_ddmmyyyy($vm.date_to_string_yyyymmdd(dt1))+"</u>";
+                        }
+                        else {
+                            html="<u style='cursor:pointer'>AC_Sent</u>"
+                        }
+                        td.html(html);
+                            td.find('u').on('click',function(){
+                                $vm.load_module_v2('ac-data','',{record:records[I]})
+                            })
+                    break;
+                    case 'AE1':
+                        var s=records[I].Data["Start_Date"]
+                        if(s!='' && s!=null && s!=undefined){
+                            s=s.substring(0,10);
+                            var dt1=$vm.date_yyyymmdd_parse(s);
+                            var dt2=$vm.date_add_days(dt1,7);
+                            var color='';
+                            s=records[I].Data['AE1'];
+                            if(s!='' && s!=null && s!=undefined){
+                                html="<u style='cursor:pointer;color:black'>"+$vm.yyyymmdd_to_ddmmyyyy(s)+"</u>";
+                                html+=' <i style="color:green;font-weight: 900" class="far fa-check-circle"></i>';
+                            }
+                            else{
+                                if(dt2 > today) html="<u style='cursor:pointer;color:black'>"+$vm.yyyymmdd_to_ddmmyyyy($vm.date_to_string_yyyymmdd(dt2))+"</u>";
+                                else html="<u style='cursor:pointer;color:red'>"+$vm.yyyymmdd_to_ddmmyyyy($vm.date_to_string_yyyymmdd(dt2))+"</u>";
+                            }
+                            td.html(html);
+                            var db=""; if(window.location.toString().indexOf('tb=demo')!=-1) db="&tb=demo";
+                            var d="";  if(window.location.toString().indexOf('_d=1')!=-1) d="&_d=1";
+                            var p="";  if(window.location.toString().indexOf('_p=1')!=-1) p="&_p=1";
+                            var u="?username="+records[I].Data["Participant"]+"-"+records[I].Data["Participant"]+"&password="+records[I].Data._Password;
+                            var q_url=$vm.module_list["oq-w1"].url+u+db+d+p;
+                            td.find('u').on('click',function(){
+                                $vm.load_module_v2('ae-data','',{record:records[I],timepoint:'ae1',title:'Adverse Event Checking week 1',link:q_url})
+                            })
+                        }
+                    break;
+                    case 'AE2':
+                        var s=records[I].Data["Start_Date"]
+                        if(s!='' && s!=null && s!=undefined){
+                            s=s.substring(0,10);
+                            var dt1=$vm.date_yyyymmdd_parse(s);
+                            var dt2=$vm.date_add_days(dt1,21);
+                            var color='';
+                            s=records[I].Data['AE2'];
+                            if(s!='' && s!=null && s!=undefined){
+                                html="<u style='cursor:pointer;color:black'>"+$vm.yyyymmdd_to_ddmmyyyy(s)+"</u>";
+                                html+=' <i style="color:green;font-weight: 900" class="far fa-check-circle"></i>';
+                            }
+                            else{
+                                if(dt2 > today) html="<u style='cursor:pointer;color:black'>"+$vm.yyyymmdd_to_ddmmyyyy($vm.date_to_string_yyyymmdd(dt2))+"</u>";
+                                else html="<u style='cursor:pointer;color:red'>"+$vm.yyyymmdd_to_ddmmyyyy($vm.date_to_string_yyyymmdd(dt2))+"</u>";
+                            }
+                            td.html(html);
+                            var db=""; if(window.location.toString().indexOf('tb=demo')!=-1) db="&tb=demo";
+                            var d="";  if(window.location.toString().indexOf('_d=1')!=-1) d="&_d=1";
+                            var p="";  if(window.location.toString().indexOf('_p=1')!=-1) p="&_p=1";
+                            var u="?username="+records[I].Data["Participant"]+"-"+records[I].Data["Participant"]+"&password="+records[I].Data._Password;
+                            var q_url=$vm.module_list["oq-w3"].url+u+db+d+p;
+                            td.find('u').on('click',function(){
+                                $vm.load_module_v2('ae-data','',{record:records[I],timepoint:'ae2',title:'Adverse Event Checking week 3',link:q_url})
+                            })
+                        }
+                    break;
+
+                    }
+
+            }
+            //-------------------------------------
+            m.export_records=function(){
+                tabledata=m.Table;
+                m.Table=$vm.module_list['participant-data'].Table;
+                var participant_rec={};
+                var req={cmd:"export",table:m.Table,I1:m.I1,search:$('#keyword__ID').val()}
+                open_model__ID();
+                $vm.request(req,function(N,i,txt){
+                    //console.log(i+"/"+N);
+                    $('#msg__ID').text((100*i/N).toFixed(0)+"%");
+                    if(i==-1){
+                        var len=txt.length;
+                        n_txt="["+txt.substring(5,len-9)+"]";
+                        //console.log(n_txt)
+                        participant_rec=JSON.parse(n_txt);
+                        //Order by m.fields
+                        var fields_ex=m.fields.replace("_Participant_ID","ID").replace("Randomisation_Number|I1","Randomisation_Number")
+                        var export_fields=fields_ex.split(',');
+                        //console.log(export_fields);
+                        //console.log(participant_rec);
+                        export_fields=export_fields.slice(1,export_fields.length-8);
+                        export_fields.push("_Password");
+                        export_fields.push("_Login_ID");
+                        export_fields.push("Submitted_by");
+                        //console.log(export_fields);
+                        var oo=JSON.parse(JSON.stringify(participant_rec,export_fields));
+                        var tmp=JSON.stringify(oo).replace(/\bID\b/g,"Participant ID")
+                        oo=JSON.parse(tmp);
+                        //console.log(JSON.stringify(oo))
+                        $vm.download_csv(m.Table+".csv",oo);
+                        close_model__ID();
+                    }
+                }); 
+            }
+        }
+    </script>
+    <style>
+        /*VmInclude:__HOST__/assets/css/grid.css*/
+        /*VmInclude:__HOST__/assets/css/wapp-form.css*/
+    </style>
+</div>

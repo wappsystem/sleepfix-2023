@@ -1,0 +1,117 @@
+<div id=D__ID>
+	<!--third html start -->
+	<div class="container mt-95">
+	  <!-- form container start -->
+	  <div class="formbox">
+		<!-- form start -->
+		<form id="F__ID">
+		  <span id=title__ID></span>
+		  <!-- participant name and study id -->
+		  <div id="participant_div__ID">
+			<div class="formgroup">
+			  <fieldset class="grid-container-2">
+				<div>
+				  <label><span class="question">Participant</span>
+					<input type=text name="Participant" class=formcontrol id=Participant__ID data-id="Participant" readonly />
+				  </label>
+				</div>
+				<div>
+				  <label><span class="question">Participant ID</span>
+					<input type=text name="Participant_uid" class=formcontrol readonly />
+				  </label>
+				</div>
+			  </fieldset>
+			</div>
+		  </div>
+		  <div class="formgroup">
+			<fieldset class="grid-container-1">
+				<div class=>
+					<div>
+						<label class="">
+							<span class="question">Task name</span>
+							<input type=text class="formcontrol fullwidth" name=Task_name readonly>
+						</label>
+					</div>
+				</div>
+			</fieldset>
+		</div>
+		<div class="formgroup">
+			<fieldset class="grid-container-1">
+				<div class="">
+					<div>
+						<label class="">
+							<span class="question">Title</span>
+							<input type=text class="formcontrol fullwidth" name=Title>
+						</label>
+					</div>
+				</div>
+			</fieldset>
+		</div>
+		<div class="formgroup">
+			<fieldset class="grid-container-1">
+				<div class="">
+					<div>
+						<label class="">
+							<span class="question">Color</span>
+							<input type="color" style='width:60px;height:30px' name=Color value='#888888' />
+						</label>
+					</div>
+				</div>
+			</fieldset>
+		</div>
+		<div class="formgroup">
+			<fieldset class="grid-container-1">
+				<div class="">
+					<div>
+						<label class="">
+							<span class="question">Details</span>
+							<textarea class="formcontrol fullwidth" name=Details></textarea>
+						</label>
+					</div>
+				</div>
+			</fieldset>
+		</div>
+		<div class="formgroup right">
+			<button type="submit" id="submit__ID" class="btn">Submit</button>
+	  	</div>
+    <script>
+    	function F__ID(){
+    		//-------------------------------------
+            VmInclude: '__HOST__/assets/js/form.01.js'
+			//-------------------------------------
+			var task_name;
+			var task_uid;
+			var part_uid;
+			//-------------------------------------
+			var old_load=m.load;
+			m.load=function(){
+				old_load();
+				//console.log(JSON.stringify(m.input))
+				//get task name and uid from the input and put the task name to the form
+				task_name=m.input.task_name;
+				task_uid=m.input.task_uid;
+				part_uid=m.input.participant_uid;
+				participant=m.input.participant;
+				if(m.input.task_name!=undefined) $('#F__ID input[name=Task_name]').val(task_name);
+				if(m.input.participant_uid!=undefined) $('#F__ID input[name=Participant_uid]').val(part_uid);
+				if(m.input.participant!=undefined) $('#F__ID input[name=Participant]').val(participant);
+			}
+			//-------------------------------------
+            m.before_submit=function(data,index){
+				//set up relation
+				//do not use I1, I1 is reserved for record partial permission
+				index.I2=task_name;
+				index.I3=task_uid;
+				index.I4=part_uid;
+                return true;
+            }
+            //--------------------------------------------------------
+    	}
+    </script>
+    <style>
+        #form_container__ID{
+            max-width:700px;
+        }
+        /*VmInclude:__HOST__/assets/css/wapp-form.css*/
+    </style>
+</div>

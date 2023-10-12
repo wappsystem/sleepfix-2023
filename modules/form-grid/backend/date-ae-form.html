@@ -1,0 +1,110 @@
+<div id=D__ID>
+	<!--third html start -->
+	<div class="container mt-95">
+		<!-- form container start -->
+		<div class="formbox">
+			<!-- form start -->
+			<form id="F__ID">
+				<span id=title__ID>Adverse Event Checkup</span>
+				<div class="formgroup" >
+					<fieldset class="">
+						<div >
+							<div class="grid-container-1">
+								<div><label><span class="question">Questionnaire Link</span>
+										<p  id=q_link__ID style="width:90%" ></p>
+									</label>
+								</div>
+							</div>
+						</div>
+					</fieldset>
+				</div>
+				<div class="formgroup" id="AE1__ID" style="display: none">
+					<fieldset class="">
+						<div >
+							<div class="grid-container-1">
+								<div><label><span class="question">Adverse Event Checkup week 1</span>
+										<input type=date name="AE1" id="ae1__ID" class=formcontrol style="width:90%" />
+									</label>
+								</div>
+							</div>
+						</div>
+					</fieldset>
+				</div>
+				<div class="formgroup" id="AE2__ID" style="display: none">
+					<fieldset class="">
+						<div >
+							<div class="grid-container-1">
+								<div><label><span class="question">Adverse Event Checkup week 3</span>
+										<input type=date name="AE2" id="ae2__ID" class=formcontrol style="width:90%" />
+									</label>
+								</div>
+							</div>
+						</div>
+					</fieldset>
+				</div>
+				<div class="formgroup right">
+					<button type="submit" id="submit__ID" class="btn">Submit</button>
+				</div>
+			</form>
+		</div>
+	</div>
+	<script>
+		function F__ID() {
+			//-------------------------------------
+			/*VmInclude: __COMPONENT__/f/form.01.js*/
+			//-------------------------------------
+            var record={};
+            m.default_load = m.load;
+            m.load = function () {
+                m.default_load();
+                //console.log("start_date: "+JSON.stringify(m.input.timepoint))
+				$('#AE1__ID').hide();
+				$('#AE2__ID').hide();
+				if(m.input.timepoint=='ae1') {
+					$('#AE1__ID').show();
+					if($('#ae1__ID').val()=="" || $('#ae1__ID').val()==undefined){
+						$('#ae1__ID').val(get_now_date())
+					}
+				}
+				else if(m.input.timepoint=='ae2') {
+					$('#AE2__ID').show();
+					if($('#ae2__ID').val()=="" || $('#ae2__ID').val()==undefined){
+						$('#ae2__ID').val(get_now_date())
+					}
+				}
+				$('#title__ID').text(m.input.title)
+                record=m.input.record;
+				$('#q_link__ID').html(m.input.link);
+
+            }
+            var get_now_date = function () {
+                var today = new Date();
+                var dd = today.getDate();
+                var mm = today.getMonth() + 1; //January is 0!
+                var yyyy = today.getFullYear();
+                var hh = today.getHours()
+                var mn = today.getMinutes()
+                var ss = today.getSeconds()
+                if (dd < 10) { dd = '0' + dd; }
+                if (mm < 10) { mm = '0' + mm; }
+                if (mn < 10) { mn = '0' + mn; }
+                if (hh < 10) { hh = '0' + hh; }
+                if (ss < 10) { ss = '0' + ss; }
+                return yyyy + '-' + mm + '-' + dd;
+            }
+            /*//-------------------------------------
+            m.after_update = function (data,index) {
+                if (m.prefix == undefined) { $vm.load_module('send-email', '', {record:record,email:'startdate'}); }
+                else {$vm.load_module(m.prefix + 'send-email', '', {record:record,email:'startdate'});}
+            }
+            *///-------------------------------------
+
+		}
+	</script>
+	<style>
+		#D__ID {
+		}
+
+		/*VmInclude:__HOST__/assets/css/wapp-form.css*/
+	</style>
+</div>
