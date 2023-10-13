@@ -836,7 +836,7 @@
           $('#F__ID input[name=ESS_8]').removeAttr('required');
         }
 
-        show_section(1);
+        show_section(5);
         //console.log(JSON.stringify(m))
       });
       //---------------------------------------
@@ -1019,7 +1019,7 @@
         }
         else {
           if (m.prefix == undefined) { $vm.load_module('contact-form', '', {}); }
-          else $vm.load_module(m.prefix + 'contact-form', '', { disturb_sleep: data.sleep_dist });
+          else $vm.load_module(m.prefix + 'contact-form', '', { screen_data:res.nr.Data,rec_id:res.nr._id });
         }
       }
     }

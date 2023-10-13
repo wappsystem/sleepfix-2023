@@ -55,8 +55,8 @@ padding:24px
 #D__ID .container {
   background-color: rgba(173, 173, 173,0.8);
   border-radius: 5px;
-  padding-top: 15px;
-  padding-bottom: 15px;
+  padding: 15px;
+  padding: 15px;
 }
   #D__ID .mt-95 {
     max-width: 800px;
@@ -195,11 +195,11 @@ padding:24px
     display: inline-block;
   }
   #D__ID .rd_btn_two_rows {
-    height:60px;
+    height:40px;
   }
 
   #D__ID .rd_btn_three_rows {
-    height:80px;
+    height:60px;
   }
 
   #D__ID .width_btn_250 {
@@ -276,6 +276,7 @@ padding:24px
   }
 
   #D__ID .submit_btn {
+    cursor: pointer;
     width: 100px;
     padding: 10px 5px;
     color: white;
@@ -284,6 +285,8 @@ padding:24px
     border-radius: 10px;
     margin: 5px;
     display: inline-block;
+    font-family: 'Nunito Sans';
+    font-size: 16px;    
   }
 
   #D__ID .submit_btn:hover {

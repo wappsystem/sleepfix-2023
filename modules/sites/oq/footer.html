@@ -1,29 +1,18 @@
 <div id=D__ID>
-    <div id="footer">
-            <div class="container">
-                    <p  style="color:rgb(255, 255, 255)" >All rights reserved. Woolcock Institute of Medical Research 2022. <a target="_blank" href="https://spardac.wappsystem.com.au">Powered by Wappsystem</a></p>
-                </div>
-   </div>
+    <footer class="footer" >
+        <div class="footer-logo grid-container-1">
+            <a href="https://woolcock.org.au" target="_blank">
+                <img src="assets/images/18885_WOOLCOCK_LOGO_CMYK_trans.png" alt="Woolcock" />
+            </a>
+        </div>
+        <p>Woolcock Institute of Medical Research Copyright © 2023.</p>
+    </footer>
     <script>
-        $vm.footer_ready=1;
-        if($vm.resize_content!=undefined) $vm.resize_content();
-        $('#D__ID').on('dblclick',function(event){
-            event.stopPropagation();
-            if (event.ctrlKey & event.altKey) {
-                var r=confirm("Click OK will refresh the browser to reinstall all modules.");
-                if(r){
-                    localStorage.clear();
-                    location.reload();
-                }
-            }
-	    });
-        $('#year__ID').text(new Date().getFullYear());
+        //------------------------------------
+        $vm.footer_ready = 1;
+        //------------------------------------
     </script>
     <style>
-        #D__ID{
-            padding-left:15px;
-            text-align: center;
-        }     
-        /*VmInclude:__HOST__/assets/css/landing.css*/       
+        /*VmInclude:__HOST__/assets/css/wapp-form.css*/
     </style>
 </div>

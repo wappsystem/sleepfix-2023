@@ -28,7 +28,7 @@
                                 <div>
                                     <label>
                                         <span class="question"></span>
-                                        <input id="abcd" type=text name="name" class="formcontrol" placeholder=""
+                                        <input type=text name="name" class="formcontrol" placeholder=""
                                             required />
                                     </label>
                                 </div>
@@ -42,7 +42,7 @@
                                 <div>
                                     <label>
                                         <span class="question"></span>
-                                        <input id="abcd" type=email name="email" class="formcontrol" placeholder=""
+                                        <input type=email name="email" class="formcontrol" placeholder=""
                                             required />
                                     </label>
                                 </div>
@@ -56,7 +56,7 @@
                                 <div>
                                     <label>
                                         <span class="question"></span>
-                                        <input id="abcd" type=tel name="phone" class="formcontrol" maxlength="10" pattern="\d{10}" required />
+                                        <input type=tel name="phone" class="formcontrol" maxlength="10" pattern="\d{10}" required />
                                     </label>
                                 </div>
                             </div>
@@ -94,16 +94,15 @@
                         </div>
                     </div>
                     <div class="formgroup" id="link__ID" style="display:none!important">
-                        <div class="text-center">
-                            Continue ..<br><br>
-                            <i>Click on the link below to continue. Save the link to your favorits so you can easlily find it, if you need to return to the quesstionnaires.</i><br><br>
-                            <a id=asteroind_registration__ID target="_blank" style="color:#000;" ><span style='font-size:1.2rem;font-weight:bold;' id=refnum__ID></span></a>
+                        <div class="text-center question">
+                            <i>Click on the link below to continue. Save the link to your favorits so you can easlily find it, if you need to return to the questionnaires.</i><br><br>
+                            <a id=sleepfix_registration__ID target="_blank" style="color:#000;" ><span style='font-size:1.2rem;font-weight:bold;' id=refnum__ID></span></a>
                             <br><br>
                         </div>
                     </div>
                     <div style="display:none">
-                        <input type=text class=form-control name=_Password>
-                        <input type=text class=form-control name=List>
+                        <input type=text class=formcontrol name=_Password>
+                        <input type=text class=formcontrol name=List>
                     </div>
     
                     <div class="formgroup right">
@@ -136,27 +135,130 @@
                     $('#S0_17__ID').show();
                     $("#F__ID input[name=name]").prop('required', 'true');
                     $("#F__ID input[name=email]").prop('required', 'true');
-                    $("#F__ID input[name=telephone]").prop('required', 'true');
+                    $("#F__ID input[name=phone]").prop('required', 'true');
                     $("#F__ID input[name=cont_pref]").prop('required', 'true');
                 }
                 else {
                     $('#S0_17__ID').hide();
                     $("#F__ID input[name=name]").removeAttr('required');
                     $("#F__ID input[name=email]").removeAttr('required');
-                    $("#F__ID input[name=telephone]").removeAttr('required');
+                    $("#F__ID input[name=phone]").removeAttr('required');
                     $("#F__ID input[name=cont_pref]").removeAttr('required');
                 }
             })
             //---------------------------------------
             m.before_submit=function(data,index){
-                data.List='demographics-bl-form,BPI-bl-form,PSQI-bl-form,PHQ-2-bl-form,GAD-7-bl-form,PBAS-bl-form,EQ-5D-bl-form,eHEALs-bl-form'
+                data.List='demographics-bl-form,PSQI-bl-form,PHQ-bl-form,GAD-bl-form,FFS-bl-form,EQ-5D-bl-form,SMP-bl-form'
             }
             //---------------------------------------
+            m.after_insert = function (data,index) {
+                var db=""; 
+                //console.log(JSON.stringify(index) + " - "+index.nr.UID)
+                if(window.location.toString().indexOf('tb=demo')!=-1) db="&tb=demo";
+                var d="";  if(window.location.toString().indexOf('_d=1')!=-1) d="&_d=1";
+                var p="";  if(window.location.toString().indexOf('_p=1')!=-1) p="&_p=1";
+                var u="?username="+index.nr.UID+"&password="+index.nr.Data._Password;
+                var q_url=$vm.hosting_path+"/oq-bl.html"+u+db+d+p;
+                $('#refnum__ID').text(q_url);
+                $('#sleepfix_registration__ID').attr("href",q_url)
+                $('#link__ID').show();
 
+                //- UPDATE Screening record with participant UID -----
+                var rid=m.input.rec_id
+                var datascreen=m.input.screen_data;
+                datascreen.Participant=index.nr.UID;
+                datascreen.Participant_uid=index.nr.UID;
+                var tables=$vm.module_list["survey-data"].Table; 
+                //console.log("data: "+JSON.stringify(datascreen))             
+                $vm.request({cmd:'update',id:rid,table:tables,data:datascreen,index:index},function(res){
+                    //-----------------------------
+                    if(res.status=="lk"){
+                        $vm.alert("This record is locked.");
+                        return;
+                    }
+                    //-----------------------------
+                    if(res.status=="np"){
+                        alert("No permission to update this record.");
+                        return;
+                    }
+                });
+                // -------------------------------------------------
+                var param = [];
+				var url='https://prod-14.australiasoutheast.logic.azure.com:443/workflows/b32e1b551e714a9cbb9568c0daf8dca6/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=YCrB5_3cSQQtxy3EJOVwgYTYBXVL9bAfE1my4qwqvEs';
+                var sms_url='https://prod-22.australiasoutheast.logic.azure.com:443/workflows/820a39043b3e4a5aad3a688121a44db9/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=YXNWHex7Jj23UoCLdCagxuDrDmNVIG9kjiUB-3viTpg';
+
+                console.log("DATA: "+JSON.stringify(data))
+				param.push(data.email); //0
+				param.push(data.first_name); //1
+				param.push(q_url); //2
+				param.push(''); //3 Access code
+				param.push(data.phone) //4
+				param.push(data.contact) //5
+				param.push(url) //6
+				param.push(sms_url) //7
+				//send_email(param);              
+            }
+            //-------------------------------------
+            var send_email = function (param) {
+                var url = param[6]
+                var sms_url = param[7]
+                if(param[5]=='2' || param[5]=='3'){
+                    var data = {
+                        "emailaddress": "" + param[0] + "",
+                        "first_name": "" + param[1] + "",
+                        "link": "" + param[2] + "",
+                        "code": "" + param[3] + ""
+                    }
+                    var xmlHttp = new XMLHttpRequest();
+                    xmlHttp.onreadystatechange = function () {
+                        if (this.readyState == 4 && this.status == 200) {
+                        }
+                        else if (this.readyState == 4 && this.status == 403) {
+                        }
+                        if (this.status == 404) {
+                            $vm.alert(url + ", 404 (Not found)");
+                        }
+                    }
+                
+                    xmlHttp.open("POST", url, true); // true for asynchronous
+                    xmlHttp.setRequestHeader("Content-Type", "application/json");
+                    xmlHttp.send(JSON.stringify(data));
+                    //alert("Registration email sent" +JSON.stringify(data))
+                }
+                //------------------------------------
+                //SMS alert
+				//------------------------------------
+                if(param[5]=='1' || param[5]=='3'){
+                    console.log("Sending sms")
+                    var sms_data = {
+                        "emailaddress": "" + param[4].replace(/-/g,'') + "@e2s.directsms.com.au",
+                        "first_name": "" + param[1] + "",
+                        "link": "" + param[2] + "",
+                        "code": "" + param[3] + ""
+                    }
+                    var sms_xmlHttp = new XMLHttpRequest();
+                    sms_xmlHttp.onreadystatechange = function () {
+                        if (this.readyState == 4 && this.status == 200) {
+                        }
+                        else if (this.readyState == 4 && this.status == 403) {
+                        }
+                        if (this.status == 404) {
+                            $vm.alert(url + ", 404 (Not found)");
+                        }
+                    }
+                    sms_xmlHttp.open("POST", sms_url, true); // true for asynchronous
+                    sms_xmlHttp.setRequestHeader("Content-Type", "application/json");
+                    sms_xmlHttp.send(JSON.stringify(sms_data));
+                    //alert("Registration sms sent" +JSON.stringify(sms_data))
+				}
+			}
+            //--------------------------------
+/*
             m.after_insert = function (data, res) {
                 if (m.prefix == undefined) { $vm.load_module('thank-you', '', {}); }
                 else $vm.load_module(m.prefix + 'thank-you', '', {});
             }
+*/            
         }
     </script>
     <style>

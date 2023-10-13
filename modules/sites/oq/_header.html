@@ -13,10 +13,6 @@
             <input id="hamburger__ID" type="checkbox" >
             <div id=menu__ID>
                 <ul>
-                    <li><a href="?/home"><i class="fa fa-home"></i> Home</a></li>
-                    <li><a href="?/panel-main"><i class="fas fa-list-ul"></i> Study panel</a></li>
-                    <li><a href="?/participant-data"><i class="fas fa-list-ul"></i> Participants</a></li>
-                    <li><a href="" id=signin__ID onclick=$vm.auth_signin(); ><i class="fa fa-user"></i> Sign in</a></li>
                     <li><a href="" id=signout__ID onclick=$vm.auth_signout(); ><i class="fa fa-user"></i> Sign out</a></li>
                 </ul>
             </div>
@@ -32,7 +28,6 @@
             </div>
         </div>
     </div>    
-    <div id=g_nav > </div>
     <script>
         function F__ID(){
             //------------------------------------
@@ -132,7 +127,7 @@
                     if(i==L-1 || L==1) txt+=title;
                     else txt+="<u nm="+nm+" style='cursor:pointer'>"+title+"</u>";
                 }
-                $('#g_nav').html(txt);
+/*                $('#g_nav').html(txt);
                 $('#g_nav u').on('click',function(){
                     var nm=$(this).attr("nm");
                     var K=$vm.page_stack.length-1;
@@ -142,7 +137,7 @@
                         N++;
                     }
                     for(var j=0;j<N;j++) window.history.go(-1);
-                })
+                })*/
             }
             //------------------------------------
         }

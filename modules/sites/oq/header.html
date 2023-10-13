@@ -1,148 +1,21 @@
 <div id=D__ID>
-    <div id=layout__ID>
-        <div id=left__ID >
-            <a id=desk_logo__ID href="home" >
-                <div id=logo>
-                    <span id=logo_a>Backpain Sleep</span><br>
-                    <span id=logo_b>Study</span>
-                </div>
-            </a>
+  <header class="header">
+    <div class="">
+        <div class="header_text" >
+          <p>Questionnaire Portal - Baseline </p>
+          <!--<p id="page_counter"></p>-->
         </div>
-        <div id=middle__ID >
-            <a id=mobile_logo__ID href="home" >Backpain Sleep</a>
-            <input id="hamburger__ID" type="checkbox" >
-            <div id=menu__ID>
-                <ul>
-                    <li><a href="" id=signout__ID onclick=$vm.auth_signout(); ><i class="fa fa-user"></i> Sign out</a></li>
-                </ul>
-            </div>
-        </div>    
-        <div id=right__ID>
-            <div id=menu_right__ID>
-            </div>
-            <label id=m_icon__ID for="hamburger__ID"><i class="fa fa-bars"></i></label>
-        </div>   
-        <div id=top_right_corner__ID >
-            <div>
-                <span id=username__ID ></span>
-            </div>
-        </div>
-    </div>    
+    </div>
+  </header>
     <script>
-        function F__ID(){
-            //------------------------------------
-            $vm.header_ready=1;
-            if($vm.resize_content!=undefined) $vm.resize_content();
-            //--------------------------------------
-            $('#signout__ID').hide();
-            //------------------------------------
-            $('#D__ID a').on('click',function(e){
-                e.preventDefault();
-                e.stopPropagation();
-                var module_name=$(this).attr('href').replace('?\/','');
-                var w=$(this).attr('w');
-                if(w==1){
-                    window.open(module_name);
-                    return;
-                }
-                if(module_name=='dropdown'){
-                    var w=$(this).closest('li').width();
-                    var mh=$(this).closest('li').find('ul').first().css('max-height');
-                    if(mh=='0px'){
-                        close_all_dropdown();
-                        $(this).closest('li').find('ul').first().css('max-height','600px');
-                    }
-                    else $(this).closest('li').find('ul').first().css('max-height','0px');
-                    $(this).closest('li').find('ul').first().css('min-width',w+'px');
-                    return;
-                }
-                if(module_name!="") $vm.show_module(module_name,{})
-                close_all_dropdown();
-                $('#hamburger__ID').prop("checked", false);
-            })
-            //---------------------------------------------------------------
-            $('#hamburger__ID').on('change',function(e){
-                if($(this).prop("checked")==false) close_all_dropdown();
-            })
-            //---------------------------------------------------------------
-            $('body').on('click',function(){
-                close_all_dropdown();
-            })
-            $('#menu__ID>ul>li>a').on('mouseover',function(e){
-                //close_all_dropdown();
-            })
-            //---------------------------------------------------------------
-            $('#menu__ID>ul>li>ul').on('mouseleave',function(e){
-                close_all_dropdown();
-            })
-            //---------------------------------------------------------------
-            var close_all_dropdown=function(){
-                $('#D__ID ul').each(function(){
-                    if($(this).css('max-height')=='600px') $(this).css('max-height','0px');
-                })
-            }
-            //---------------------------------------------------------------
-            $('#search_box__ID').focus(function(){$('#search_box__ID').autocomplete("search","");});
-            $('#search_box__ID').autocomplete({
-                minLength:0,
-                source:function(request,response){
-                    var result=$vm.flexindex.search(request.term);
-                    var r=[]; 
-                    for(var i=0; i<result.length && i<35; i++){
-                        var t=result[i].title; if(t=="") t=result[i].id;
-                        t=t.replace(/-/g,' ').replace(/_/g,' ')
-                        r.push({label:t,value:result[i].id})
-                    }
-                    response(r);
-                },
-                select: function(event,ui){
-                    if(ui.item.value!='') $vm.show_module(ui.item.value,{})
-                    ui.item.value='';
-                }
-            })
-            //---------------------------------------------------------------
-            $vm.show_user=function(){
-                if($vm.user_name==undefined || $vm.user_name=='guest'){
-                    $('#username__ID').text('');
-                    $('#signin__ID').show();
-                    $('#signout__ID').hide();
-                }
-                else{
-                    $('#username__ID').text('Signed in as '+ $vm.user_name);
-                    $('#signin__ID').hide();
-                    $('#signout__ID').show();
-                }
-            }
-            //------------------------------------
-            $vm.sys_nav_path=function(){
-                var L=$vm.page_stack.length;
-                var I=L-5;
-                if(I<0) I=0;
-                var txt="";
-                for(var i=I;i<L;i++){
-                    if(txt!="") txt+=" -> ";
-                    var nm=$vm.page_stack[i].m_name;
-                    var title=$vm.module_list[nm].title;
-                    if(title==undefined) title=nm.replace(/_/g,' ').replace(/-/g,' ');
-                    if(i==L-1 || L==1) txt+=title;
-                    else txt+="<u nm="+nm+" style='cursor:pointer'>"+title+"</u>";
-                }
-/*                $('#g_nav').html(txt);
-                $('#g_nav u').on('click',function(){
-                    var nm=$(this).attr("nm");
-                    var K=$vm.page_stack.length-1;
-                    var N=0;
-                    for(var j=K;j>=0;j--){
-                        if(nm==$vm.page_stack[j].m_name) break;
-                        N++;
-                    }
-                    for(var j=0;j<N;j++) window.history.go(-1);
-                })*/
-            }
-            //------------------------------------
-        }
+        //------------------------------------
+        $('#vm-mobile_title').on('click',function(){ $vm.load_module('home',$vm.root_layout_content_slot,{}) })
+        $('.vm-desk-logo').on('click',function(){ $vm.load_module('home',$vm.root_layout_content_slot,{}) })
+        //------------------------------------
+        $vm.header_ready=1;
+        //------------------------------------
     </script>
     <style>
-        /*VmInclude:__HOST__/assets/css/header.css*/
+        /*VmInclude:__HOST__/assets/css/wapp-form.css*/
     </style>
 </div>
