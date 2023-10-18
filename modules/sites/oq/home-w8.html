@@ -1,23 +1,25 @@
-<div id=D__ID>
-	<div id=page__ID >
-        <div class="main-container">
+<div id=D__ID class="bg">
+    <div class="container mt-95">
+      <div class="formbox">
+        <form id="F__ID">
+        <div class="formgroup zoom">
+            <fieldset class="" style="text-align:-webkit-center;">
+            <span class="question">Sign in - Week 8</span>
+            <div class="grid-container-1">
+                <div>
+                <label>
+                    <span class="question"></span>
+                    <input id=username__ID placeholder="Username" class="formcontrol" autocomplete="off" /><br>
+                        <input class="formcontrol" id=password__ID type="password" placeholder="Password"  />
+                        <br><span id="ErrMsg__ID" style='color:red'></span>
                     <div class="">
-                        <h2  class="" >Entry to</h2>
-                        <h4 class="" >Questionnaire Portal</h4>
-                        <h4 class="" >Baseline</h4>
-                        <hr style='border-top:1px solid #fff;'></hr>
-                        <div class="">
-                            <input id=username__ID placeholder="Username" class="formcontrol" autocomplete="off" />
-                        </div>
-                        <br>
-                        <div class="">
-                            <input class="formcontrol" id=password__ID type="password" placeholder="Password"  />
-                        </div>
-                            <br><span id="ErrMsg__ID" style='color:red'></span>
-                        <div class="">
-                            <input id=signin__ID type=button value='Sign in' class="btn" value="Sign In" />&nbsp;&nbsp;&nbsp;
-                        </div>
+                        <input id=signin__ID type=button value='Sign in' class="submit_btn" value="Sign In" />&nbsp;&nbsp;&nbsp;
                     </div>
+                </label>
+                </div>
+            </div>
+            </fieldset>
+        </div>
           </div>
 	</div>
 <script>
@@ -65,7 +67,7 @@
 */                  
                     //console.log('x')
                     //console.log(JSON.stringify(res.result))
-                    $vm.load_module("panel-oq-w1",'',{record:res.result});
+                    $vm.load_module("panel-oq-w8",'',{record:res.result});
                 }
                 else{
                     $('#ErrMsg__ID').text("Invalid participant login ID or password.")
@@ -75,23 +77,6 @@
     }
 </script>
    <style>
-    #page__ID{
-        height:100%;
-        display: flex;
-        align-items: center;
-    }
-    .main-container2{
-        background-color:#aaaaaa;
-    color:rgb(0, 0, 0);
-    text-align: center;
-    max-width:600px;
-    margin-left:auto;
-    margin-right:auto;
-    font-family: 'Nunito Sans';
-    font-size: large;
-    padding: 20px;
-    border-radius: 10px;
-  }
       
     /*VmInclude:__HOST__/assets/css/wapp-form.css*/
 </style>

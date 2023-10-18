@@ -39,7 +39,8 @@
                 header:         {url:$vm.hosting_path+"/modules/sites/backend/header.html"},
                 footer:         {url:$vm.hosting_path+"/modules/sites/backend/footer.html"},
                 home:           {url:$vm.hosting_path+"/modules/sites/backend/home.html",task_name:"Home"},
-                init_and_auth:  {url:$vm.hosting_path+"/modules/system/init-and-auth.html"},
+                //init_and_auth:  {url:$vm.hosting_path+"/modules/system/init-and-auth.html"},
+                init_and_auth_copy:  {url:$vm.hosting_path+"/modules/system/init-and-auth-copy.html"},
                 vmext:          {url:$vm.hosting_path+"/modules/system/vm-extension.html"},
             }
             //---------------------------------------------
@@ -161,7 +162,8 @@
             $vm.install=function(){
                 //---------------------------------------------
                 $vm.init();
-                $vm.install_component('header','header',{},function(nm){ $vm.install_module('init_and_auth','',{},function(name,id){}); });
+                //$vm.install_component('header','header',{},function(nm){ $vm.install_module('init_and_auth','',{},function(name,id){}); });
+                $vm.install_component('header','header',{},function(nm){ $vm.install_module('init_and_auth_copy','',{},function(name,id){}); });
                 $vm.install_component('footer','footer',{});
                 $vm.install_module('vmext','',{},function(name,id){});
                 var install_one=function(m,t){

@@ -2,28 +2,18 @@
     <div class="container">
 		<div id=panel__ID class="">
 			<div class="">
-				<h2><br>Questionnaire Portal<br>
-				Follow-up Questionnaires</h2>
-				  <hr></hr>
+				<h4 class= "">Week 4</h4>
 				<h4 class= "">Please complete each of the following questionnaires.</h4>
 				<div id=items__ID  class= ""></div>
 				<h4 class= "">
-					Once they are completed please click on ‘sign-out’ below, to exit the system. <br>Thank you!
+					Once they are completed please click on ‘Sign-out’ below, to exit the system. <br>Thank you!
 				</h4>
-				<h3 id="thankyou__ID" style="display:none" class= "">
-					Thank you for completing the end-of-study survey.
-				</h3>
-				<a name=signinout onclick="$vm.signout();" class="btn">Sign out</a><br><br>
+				<a name=signinout onclick="$vm.signout();" class="submit_btn">Sign out</a><br><br>
 			</div>
 		</div>
     </div>
 
 </div>
-<!-- <div id=panel__ID>
-    Please answer the following questionnaires. Follow the instruction on each of them.<br><br>
-	<div id=items__ID></div>
-</div>
-</div>-->
 
 <script>
 	function F__ID(){
@@ -35,6 +25,7 @@
 		//--------------------------------------------------------
 		$('#D__ID').on('show',function(){
             var record=$vm.vm['__ID'].input.record;
+			//console.log('panel - record')			
 			id_list='ISI-w4-form,AEC-w4-form'
             if(id_list==undefined){
                 alert("No questionnaire was found");
@@ -60,8 +51,8 @@
 				var mm=$vm.module_list[m];
 				if(mm!=undefined){
 					task_name=mm.task_name;
-					var tn=task_name.split(" - ")
-					task_name=tn[1];
+					//var tn=task_name.split(" - ")
+					//task_name=tn[1];
 					status[m].Table=mm.Table;
 				}
 				//txt+="<li class='formcontrol' m="+m+">"+task_name+"</li><br>";
@@ -93,9 +84,6 @@
                             status[m].rid=1;
 							$li.removeClass('li_not_allowed__ID')
 							$li.addClass('done__ID');
-							if(status[m].Table==$vm.module_list["EQ-5D-fu-form"].Table){
-								$('#thankyou__ID').css('display','block');
-							}
                         }
                     })
                     jQuery.ajaxSetup({async:true});
@@ -106,8 +94,10 @@
 		            var task_name=$li.html();
 		            var module=$li.attr('m');
 		            $li.html("<u style='cursor:pointer' m="+module+">"+task_name+"</u>");
-		            $li.find('u').on('click',function(){
+					$li.find('u').on('click',function(){
 		                var m=$(this).attr('m');
+						//console.log("loading")
+						//console.log(JSON.stringify($vm.vm['__ID'].input.record))
                         var record=$vm.vm['__ID'].input.record;
 						$vm.load_module(m,'',{participant_record:record,goback:1});
 		            });
@@ -120,7 +110,7 @@
 	}
 </script>
 <style>
-/*	#D__ID{
+	/*#D__ID{
 		height:100%;
         overflow:auto;
 		animation: vm_module_fadein 1.0s;

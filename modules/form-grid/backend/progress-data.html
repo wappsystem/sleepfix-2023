@@ -10,7 +10,7 @@
             $('#title__ID').text('Progress of Baseline Questionnaire');            
             //-------------------------------------
             //-------------------------------------
-            var fields="_Participant_ID|Participant,name,telephone,email,cont_pref,Notes - added in Particpants form|Notes,BL_Sent,Baseline";
+            var fields="_Participant_ID|Participant,name,phone,email,cont_pref,Notes - added in Particpants form|Notes,BL,W4,W8";
             //var fields="_Participant_ID,Group,name,telephone,email,cont_pref,Access_Code";
             m.fields=""+fields+",Submit_date,Submitted_by,_Delete";
             //-------------------------------------
@@ -28,11 +28,24 @@
                         if (records[I].Data.cont_pref==1) td.html('Text');
                         if (records[I].Data.cont_pref==2) td.html('Both');
                         break;
-                    case 'BL_Sent':
-                        var s=records[I].Data["BL_Sent"]
-                        td.html($vm.yyyymmdd_to_ddmmyyyy(s))
+                        case 'BL':
+                        var s=records[I].Data["BL"]
+                        if(s=="") td.css('background-color','red');
+                        else if(s!='SMP') td.css('background-color','yellow');
+                        else if(s=='SMP') td.css('background-color','lightgreen');
                     break;
-
+                    case 'W4':
+                        var s=records[I].Data["W4"]
+                        if(s=="") td.css('background-color','red');
+                        else if(s!='AEC') td.css('background-color','yellow');
+                        else if(s=='AEC') td.css('background-color','lightgreen');
+                    break;
+                    case 'W8':
+                        var s=records[I].Data["W8"]
+                        if(s=="") td.css('background-color','red');
+                        else if(s!='AEC') td.css('background-color','yellow');
+                        else if(s=='AEC') td.css('background-color','lightgreen');
+                    break;
                 }
             }
             //-------------------------------------
@@ -58,7 +71,7 @@
                         export_fields=export_fields.slice(1,export_fields.length-8);
                         export_fields.push("_Password");
                         export_fields.push("_Login_ID");
-                        export_fields.push("Submitted_by");
+                        export_fields.push("Submitted_by,_Delete");
                         //console.log(export_fields);
                         var oo=JSON.parse(JSON.stringify(participant_rec,export_fields));
                         var tmp=JSON.stringify(oo).replace(/\bID\b/g,"Participant ID")

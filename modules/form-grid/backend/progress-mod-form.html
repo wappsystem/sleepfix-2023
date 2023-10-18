@@ -26,8 +26,8 @@
                         </label>
                     </div>
                     <div class="col-sm-12 col-lg-3 row_participant__ID">
-                        <label class=''><span class=''>Telephone</span>
-                            <input type=text class=form-control name=telephone readonly>
+                        <label class=''><span class=''>Phone</span>
+                            <input type=text class=form-control name=phone readonly>
                         </label>
                     </div>
                     <div class="col-sm-12 col-lg-3 row_participant__ID">
@@ -57,16 +57,11 @@
                             <input type=text class=form-control name=cont_pref readonly>
                         </label>
                     </div>
-                    <div class="col-sm-12 col-lg-3 row_participant__ID">
-                        <label class=''><span class=''>BL Sent</span>
-                            <input type=text class=form-control name=BL_Sent readonly>
-                        </label>
-                    </div>
                </div>
                 <div class='row px-4'>
                     <div class="col-sm-12 col-lg-3 row_participant__ID">
                         <label class=''><span class=''>Baseline</span>
-                            <input type=text class=form-control name=Baseline readonly>
+                            <input type=text class=form-control name=BL readonly>
                         </label>
                     </div>
                     <div class="col-sm-12 col-lg-3 row_participant__ID">
@@ -103,50 +98,55 @@
                 </div>
                 <div class='row px-4'>
                     <div class="col-sm-12 col-lg-3 row_participant__ID">
-                        <label class=''><span class=''>Week 6</span>
-                            <input type=text class=form-control name=Week_6 readonly>
+                        <label class=''><span class=''>Week 4</span>
+                            <input type=text class=form-control name=Week_4 readonly>
                         </label>
                     </div>
                     <div class="col-sm-12 col-lg-3 row_participant__ID">
-                        <label class=''><span class=''>w6</span>
-                            <input type=text class=form-control name=w6 readonly>
+                        <label class=''><span class=''>w4</span>
+                            <input type=text class=form-control name=W4 readonly>
                         </label>
                     </div>
                     <div class="col-sm-12 col-lg-3 row_participant__ID">
-                        <label class=''><span class=''>w6 email</span>
-                            <input type=date class=form-control name=w6_email readonly>
+                        <label class=''><span class=''>w4 email</span>
+                            <input type=date class=form-control name=w4_email readonly>
                         </label>
                     </div>
                     <div class="col-sm-12 col-lg-3 row_participant__ID">
-                        <label class=''><span class=''>w6 rem 1</span>
-                            <input type=date class=form-control name=w6_rem_1 readonly>
+                        <label class=''><span class=''>w4 rem 1</span>
+                            <input type=date class=form-control name=w4_rem_1 readonly>
                         </label>
                     </div>
                     <div class="col-sm-12 col-lg-3 row_participant__ID">
-                        <label class=''><span class=''>w6 rem 2</span>
-                            <input type=date class=form-control name=w6_rem_2 readonly>
+                        <label class=''><span class=''>w4 rem 2</span>
+                            <input type=date class=form-control name=w4_rem_2 readonly>
                         </label>
                     </div>
                 </div>
                 <div class='row px-4'>
                     <div class="col-sm-12 col-lg-3 row_participant__ID">
-                        <label class=''><span class=''>AE1</span>
-                            <input type=text class=form-control name=AE1 readonly>
+                        <label class=''><span class=''>Week 8</span>
+                            <input type=text class=form-control name=Week_8 readonly>
                         </label>
                     </div>
                     <div class="col-sm-12 col-lg-3 row_participant__ID">
-                        <label class=''><span class=''>AE2</span>
-                            <input type=text class=form-control name=AE2 readonly>
+                        <label class=''><span class=''>w8</span>
+                            <input type=text class=form-control name=W8 readonly>
                         </label>
                     </div>
                     <div class="col-sm-12 col-lg-3 row_participant__ID">
-                        <label class=''><span class=''>AE 1</span>
-                            <input type=text class=form-control name=AE_1 readonly>
+                        <label class=''><span class=''>w8 email</span>
+                            <input type=date class=form-control name=w8_email readonly>
                         </label>
                     </div>
                     <div class="col-sm-12 col-lg-3 row_participant__ID">
-                        <label class=''><span class=''>AE 2</span>
-                            <input type=text class=form-control name=AE_2 readonly>
+                        <label class=''><span class=''>w8 rem 1</span>
+                            <input type=date class=form-control name=w8_rem_1 readonly>
+                        </label>
+                    </div>
+                    <div class="col-sm-12 col-lg-3 row_participant__ID">
+                        <label class=''><span class=''>w8 rem 2</span>
+                            <input type=date class=form-control name=w8_rem_2 readonly>
                         </label>
                     </div>
                 </div>
@@ -171,31 +171,45 @@
             //-------------------------------------------            
             /*VmInclude: '__HOST__/assets/js/form.01.js'*/
             //-------------------------------------------            
-            var timepoint="";
+            var progress="";
+            var timing="";
             //-------------------------------------------            
             m.default_load = m.load;
             m.load = function () {
                 m.default_load();
-                timepoint=m.input.time;
+                console.log("Progress: "+JSON.stringify(m.input))
+                //console.log("W0: "+JSON.stringify(m.input.progress))
+                progress=m.input.progress
+                timing=m.input.time
+                //console.log("AAA: "+progress+" - "+timing)
+                //console.log(JSON.stringify(m.input.participant_record))
+                $('#Participant__ID').val(m.input.participant_record.UID)
+                $('#F__ID input[name=Participant_uid]').val(m.input.participant_record.UID)
+                $('#F__ID input[name=name]').val(m.input.participant_record.Data.name)
+                $('#F__ID input[name=phone]').val(m.input.participant_record.Data.phone)
+                $('#F__ID input[name=email]').val(m.input.participant_record.Data.email)
+                $('#F__ID input[name=group]').val(m.input.participant_record.Data.Group)
+                $('#F__ID input[name=cont_pref]').val(m.input.participant_record.Data.cont_pref)
+                $('#F__ID input[name=Access_Code]').val(m.input.participant_record.Data.Access_Code)
+                $('#F__ID input[name=_Password]').val(m.input.participant_record.Data._Password)
+                if(m.input.time=='BL') $('#F__ID input[name=BL]').val(m.input.progress)
+                else if(m.input.time=='W4') $('#F__ID input[name=W4]').val(m.input.progress)
+                else if(m.input.time=='W8') $('#F__ID input[name=W8]').val(m.input.progress)
 				$('#submit__ID').click();
             }
             //-------------------------------------------
             m.after_update = function (data,index) {
-                if(timepoint=='bl'){
+                if(timing=='BL'){
                     if (m.prefix == undefined) { $vm.load_module('panel-oq-bl', '', {record:m.input.participant_record}); }
                     else {$vm.load_module(m.prefix + 'panel-oq-bl', '', {record:m.input.participant_record});}
                 }
-                else if (timepoint=='fu') {
-                    if (m.prefix == undefined) { $vm.load_module('panel-oq-fu', '', {record:m.input.participant_record}); }
-                    else {$vm.load_module(m.prefix + 'panel-oq-fu', '', {record:m.input.participant_record});}
+                else if (timing=='W4') {
+                    if (m.prefix == undefined) { $vm.load_module('panel-oq-w4', '', {record:m.input.participant_record}); }
+                    else {$vm.load_module(m.prefix + 'panel-oq-w4', '', {record:m.input.participant_record});}
                 }
-                else if (timepoint=='w1') {
-                    if (m.prefix == undefined) { $vm.load_module('panel-oq-w1', '', {record:m.input.participant_record}); }
-                    else {$vm.load_module(m.prefix + 'panel-oq-w1', '', {record:m.input.participant_record});}
-                }
-                else if (timepoint=='w3') {
-                    if (m.prefix == undefined) { $vm.load_module('panel-oq-w3', '', {record:m.input.participant_record}); }
-                    else {$vm.load_module(m.prefix + 'panel-oq-w3', '', {record:m.input.participant_record});}
+                else if (timing=='W8') {
+                    if (m.prefix == undefined) { $vm.load_module('panel-oq-w8', '', {record:m.input.participant_record}); }
+                    else {$vm.load_module(m.prefix + 'panel-oq-w8', '', {record:m.input.participant_record});}
                 }
             }
 

@@ -88,8 +88,8 @@ padding:24px
   #D__ID .zoom:hover{
     background-color: #f0f0f0;
     border: 2px solid darkgrey;
-    transition: transform 0.2s;
-    transform: scale(1.03);
+    /*transition: transform 0.2s;
+    transform: scale(1.03);*/
   }
   #D__ID .indent{
     padding-left: 20px;

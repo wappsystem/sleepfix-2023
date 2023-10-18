@@ -9,20 +9,20 @@
             //-------------------------------------
             $('#new__ID').hide();
             //-------------------------------------
-            var fields="Progress|Baseline,Group";
+            var fields="Progress|BL,Group";
             m.fields="Participant_ID|Participant,"+fields+"";
             //-------------------------------------
             m.load=function(){
-                m.query={"Data.Baseline": {"$eq" : "eHealth"}}
+                m.query={"Data.BL": {"$eq" : "SMP"}}
             }
             //-------------------------------------
             m.cell_render=function(records,I,field,td){
                 //console.log(JSON.stringify(records[I].Data))
                 switch(field){
-                    case 'Baseline':
-                        var v=records[I].Data.Baseline;
-                        if(v=='eHealth'){
-                            td.html("<i class='fa fa-smile'></i>");
+                    case 'BL':
+                        var v=records[I].Data.BL;
+                        if(v=='SMP'){
+                            td.html(v+" <i class='fa fa-smile'></i>");
                             td.css('color','green')
                         }
                         else{
@@ -30,7 +30,7 @@
                         }
                     break;
                     case 'Group':
-                        if(records[I].Data.Baseline=='eHealth' && (records[I].Data.Group=="" || records[I].Data.Group==undefined)){
+                        if(records[I].Data.BL=='SMP' && (records[I].Data.Group=="" || records[I].Data.Group==undefined)){
                             html="<u style='cursor:pointer'>Randomise</u>"
                         }
                         else {

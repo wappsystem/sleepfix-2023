@@ -153,6 +153,7 @@ m.cell_process=function(){
             $(this).find('u').on('click',function(){
                 m.form_I=row;
                 var prefix=""; if(m.prefix!=undefined) prefix=m.prefix;
+                console.log(m.form_module)
                 if($vm.module_list[prefix+m.form_module]===undefined){
                     alert('Can not find "'+m.form_module+'" in the module list');
                     return;

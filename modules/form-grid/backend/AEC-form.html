@@ -540,31 +540,9 @@
                 /*VmInclude: '__COMPONENT__/f/form.01.js'*/
                 /*VmInclude: '__HOST__/assets/js/shared-form.js'*/
                 //-------------------------------------
-                m.after_insert = function (data,index) {
-                    var P_record=$vm.vm['__ID'].input.participant_record;
-                    //console.log("tp: "+tp)
-                    var tp=$vm.module_list[$vm.vm['__ID'].name].timepoint;
-                    var records={};
-                    jQuery.ajaxSetup({async:false});
-                    $vm.request({cmd:"find-s",table:$vm.module_list['progress-mod-form'].Table,options:{}},function(res){
-                        if(res.permission==false){
-                            alert("No permission");
-                            return;
-                        }
-                        if(res.result.length==0){
-                        }
-                        else{
-                            if(tp=='w1') res.result[0].Data.AE_1='AE 1';
-                            else if(tp=='w3') res.result[0].Data.AE_2='AE 2';
-                            records=res.result[0]
-                            //console.log(JSON.stringify(records))
-                        }
-                    })
-                    if (m.prefix == undefined) { $vm.load_module('progress-mod-form', '', {record:records,progress:'AE',time:tp,goback:1,participant_record:P_record}); }
-                    else {$vm.load_module(m.prefix + 'progress-mod-form', '', {record:records,progress:'AE',time:tp,goback:1,participant_record:P_record});}
-                    jQuery.ajaxSetup({async:true});
-                }
-      //-------------------------------------
+                //-------------------------------------
+                /*VmInclude: '__HOST__/assets/js/form.progress.js'*/
+                //-------------------------------------
 
             }
         </script>

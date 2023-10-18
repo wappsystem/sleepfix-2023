@@ -9,7 +9,7 @@
             //-------------------------------------
             $('#title__ID').text('Participants');            
             //-------------------------------------
-            var fields="_Participant_ID,Randomisation_Number,Group,name,telephone,email,BL_Sent,cont_pref,Access_Code|Access_Code,Notes,_Data_Entry,_Baseline,_AE_Check_1,_AE_Check_3,_Follow_up,_Login_ID,_Password";
+            var fields="_Participant_ID,Randomisation_Number,Group,name,phone,email,cont_pref,Access_Code|Access_Code,Notes,_Data_Entry,_Baseline,_W4,_W8,_Login_ID,_Password";
             m.fields="_Form,"+fields+",Submit_date,Submitted_by,_Delete";
             //-------------------------------------
             m.cell_render=function(records,I,field,td,set_value,source){
@@ -47,9 +47,9 @@
     						window.open(q_url);
                         });
                         break;
-                        case '_AE_Check_1':
+                        case '_W4':
                         //MongoDB
-                        td.html("<u style='cursor:pointer'>AE_Check_1</u>");
+                        td.html("<u style='cursor:pointer'>W4</u>");
                         td.find('u').on('click',function(){
                             var db=""; if(window.location.toString().indexOf('tb=demo')!=-1) db="&tb=demo";
                             var d="";  if(window.location.toString().indexOf('_d=1')!=-1) d="&_d=1";
@@ -59,27 +59,15 @@
     						window.open(q_url);
                         });
                         break;
-                        case '_AE_Check_3':
+                        case '_W8':
                         //MongoDB
-                        td.html("<u style='cursor:pointer'>AE_Check_3</u>");
+                        td.html("<u style='cursor:pointer'>W8</u>");
                         td.find('u').on('click',function(){
                             var db=""; if(window.location.toString().indexOf('tb=demo')!=-1) db="&tb=demo";
                             var d="";  if(window.location.toString().indexOf('_d=1')!=-1) d="&_d=1";
                             var p="";  if(window.location.toString().indexOf('_p=1')!=-1) p="&_p=1";
                             var u="?username="+records[I].UID+"-"+records[I].UID+"&password="+records[I].Data._Password;
                             var q_url=$vm.module_list[m.online_questionnaire_w3].url+u+db+d+p;
-    						window.open(q_url);
-                        });
-                        break;
-                        case '_Follow_up':
-                        //MongoDB
-                        td.html("<u style='cursor:pointer'>Follow-up</u>");
-                        td.find('u').on('click',function(){
-                            var db=""; if(window.location.toString().indexOf('tb=demo')!=-1) db="&tb=demo";
-                            var d="";  if(window.location.toString().indexOf('_d=1')!=-1) d="&_d=1";
-                            var p="";  if(window.location.toString().indexOf('_p=1')!=-1) p="&_p=1";
-                            var u="?username="+records[I].UID+"-"+records[I].UID+"&password="+records[I].Data._Password;
-                            var q_url=$vm.module_list[m.online_questionnaire_fu].url+u+db+d+p;
     						window.open(q_url);
                         });
                         break;
@@ -91,29 +79,6 @@
                         if (records[I].Data.cont_pref==0) td.html('Email');
                         if (records[I].Data.cont_pref==1) td.html('Text');
                         if (records[I].Data.cont_pref==2) td.html('Both');
-                        break;
-                    case '_Baseline_link':
-                            var db=""; if(window.location.toString().indexOf('tb=demo')!=-1) db="&tb=demo";
-                            var d="";  if(window.location.toString().indexOf('_d=1')!=-1) d="&_d=1";
-                            var p="";  if(window.location.toString().indexOf('_p=1')!=-1) p="&_p=1";
-                            var u="?username="+records[I].UID+"-"+records[I].UID+"&password="+records[I].Data._Password;
-                            var q_url=$vm.module_list[m.online_questionnaire_bl].url+u+db+d+p;
-                        td.html(q_url);
-                        break;
-                    case 'BL_Sent':
-                        var s=records[I].Data.BL_Sent
-                        if(s!='' && s!=null && s!=undefined){
-                            s=s.substring(0,10);
-                            var dt1=$vm.date_yyyymmdd_parse(s);
-                            html="<u style='cursor:pointer'>"+$vm.yyyymmdd_to_ddmmyyyy($vm.date_to_string_yyyymmdd(dt1))+"</u>";
-                        }
-                        else {
-                            html="<u style='cursor:pointer'>BL Sent</u>"
-                        }
-                        td.html(html);
-                            td.find('u').on('click',function(){
-                                $vm.load_module_v2('participant-form','',{record:records[I],sent:'Sent'})
-                            })
                         break;
                 }
             }

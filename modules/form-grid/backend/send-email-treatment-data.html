@@ -9,14 +9,12 @@
             //-------------------------------------
             $('#title__ID').text('Control Panel');            
             //-------------------------------------
-            //var fields="_Participant_ID|Participant,group,first_name,last_name,phone,email,contact,Notes - added in Particpants form|Notes,access_code,bl,Start_Date,w0_email,w3_email,w5_email,w8_email,w8,w8_rem_1,w8_rem_2,w16_email,w16,w16_rem_1,w16_rem_2,w26_email,w26,w26_rem_1,w26_rem_2,ac_email";
-            var fields="_Participant_ID|Participant,name,telephone,email,cont_pref,Notes - added in Particpants form|Notes,Group,Start_Date,AE1,AE_1,AE2,AE_2,SMOD1,SMOD2,SMOD3,w6_FU,Week_6,w6_rem_1,w6_rem_2,AC_Sent";
-            //var fields="_Participant_ID,Group,name,telephone,email,cont_pref,Access_Code";
+            var fields="_Participant_ID|Participant,Group,name,phone,email,contact,Notes - added in Particpants form|Notes,Access_Code,BL,Start_Date,ac_email,w4_email,W4,w4_rem_1,w4_rem_2,w8_email,W8,w8_rem_1,w8_rem_2";
             m.fields=""+fields+",Submit_date,Submitted_by,_Delete";
             //-------------------------------------
             var today;
             m.load=function(){
-                m.query={$or:[{ "Data.Group": { "$eq": "Control" }},{ "Data.Group": { "$eq": "Treatment" }}] }
+                m.query={"Data.Group": {"$eq" : "dBBTi"}}
                 today = new Date();                
             }
             //-------------------------------------
@@ -30,6 +28,24 @@
                         if (records[I].Data.cont_pref==1) td.html('Text');
                         if (records[I].Data.cont_pref==2) td.html('Both');
                         break;
+                        case 'BL':
+                        var s=records[I].Data["BL"]
+                        if(s=="") td.css('background-color','red');
+                        else if(s!='SMP') td.css('background-color','yellow');
+                        else if(s=='SMP') td.css('background-color','lightgreen');
+                    break;
+                    case 'W4':
+                        var s=records[I].Data["W4"]
+                        if(s=="") td.css('background-color','red');
+                        else if(s!='AEC') td.css('background-color','yellow');
+                        else if(s=='AEC') td.css('background-color','lightgreen');
+                    break;
+                    case 'W8':
+                        var s=records[I].Data["W8"]
+                        if(s=="") td.css('background-color','red');
+                        else if(s!='AEC') td.css('background-color','yellow');
+                        else if(s=='AEC') td.css('background-color','lightgreen');
+                    break;
 
                         case 'Start_Date':
                     var s=records[I].Data.Start_Date
@@ -301,7 +317,7 @@
                         export_fields=export_fields.slice(1,export_fields.length-8);
                         export_fields.push("_Password");
                         export_fields.push("_Login_ID");
-                        export_fields.push("Submitted_by,_Delete");
+                        export_fields.push("Submitted_by");
                         //console.log(export_fields);
                         var oo=JSON.parse(JSON.stringify(participant_rec,export_fields));
                         var tmp=JSON.stringify(oo).replace(/\bID\b/g,"Participant ID")

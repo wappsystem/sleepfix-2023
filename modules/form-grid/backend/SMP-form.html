@@ -1,0 +1,114 @@
+<div id=D__ID>
+  <div class="container mt-95">
+    <div class="formbox">
+      <form id="F__ID">
+        <span id=title__ID></span>
+        <div id="participant_div__ID">
+          <div class="formgroup">
+            <fieldset class="dynbreaks">
+              <label><span class="question">Participant</span>
+                <input type=text name="Participant" class=formcontrol id=Participant__ID data-id="Participant" />
+              </label><br>
+              <label><span class="question">Participant ID</span>
+                <input type=text name="Participant_uid" class=formcontrol readonly />
+              </label>
+            </fieldset>
+          </div>
+          <div style="    opacity: 1;visibility: visible;width: 10px;height: 0px;border-width: 1px;border-style: solid;border-color: black;"></div>
+
+        </div>
+      <div class="formgroup zoom">
+          <div class="questiongroup">
+            <fieldset class="">
+              <span class="question">
+                <p>1. Have you taken any <i>over the counter</i> or prescribed medications for your sleep in the last 2 weeks</p></span>
+              <input id="sleep_med_taken_0__ID" name="sleep_med_taken" type="radio" value="0" required>
+              <label id="sleep_med_taken_button_text_0__ID" class="rd_btn " for="sleep_med_taken_0__ID">Yes</label>
+              <input id="sleep_med_taken_1__ID" name="sleep_med_taken" type="radio" value="1">
+              <label id="sleep_med_taken_button_text_1__ID" class="rd_btn " for="sleep_med_taken_1__ID">No</label>
+              <div id="sleep_med_taken_option__ID" class="formgroup hide">
+                <label><span class="question"> If yes How many times?</span></label><br>
+                <input type="text" name="sleep_med_taken_times" class="formcontrol fullwidth">
+                <label><span class="question"> What medications?</span></label><br>
+                <textarea name="sleep_med_taken_medication" class="formcontrol fullwidth"></textarea>
+              </div>
+            </fieldset>
+          </div>
+        </div>
+        <div class="formgroup zoom">
+          <fieldset class="grid-container-1">
+            <div class="">
+              <label><span class="question">2.	In the last two weeks have you been sick? </span></label><br>
+              <input id="been_sick_1__ID" name="been_sick" type="radio" value="0" required>
+              <label class="rd_btn" for="been_sick_1__ID">Yes</label>
+              <input id="been_sick_2__ID" name="been_sick" type="radio" value="1">
+              <label class="rd_btn" for="been_sick_2__ID">No</label>
+            </div>
+          </fieldset>
+        </div>
+        <div class="formgroup zoom">
+          <fieldset class="grid-container-1">
+            <div class="">
+              <label><span class="question">3.	Have you taken any sick leave in the last two weeks?  </span></label><br>
+              <input id="sick_leave_1__ID" name="sick_leave" type="radio" value="0" required>
+              <label class="rd_btn" for="sick_leave_1__ID">Yes</label>
+              <input id="sick_leave_2__ID" name="sick_leave" type="radio" value="1">
+              <label class="rd_btn" for="sick_leave_2__ID">No</label>
+            </div>
+          </fieldset>
+        </div>
+        <div class="formgroup right" id="check__ID" style="display:none">
+          <span >Please answer all questions</span>
+        </div>
+        <div class="formgroup right">
+          <button type="submit" id="submit__ID" class="submit_btn">Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <script>
+    function F__ID() {
+      //-------------------------------------
+      /*VmInclude: '__HOST__/assets/js/form.01.js'*/
+      /*VmInclude: '__HOST__/assets/js/shared-form.js'*/
+      //-------------------------------------
+      var load2 = m.load;
+            m.load = function () {
+                load2();
+                //-------------------------------------
+                if ($("input[name='sleep_med_taken']:checked").val() != '1' && $("input[name='sleep_med_taken']:checked").val() != undefined) {
+                    $('#sleep_med_taken_option__ID').show();
+                    $('#F__ID input[name=sleep_med_taken_times]').prop('required',"true")
+                    $('#F__ID input[name=sleep_med_taken_medication]').prop('required',"true")
+                }
+                else {
+                    $('#sleep_med_taken_option__ID').hide();
+                    $('#F__ID input[name=sleep_med_taken_times]').removeAttr('required');                    
+                    $('#F__ID input[name=sleep_med_taken_medication]').removeAttr('required');                    
+                }
+                //-------------------------------------
+            }
+            $("input[name='sleep_med_taken']").change(function () {
+                if ($("input[name='sleep_med_taken']:checked").val() != '1') {
+                    $('#sleep_med_taken_option__ID').show();
+                    $('#F__ID input[name=sleep_med_taken_times]').prop('required',"true")
+                    $('#F__ID input[name=sleep_med_taken_medication]').prop('required',"true")
+                }
+                else {
+                    $('#sleep_med_taken_option__ID').hide();
+                    $('#F__ID input[name=sleep_med_taken_times]').removeAttr('required');                    
+                    $('#F__ID input[name=sleep_med_taken_medication]').removeAttr('required');                    
+                }
+            });
+            //-------------------------------------
+
+      //-------------------------------------
+      /*VmInclude: '__HOST__/assets/js/form.progress.js'*/
+      //-------------------------------------
+
+   }
+  </script>
+  <style>
+    /*VmInclude:__HOST__/assets/css/wapp-form.css*/
+  </style>
+</div>
