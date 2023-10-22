@@ -55,7 +55,7 @@
 					</fieldset>
 				</div>
 				<div class="formgroup right">
-					<button type="submit" id="submit__ID" class="btn">Submit</button>
+					<button type="submit" id="submit__ID" class="btn">Send email an sms</button>
 				</div>
 			</form>
 		</div>
@@ -64,11 +64,14 @@
 		function F__ID() {
 			//-------------------------------------
 			/*VmInclude: __COMPONENT__/f/form.01.js*/
+			/*VmInclude: __HOST__/assets/js/send-mail.js*/
 			//-------------------------------------
             var record={};
+			var timepoint;
             m.default_load = m.load;
             m.load = function () {
                 m.default_load();
+				timepoint=m.input.timepoint;
                 //console.log("start_date: "+JSON.stringify(m.input.timepoint))
 				$('#SLEm_1__ID').hide();
 				$('#SLEm_2__ID').hide();
@@ -79,14 +82,14 @@
 						$('#shem_1__ID').val(get_now_date())
 					}
 				}
-				else if(m.input.timepoint=='w3_shem_2') {
+				else if(m.input.timepoint=='w1_shem_2') {
 					$('#SLEm_2__ID').show();
 					if($('#shem_2__ID').val()=="" || $('#shem_2__ID').val()==undefined){
 						$('#shem_2__ID').val(get_now_date())
 					}
 				}
-				else if(m.input.timepoint=='w5_shem_3') {
-					$('#SLEm_2__ID').show();
+				else if(m.input.timepoint=='w2_shem_3') {
+					$('#SLEm_3__ID').show();
 					if($('#shem_3__ID').val()=="" || $('#shem_3__ID').val()==undefined){
 						$('#shem_3__ID').val(get_now_date())
 					}
@@ -110,12 +113,14 @@
                 if (ss < 10) { ss = '0' + ss; }
                 return yyyy + '-' + mm + '-' + dd;
             }
-            /*//-------------------------------------
+            //-------------------------------------
             m.after_update = function (data,index) {
-                if (m.prefix == undefined) { $vm.load_module('send-email', '', {record:record,email:'startdate'}); }
-                else {$vm.load_module(m.prefix + 'send-email', '', {record:record,email:'startdate'});}
+				console.log("tp: "+timepoint)
+				//console.log(JSON.stringify(data));
+				//console.log(JSON.stringify(index));
+				sending(data,timepoint);
             }
-            *///-------------------------------------
+            //-------------------------------------
 
 		}
 	</script>

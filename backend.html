@@ -26,12 +26,12 @@
             <div id=header></div>
             <div id=g_nav></div>
             <div id=content></div>
-            <div id=footer style='height:20px;background-color:rgba(50,50,50,0.8);'></div>
+            <div id=footer style='height:20px;background-color:rgba(46,17,101,0.8);'></div>
         </div>
         <!----------------------------------------------->
         <script app code>
             //---------------------------------------------
-            $VmAPI={};$vm.ver=[0.25,0.03]; $vm['jquery-ui-min-js']=1;
+            $VmAPI={};$vm.ver=[0.26,0.03]; $vm['jquery-ui-min-js']=1;
             $vm.flexindex=new FlexSearch({  doc: {id: "id",field: ["title","contents"]}    });
             $vm.hosting_path=window.location.href.substring(0, window.location.href.split('?')[0].lastIndexOf('/'));
             //---------------------------------------------
@@ -88,9 +88,9 @@
                 
                 if(m_name!=undefined){ $vm.active_id=$vm.module_list[m_name].id; $vm.active_name=m_name; }
                 if($vm.active_id!='') $('#D'+$vm.active_id).css('min-height',$vm.min_height+"px");
-                if(m_name=='home') {$("#header").css("background","rgba(50,50,50,0.8)"); /*$('#midi_buttons').show();*/ $('#g_nav').hide(); 
+                if(m_name=='home') {$("#header").css("background","rgba(46,17,101,0.8);"); /*$('#midi_buttons').show();*/ $('#g_nav').hide(); 
                                     $('#D'+$vm.active_id).css('margin-left','auto').css('margin-right','auto')}
-                else               {$("#header").css("background","rgba(50,50,50,0.8)");  /*$('#midi_buttons').hide();*/ $('#g_nav').show();}
+                else               {$("#header").css("background","rgba(46,17,101,0.8)");  /*$('#midi_buttons').hide();*/ $('#g_nav').show();}
             }
             //---------------------------------------------
             document.getElementById('layout').onscroll = function(){
@@ -267,7 +267,7 @@
                     visibility: visible;
                 }
             }
-            body{background-size: cover; background-repeat: repeat-x; background-position: center top; background-attachment: fixed;background-color: darkseagreen;}
+            body{background-size: cover; background-repeat: repeat-x; background-position: center top; background-attachment: fixed;background-color: #c6bdff;}
         </style>
         <!----------------------------------------------->
     </body>

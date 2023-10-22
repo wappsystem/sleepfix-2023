@@ -18,36 +18,36 @@
 						</div>
 					</fieldset>
 				</div>
-				<div class="formgroup" id="W6_fu__ID" style="display: none">
+				<div class="formgroup" id="w4__ID" style="display: none">
 					<fieldset class="">
 						<div >
 							<div class="grid-container-1">
-								<div><label><span class="question">Follow up</span>
-										<input type=date name="w6_FU" id="w6_fu__ID" class=formcontrol style="width:90%" />
+								<div><label><span class="question">Week 8</span>
+										<input type=date name="w4_email" id="w4_email__ID" class=formcontrol style="width:90%" />
 									</label>
 								</div>
 							</div>
 						</div>
 					</fieldset>
 				</div>
-				<div class="formgroup" id="W6_fu_rem1__ID" style="display: none">
+				<div class="formgroup" id="w4_rem1_div__ID" style="display: none">
 					<fieldset class="">
 						<div >
 							<div class="grid-container-1">
-								<div><label><span class="question">Follow up Reminder 1</span>
-										<input type=date name="w6_rem_1" id="w6_fu_rem1__ID" class=formcontrol style="width:90%" />
+								<div><label><span class="question">Week 8 Reminder 1</span>
+										<input type=date name="w4_rem_1" id="w4_rem1__ID" class=formcontrol style="width:90%" />
 									</label>
 								</div>
 							</div>
 						</div>
 					</fieldset>
 				</div>
-				<div class="formgroup" id="W6_fu_rem2__ID" style="display: none">
+				<div class="formgroup" id="w4_rem2_div__ID" style="display: none">
 					<fieldset class="">
 						<div >
 							<div class="grid-container-1">
-								<div><label><span class="question">Follow up Reminder 2</span>
-										<input type=date name="w6_rem_2" id="w6_fu_rem2__ID" class=formcontrol style="width:90%" />
+								<div><label><span class="question">Week 8 Reminder 2</span>
+										<input type=date name="w4_rem_2" id="w4_rem2__ID" class=formcontrol style="width:90%" />
 									</label>
 								</div>
 							</div>
@@ -55,7 +55,7 @@
 					</fieldset>
 				</div>
 				<div class="formgroup right">
-					<button type="submit" id="submit__ID" class="btn">Submit</button>
+					<button type="submit" id="submit__ID" class="btn">Send Email and sms</button>
 				</div>
 			</form>
 		</div>
@@ -64,31 +64,33 @@
 		function F__ID() {
 			//-------------------------------------
 			/*VmInclude: __COMPONENT__/f/form.01.js*/
+			/*VmInclude: __HOST__/assets/js/send-mail.js*/
 			//-------------------------------------
             var record={};
+			var timepoint;
             m.default_load = m.load;
             m.load = function () {
                 m.default_load();
-                //console.log("start_date: "+JSON.stringify(m.input.timepoint))
-				$('#W6_fu__ID').hide();
-				$('#W6_fu_rem1__ID').hide();
-				$('#W6_fu_rem2__ID').hide();
-				if(m.input.timepoint=='W6_fu') {
-					$('#W6_fu__ID').show();
-					if($('#w6_fu__ID').val()=="" || $('#w6_fu__ID').val()==undefined){
-						$('#w6_fu__ID').val(get_now_date())
+				timepoint=m.input.timepoint;
+				$('#w4__ID').hide();
+				$('#w4_rem1_div__ID').hide();
+				$('#w4_rem2_div__ID').hide();
+				if(m.input.timepoint=='w4_email') {
+					$('#w4__ID').show();
+					if($('#w4_email__ID').val()=="" || $('#w4_email__ID').val()==undefined){
+						$('#w4_email__ID').val(get_now_date())
 					}
 				}
-				else if(m.input.timepoint=='w6_rem_1') {
-					$('#W6_fu_rem1__ID').show();
-					if($('#w6_fu_rem1__ID').val()=="" || $('#w6_fu_rem1__ID').val()==undefined){
-						$('#w6_fu_rem1__ID').val(get_now_date())
+				else if(m.input.timepoint=='w4_rem_1') {
+					$('#w4_rem1_div__ID').show();
+					if($('#w4_rem1__ID').val()=="" || $('#w4_rem1__ID').val()==undefined){
+						$('#w4_rem1__ID').val(get_now_date())
 					}
 				}
-				else if(m.input.timepoint=='w6_rem_2') {
-					$('#W6_fu_rem2__ID').show();
-					if($('#w6_fu_rem2__ID').val()=="" || $('#w6_fu_rem2__ID').val()==undefined){
-						$('#w6_fu_rem2__ID').val(get_now_date())
+				else if(m.input.timepoint=='w4_rem_2') {
+					$('#w4_rem2_div__ID').show();
+					if($('#w4_rem2__ID').val()=="" || $('#w4_rem2__ID').val()==undefined){
+						$('#w4_rem2__ID').val(get_now_date())
 					}
 				}
 				$('#title__ID').text(m.input.title)
@@ -111,12 +113,13 @@
                 if (ss < 10) { ss = '0' + ss; }
                 return yyyy + '-' + mm + '-' + dd;
             }
-            /*//-------------------------------------
+            //-------------------------------------
             m.after_update = function (data,index) {
-                if (m.prefix == undefined) { $vm.load_module('send-email', '', {record:record,email:'startdate'}); }
-                else {$vm.load_module(m.prefix + 'send-email', '', {record:record,email:'startdate'});}
+				//console.log(JSON.stringify(data));
+				//console.log(JSON.stringify(index));
+				sending(data,timepoint);
             }
-            *///-------------------------------------
+            //-------------------------------------
 
 		}
 	</script>

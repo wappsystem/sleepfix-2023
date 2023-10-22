@@ -24,7 +24,7 @@
     </head>
     <body>
         <div id=layout>
-            <div id=header></div>
+            <div id=header1></div>
             <div id=content></div>
             <div id=footer></div>
         </div>
@@ -36,7 +36,7 @@
             $vm.hosting_path=window.location.href.substring(0, window.location.href.split('?')[0].lastIndexOf('/'));
             //---------------------------------------------
             $vm.module_list={
-                header:         {url:$vm.hosting_path+"/modules/sites/oq/header.html"},
+                header1:         {url:$vm.hosting_path+"/modules/sites/oq/header.html"},
                 footer:         {url:$vm.hosting_path+"/modules/sites/oq/footer.html"},
                 home:           {url:$vm.hosting_path+"/modules/sites/oq/home-bl.html",Table:"contact-sleepfix",router:1,task_name:"Baseline"},
                 init_and_auth:  {url:$vm.hosting_path+"/modules/system/init-and-auth.html"},
@@ -54,11 +54,11 @@
         <script vm framework code>
             //=================================================
             //VM framework code, do not need to chang the following code in most cases
-            var hearder_height=$('#header').height();
+            var hearder_height=0;//$('#header').height();
             var footer_height=$('#footer').height();
             $vm.min_height=$(window).height()-hearder_height-2*footer_height+4;
             console.log("w:"+$(window).height()+" - h:"+hearder_height+" - "+"f:"+footer_height+" - mh:"+$vm.min_height)
-            //$('#content').css('min-height',$vm.min_height);
+            $('#content').css('min-height','519px') //$vm.min_height);
             $('#content').css('padding-top',hearder_height);
             $vm.root_layout_content_slot='content'
             $vm.app_id="wapp";
@@ -156,7 +156,7 @@
             $vm.install=function(){
                 //---------------------------------------------
                 $vm.init();
-                $vm.install_component('header','header',{},function(nm){ $vm.install_module('init_and_auth','',{},function(name,id){}); });
+                $vm.install_component('header1','header1',{},function(nm){ $vm.install_module('init_and_auth','',{},function(name,id){}); });
                 $vm.install_component('footer','footer',{});
                 $vm.install_module('vmext','',{},function(name,id){});
                 var install_one=function(m,t){
@@ -182,11 +182,11 @@
                 }
                 var I=1;
                 for (m in $vm.module_list){
-                    if(m!="index" && m!="header" && m!="footer" && m!=$vm.first_module && $vm.module_list[m].parent==undefined && $vm.module_list[m].not_install==undefined){
+                    if(m!="index" && m!="header1" && m!="footer" && m!=$vm.first_module && $vm.module_list[m].parent==undefined && $vm.module_list[m].not_install==undefined){
                         //install_one(m,I*100);
                         I++;
                     }
-                    if($vm.flexindex!=undefined){ if(m!="index" && m!="header" && m!="footer") $vm.flexindex.add({id:m,contents:m,title:m}); }
+                    if($vm.flexindex!=undefined){ if(m!="index" && m!="header1" && m!="footer") $vm.flexindex.add({id:m,contents:m,title:m}); }
                  }
                 //------------------------------------
                 /*$vm.load_resource("https://use.fontawesome.com/releases/v5.14.0/css/all.css",function(){})
@@ -208,7 +208,7 @@
                 var y=-$(window).scrollTop()/3;
                 $('body').css({ 'background-position-y': y+'px'});
                 var r=-y/100; if(r>0.5) r=0.5;
-                $("#header").css("background","rgba(0,0,0,"+r+")");
+                //$("#header").css("background","rgba(0,0,0,"+r+")");
             }            //=================================================
         });
         //-------------------------------------
@@ -262,7 +262,7 @@
                     visibility: visible;
                 }
             }
-            body{background-size: cover; background-repeat: repeat-x; background-position: center top; background-attachment: fixed;background-color: rgb(255, 255, 255);}
+            /*body{background-size: cover; background-repeat: repeat-x; background-position: center top; background-attachment: fixed;background-color: rgb(255, 255, 255);}*/
         </style>
         <!----------------------------------------------->
     </body>

@@ -53,7 +53,7 @@ padding:24px
   text-align: -webkit-center;
 }
 #D__ID .container {
-  background-color: rgba(173, 173, 173,0.8);
+  background-color: rgba(255,255,255,0.0);
   border-radius: 5px;
   padding: 15px;
   padding: 15px;
@@ -86,9 +86,9 @@ padding:24px
     display:none;
   }
   #D__ID .zoom:hover{
-    background-color: #f0f0f0;
+    /*background-color: #f0f0f0;
     border: 2px solid darkgrey;
-    /*transition: transform 0.2s;
+    transition: transform 0.2s;
     transform: scale(1.03);*/
   }
   #D__ID .indent{
@@ -99,7 +99,7 @@ padding:24px
   #D__ID .formgroup {
     padding: 3px 15px;
     display: block;
-    border-bottom: 1px solid #E5EEF0;
+    border-bottom: 1px solid #b1b1b1;
     background-color: white;
     border-radius: 3px;
     margin-bottom: 4px;
@@ -111,7 +111,7 @@ padding:24px
   }
 
   #D__ID .formgroup:hover {
-    background-color: #f0f0f0;
+    background-color: #fff;
   }
 
   #D__ID .formcontrol:read-only {
@@ -187,6 +187,7 @@ padding:24px
   }
 
   #D__ID .rd_btn {
+    min-width: 80px;
     padding: 10px 10px;
     background-color: #ddd;
     border: thin solid #b1b1b1;
@@ -195,11 +196,11 @@ padding:24px
     display: inline-block;
   }
   #D__ID .rd_btn_two_rows {
-    height:40px;
+    height:60px;
   }
 
   #D__ID .rd_btn_three_rows {
-    height:60px;
+    height:80px;
   }
 
   #D__ID .width_btn_250 {
@@ -224,16 +225,17 @@ padding:24px
 
   #D__ID input[type="radio"]:hover+label,
   #D__ID input[type="checkbox"]:hover+label {
-    background-color: #ddffe7;
+    background-color: #c6bdff;
     cursor: pointer;
     color: #000000;
   }
 
   #D__ID input[type="radio"]:checked+label,
   #D__ID input[type="checkbox"]:checked+label {
-    background-color: #98d7c2;
+    background-color: #9E97CA;
     cursor: default;
     color: #000000;
+    /*border: thin solid #000;*/
   }
 
   #D__ID .ticked {
@@ -280,7 +282,7 @@ padding:24px
     width: 100px;
     padding: 10px 5px;
     color: white;
-    background-color: #167d7f;
+    background-color: #2E1165;
     border: thin solid black;
     border-radius: 10px;
     margin: 5px;
@@ -290,7 +292,7 @@ padding:24px
   }
 
   #D__ID .submit_btn:hover {
-    background-color: #29a0b1
+    background-color: #6E64AD
   }
 
   #D__ID .submit_dual_btn{

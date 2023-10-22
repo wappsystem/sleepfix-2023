@@ -27,6 +27,7 @@
     m[p+"notes-data"]       ={url:H+"/form-grid/backend/notes-data.html",Table:"notes-sleepfix",form_module:"notes-form"},
     m[p+"notes-form"]       ={url:H+"/form-grid/backend/notes-form.html",Table:"notes-sleepfix"},
 
+    m[p+"ac"] ={url:I+"/assets/pdf/SleepFix_User_Manual_v2_lowres.pdf"},
     m[p+"oq-bl"] ={url:I+"/oq-bl.html"};
     m[p+"oq-w4"] ={url:I+"/oq-w4.html"};
     m[p+"oq-w8"] ={url:I+"/oq-w8.html"};
@@ -59,14 +60,14 @@
     m[p+"shem-data"]      ={url:H+"/form-grid/backend/date-shem-form.html",   Table:"progress-sleepfix", task_name:"SHEM"};
     m[p+"w4-data"]      ={url:H+"/form-grid/backend/date-w4-form.html",   Table:"progress-sleepfix", task_name:"Week 4"};
     m[p+"w8-data"]      ={url:H+"/form-grid/backend/date-w8-form.html",   Table:"progress-sleepfix", task_name:"Week 8"};
-    m[p+"ac-data"]      ={url:H+"/form-grid/backend/date-ac-form.html",   Table:"progress-sleepfix", task_name:"Access Code Sent"};
+    m[p+"ac-data"]      ={url:H+"/form-grid/backend/date-ac-form.html",   Table:"progress-sleepfix", task_name:"Sending Access Code"};
     m[p+"progress-data"]      ={url:H+"/form-grid/backend/progress-data.html",   Table:"progress-sleepfix",router:1};
     m[p+"control-panel--data"]      ={url:H+"/form-grid/backend/control-panel-data.html",   Table:"progress-sleepfix",router:1};
     m[p+"treatment-panel-data"]      ={url:H+"/form-grid/backend/treatment-panel-data.html",   Table:"progress-sleepfix",router:1};
     m[p+"randomisation-check-data"]      ={url:H+"/form-grid/backend/randomisation-check-data.html",   Table:"progress-sleepfix"};
     m[p+"send-email-control-data"]      ={url:H+"/form-grid/backend/send-email-control-data.html",   Table:"progress-sleepfix"};
     m[p+"send-email-treatment-data"]      ={url:H+"/form-grid/backend/send-email-treatment-data.html",   Table:"progress-sleepfix"};
-    m[p+"send-email"]      ={url:H+"/form-grid/backend/send-email-form.html",   Table:"progress-sleepfix", task_name:"send email"};
+    m[p+"send-email"]      ={url:H+"/form-grid/backend/send-email-form.html",   Table:"progress-sleepfix", task_name:"Send Email"};
 
     m[p+"demographics-bl-data"]      ={url:H+"/form-grid/backend/demographics-data.html",Table:"demographics-bl-sleepfix",form_module:"demographics-bl-form",task_name:"Baseline - Demographics"};
     m[p+"demographics-bl-form"]      ={url:H+"/form-grid/backend/demographics-form.html",Table:"demographics-bl-sleepfix",task_name:"Demographics",timepoint:'BL'};

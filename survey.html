@@ -34,7 +34,7 @@
         <meta name="description" content="">
         <meta name='viewport' content='width=device-width, initial-scale=1'>
         <link rel="icon" href="data:,">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.css" />
+        <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.css" />-->
         <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/jquery.ui/1.12.1/themes/redmond/jquery-ui.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jsoneditor/9.5.0/jsoneditor.css" />
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -55,19 +55,19 @@
     </head>
     <body>
         <div id=layout>
-            <div id=header></div>
+            <div id=header1></div>
             <div id=content></div>
             <div id=footer style='height:24px'></div>
         </div>
         <!----------------------------------------------->
         <script app code>
             //---------------------------------------------
-            $VmAPI={};$vm.ver=[0.15,0.02]; $vm['jquery-ui-min-js']=1;
+            $VmAPI={};$vm.ver=[0.16,0.02]; $vm['jquery-ui-min-js']=1;
             $vm.flexindex=new FlexSearch({  doc: {id: "id",field: ["title","contents"]}    });
             $vm.hosting_path=window.location.href.substring(0, window.location.href.split('?')[0].lastIndexOf('/'));
             //---------------------------------------------
             $vm.module_list={
-                header:         {url:$vm.hosting_path+"/modules/sites/survey/header.html"},
+                header1:         {url:$vm.hosting_path+"/modules/sites/survey/header.html"},
                 footer:         {url:$vm.hosting_path+"/modules/sites/survey/footer.html"},
                 survey:      {url:$vm.hosting_path+"/modules/form-grid/survey/eligibility-form.html",Table:"screening-sleepfix", title:'SleepFix - Screening', questionnaires:"$H/m/oq-panel.html"},
                 
@@ -88,7 +88,7 @@
         <script vm framework code>
             //=================================================
             //VM framework code, do not need to chang the following code in most cases
-            var hearder_height=$('#header').height();
+            var hearder_height=0; //$('#header').height();
             var footer_height=$('#footer').height();
             $vm.min_height=$(window).height()-hearder_height-footer_height;
             //$('#content').css('min-height',$vm.min_height);
@@ -190,7 +190,7 @@
                 $vm.init();
                 //---------------------------------------------
                 //install now
-                $vm.load_component('header','header',{});
+                $vm.load_component('header1','header1',{});
                 $vm.load_component('footer','footer',{});
                 //$vm.install_module('auth','',{},function(name,id){});
                 //$vm.install_module('vmext','',{},function(name,id){});
@@ -219,11 +219,11 @@
                 }
                 var I=1;
                 for (m in $vm.module_list){
-                    if(m!="index" && m!="header" && m!="footer" && m!=$vm.first_module && $vm.module_list[m].parent==undefined && $vm.module_list[m].not_install==undefined){
+                    if(m!="index" && m!="header1" && m!="footer" && m!=$vm.first_module && $vm.module_list[m].parent==undefined && $vm.module_list[m].not_install==undefined){
                         //install_one(m,I*100);
                         I++;
                     }
-                    if($vm.flexindex!=undefined){ if(m!="index" && m!="header" && m!="footer") $vm.flexindex.add({id:m,contents:m,title:m}); }
+                    if($vm.flexindex!=undefined){ if(m!="index" && m!="header1" && m!="footer") $vm.flexindex.add({id:m,contents:m,title:m}); }
                  }
                 //------------------------------------
                 //$vm.load_resource("https://use.fontawesome.com/releases/v5.14.0/css/all.css",function(){})
@@ -248,7 +248,7 @@
                 var y=-$(window).scrollTop()/3;
                 $('body').css({ 'background-position-y': y+'px'});
                 var r=-y/100; if(r>0.5) r=0.5;
-                $("#header").css("background","rgba(0,0,0,"+r+")");
+                //$("#header").css("background","rgba(0,0,0,"+r+")");
             }
             //=================================================
         });
@@ -304,7 +304,7 @@
             }
             body{background-size: cover; background-repeat: repeat-x; background-position: center top; background-attachment: fixed;}
             /*background image*/
-            .body_background_default{ background-image: url('assets/images/shutterstock_290612009.jpg');font-weight: 100;}
+            /*.body_background_default{ background-image: url('assets/images/shutterstock_290612009.jpg');font-weight: 100;}*/
         </style>
         <!----------------------------------------------->
     </body>

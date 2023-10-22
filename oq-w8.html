@@ -24,9 +24,9 @@
     </head>
     <body>
         <div id=layout>
-            <div id=header></div>
+            <div id=header1></div>
             <div id=content></div>
-            <div id=footer style='height:20px;background-color:rgba(50,50,50,0.8);'></div>
+            <div id=footer></div>
         </div>
         <!----------------------------------------------->
         <script app code>
@@ -36,9 +36,9 @@
             $vm.hosting_path=window.location.href.substring(0, window.location.href.split('?')[0].lastIndexOf('/'));
             //---------------------------------------------
             $vm.module_list={
-                header:         {url:$vm.hosting_path+"/modules/sites/oq/header.html"},
+                header1:         {url:$vm.hosting_path+"/modules/sites/oq/header.html"},
                 footer:         {url:$vm.hosting_path+"/modules/sites/oq/footer.html"},
-                home:           {url:$vm.hosting_path+"/modules/sites/oq/home-w8.html",Table:"contact-sleepfix",router:1,task_name:"Adverse Event Check-up Week 1"},
+                home:           {url:$vm.hosting_path+"/modules/sites/oq/home-w8.html",Table:"contact-sleepfix",router:1,task_name:"Week 8"},
                 init_and_auth:  {url:$vm.hosting_path+"/modules/system/init-and-auth.html"},
                 vmext:          {url:$vm.hosting_path+"/modules/system/vm-extension.html"},
             }
@@ -50,17 +50,15 @@
             //---------------------------------------------
         </script>    
         <style>
-            #header{ height:100px; }
-            @media screen and (max-width:576px){ #header{ height:82px; }}
         </style>
         <script vm framework code>
             //=================================================
             //VM framework code, do not need to chang the following code in most cases
-            var hearder_height=$('#header').height();
+            var hearder_height=0;//$('#header').height();
             var footer_height=$('#footer').height();
             $vm.min_height=$(window).height()-hearder_height-2*footer_height+4;
             console.log("w:"+$(window).height()+" - h:"+hearder_height+" - "+"f:"+footer_height+" - mh:"+$vm.min_height)
-            $('#content').css('min-height',$vm.min_height);
+            $('#content').css('min-height','519px') //$vm.min_height);
             $('#content').css('padding-top',hearder_height);
             $vm.root_layout_content_slot='content'
             $vm.app_id="wapp";
@@ -84,9 +82,9 @@
                 if($vm.sys_nav_path!=undefined) $vm.sys_nav_path();
                 
                 if(m_name!=undefined){ $vm.active_id=$vm.module_list[m_name].id; $vm.active_name=m_name; }
-                if($vm.active_id!='') $('#D'+$vm.active_id).css('min-height',$vm.min_height+"px");
-                if(m_name=='home') {$("#header").css("background","rgba(50,50,50,0.8)"); /*$('#midi_buttons').show(); $('#g_nav').hide();*/ }
-                else               {$("#header").css("background","rgba(50,50,50,0.8)"); /*$('#midi_buttons').hide(); $('#g_nav').show();*/}
+                //if($vm.active_id!='') $('#D'+$vm.active_id).css('min-height',$vm.min_height+"px");
+                //if(m_name=='home') {$("#header").css("background","rgba(50,50,50,0.8)"); /*$('#midi_buttons').show(); $('#g_nav').hide();*/ }
+                //else               {$("#header").css("background","rgba(50,50,50,0.8)"); /*$('#midi_buttons').hide(); $('#g_nav').show();*/}
             }
             //---------------------------------------------
             document.getElementById('layout').onscroll = function(){
@@ -158,7 +156,7 @@
             $vm.install=function(){
                 //---------------------------------------------
                 $vm.init();
-                $vm.install_component('header','header',{},function(nm){ $vm.install_module('init_and_auth','',{},function(name,id){}); });
+                $vm.install_component('header1','header1',{},function(nm){ $vm.install_module('init_and_auth','',{},function(name,id){}); });
                 $vm.install_component('footer','footer',{});
                 $vm.install_module('vmext','',{},function(name,id){});
                 var install_one=function(m,t){
@@ -184,18 +182,18 @@
                 }
                 var I=1;
                 for (m in $vm.module_list){
-                    if(m!="index" && m!="header" && m!="footer" && m!=$vm.first_module && $vm.module_list[m].parent==undefined && $vm.module_list[m].not_install==undefined){
+                    if(m!="index" && m!="header1" && m!="footer" && m!=$vm.first_module && $vm.module_list[m].parent==undefined && $vm.module_list[m].not_install==undefined){
                         //install_one(m,I*100);
                         I++;
                     }
-                    if($vm.flexindex!=undefined){ if(m!="index" && m!="header" && m!="footer") $vm.flexindex.add({id:m,contents:m,title:m}); }
+                    if($vm.flexindex!=undefined){ if(m!="index" && m!="header1" && m!="footer") $vm.flexindex.add({id:m,contents:m,title:m}); }
                  }
                 //------------------------------------
-                $vm.load_resource("https://use.fontawesome.com/releases/v5.14.0/css/all.css",function(){})
+                /*$vm.load_resource("https://use.fontawesome.com/releases/v5.14.0/css/all.css",function(){})
                 $vm.load_resource("https://use.fontawesome.com/releases/v5.14.0/css/v4-shims.css",function(){})
                 $vm.load_resource("https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.4/ace.js",function(){})
                 $vm.load_resource("https://sdk.amazonaws.com/js/aws-sdk-2.1.34.min.js",function(){})
-                $vm.load_resource("https://www.gstatic.com/charts/loader.js",function(){})
+                $vm.load_resource("https://www.gstatic.com/charts/loader.js",function(){})*/
                 //------------------------------------
                 $vm.show_module($vm.first_module,{})
                 $vm.ready();
@@ -206,13 +204,12 @@
             $vm.boot(); //start from here
             //=================================================
             $(window).on('scroll', function() {
-            /*if($vm.active_name=='home'){
+            if($vm.active_name=='home'){
                 var y=-$(window).scrollTop()/3;
                 $('body').css({ 'background-position-y': y+'px'});
                 var r=-y/100; if(r>0.5) r=0.5;
-                $("#header").css("background","rgba(50,50,50,"+r+")");
-            }*/
-            //=================================================
+                //$("#header").css("background","rgba(0,0,0,"+r+")");
+            }            //=================================================
         });
         //-------------------------------------
         if('scrollRestoration' in history) {history.scrollRestoration = 'manual';}
@@ -231,12 +228,14 @@
                 grid-template-rows: 1fr;
             }
             #header{
+                /*
                 position:fixed;
                 top:0;
                 left:0;
+                */
                 width:100%;
                 background:rgba(0,0,0,0.0);
-                z-index:10;
+                /*z-index:10;*/
             }
             @keyframes vm_module_fadein {
                 from { opacity:0; }
@@ -263,7 +262,7 @@
                     visibility: visible;
                 }
             }
-            body{background-size: cover; background-repeat: repeat-x; background-position: center top; background-attachment: fixed;background-color: darkseagreen;}
+            /*body{background-size: cover; background-repeat: repeat-x; background-position: center top; background-attachment: fixed;background-color: rgb(255, 255, 255);}*/
         </style>
         <!----------------------------------------------->
     </body>
