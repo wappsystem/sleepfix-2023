@@ -117,12 +117,12 @@
 			//-------------------------------------
 			VmInclude: '__HOST__/assets/js/form.01.js'
 			//-------------------------------------
-            var rand_num='';
+			var new_rd=false;
 			var load = m.load;
 			var part_uid;
 			m.load = function () {
 				load();
-                rand_num='';
+                new_rd=false;
 				if (m.input.record == undefined) {
 					$('.row_participant__ID').hide()
 					$('#F__ID input[name=_Password').val($vm.vm_password(8, false));
@@ -172,47 +172,65 @@
 							if (res.result[0].I1 !== undefined) max_I1 = res.result[0].I1
 						}
 						max_I1++;
-						//$('#F__ID input[name=Randomisation_Number').val(max_I1);
 						$('#F__ID input[name=Randomisation_Number').val('R'+max_I1.toString().padStart(3, "0"));
-						rand_num=max_I1.toString();
 						$('#F__ID input[name=Randomised_by').val($vm.user_name);
+                        new_rd=true;
 					})
 				}
 			})
 			//-------------------------------------
 			m.before_submit = function (data, index) {
-                var I1 = rand_num; 
-				if (I1 != '' && I1 != '-') {
-					index.I1 = parseInt(I1);
-                    var nd=new Date()
-                    index.I2=nd.getFullYear()+"-"+$vm.pad(nd.getMonth()+1,2)+"-"+$vm.pad(nd.getDate(),2);
+                if(new_rd) {
                     jQuery.ajaxSetup({ async: false });
-                        var tb = $vm.module_list["randomisation-table-data"].Table;
-                        var query={UID:index.I1}
-                        $vm.request({ cmd: "find", table: tb,query:query, limit:1 }, function (res) {
-                            if (res.result.length != 0) {
-                                //console.log(JSON.stringify(res.result[0].Data.Group))
-                                data.Group=res.result[0].Data.Group;
-                                index.I3=res.result[0].Data.Group;
-                                //if(index.I3=="Digital sleep health education") data.Start_Date=index.I2;
-                            }
-                        });
-                        var tb = $vm.module_list["access-code-data"].Table;
-                        var query={UID:index.I1}
-                        $vm.request({ cmd: "find", table: tb,query:query, limit:1 }, function (res) {
-                            if (res.result.length != 0) {
-                                //console.log(JSON.stringify(res.result[0].Data.Group))
-                                data.Access_Code=res.result[0].Data.Access_Code;
-                            }
-                        });
+                    console.log("find max")
+                    $vm.request({ cmd: "find", table: m.Table, sort: { I1: -1 }, skip: 0, limit: 1 }, function (res) {
+						if (res.sys.permission == false) {
+							$vm.alert("No permission. Private database table, ask the table's owner for permissions.");
+							return;
+						}
+						var max_I1 = 0;
+						if (res.result.length > 0) {
+							if (res.result[0].I1 !== undefined) max_I1 = res.result[0].I1
+						}
+						max_I1++;
+                        console.log(max_I1.toString())
+						//$('#F__ID input[name=Randomisation_Number').val(max_I1.toString());
+                        data.Randomisation_Number=max_I1.toString()
+						//$('#F__ID input[name=Randomised_by').val($vm.user_name);
+                        data.Randomised_by=$vm.user_name
+                        new_rd=true;
+					})
+                    console.log("new randomisation")
+                    var I1 = data.Randomisation_Number
+                    if (I1 != '' && I1 != '-') index.I1 = parseInt(I1);
+                    var nd=new Date()
+                    index.I2=nd.getFullYear()+"-"+$vm.pad(nd.getMonth()+1,2)+"-"+$vm.pad(nd.getDate(),2);                
+                    var tb = $vm.module_list["randomisation-table-data"].Table;
+                    var query={UID:index.I1}
+                    $vm.request({ cmd: "find", table: tb,query:query, limit:1 }, function (res) {
+                        if (res.result.length != 0) {
+                            //console.log(JSON.stringify(res.result[0].Data.Group))
+                            data.Group=res.result[0].Data.Group;
+                            index.I3=res.result[0].Data.Group;
+                            //if(index.I3=="Control") data.Start_Date=index.I2;
+                        }
+                    });
+                    var tb = $vm.module_list["access-code-data"].Table;
+                    var query={UID:index.I1}
+                    $vm.request({ cmd: "find", table: tb,query:query, limit:1 }, function (res) {
+                        if (res.result.length != 0) {
+                            //console.log(JSON.stringify(res.result[0].Data.Group))
+                            data.access_code=res.result[0].Data.access_code;
+                        }
+                    });
                     jQuery.ajaxSetup({ async: true });
                 }
 			}
-			//-------------------------------------
-			m.after_update = function (data,index) {
+            //-------------------------------------
+            m.after_update = function (data,index) {
                 //console.log('Data: '+JSON.stringify(data));
-                //console.log(JSON.stringify(m.input.record.UID))
-                var pid=(m.input.record.UID).toString();
+                //console.log(index.result.UID)
+                var pid=(index.result.UID).toString();
                 var record={};
                 var tb = $vm.module_list["progress-mod-form"].Table;
                 query={'Data.Participant':pid}
@@ -227,9 +245,9 @@
                     }
                     else{
                         record=res.result[0]
-                        record.Data.Group=data.Group;
+                        record.Data.group=data.Group;
                         //record.Data.Start_date=index.result.I2;
-                        record.Data.Access_Code=data.Access_Code;
+                        record.Data.access_code=data.access_code;
                         record.Data.Notes=data.Notes;
                         //console.log(JSON.stringify(record))
                         $vm.request({cmd:'update',id:record._id,table:tb,data:record.Data},function(res){

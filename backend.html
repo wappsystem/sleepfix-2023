@@ -31,7 +31,7 @@
         <!----------------------------------------------->
         <script app code>
             //---------------------------------------------
-            $VmAPI={};$vm.ver=[0.26,0.03]; $vm['jquery-ui-min-js']=1;
+            $VmAPI={};$vm.ver=[0.27,0.03]; $vm['jquery-ui-min-js']=1;
             $vm.flexindex=new FlexSearch({  doc: {id: "id",field: ["title","contents"]}    });
             $vm.hosting_path=window.location.href.substring(0, window.location.href.split('?')[0].lastIndexOf('/'));
             //---------------------------------------------
@@ -52,8 +52,8 @@
         </script>    
         <style>
             #header{ height:120px; }
-            #g_nav{ height:19px; }
-            @media screen and (max-width:576px){ #header{ height:82px; }}
+            #g_nav{ height:15px; }
+            @media screen and (max-width:576px){ #header{ height:95px; }}
         </style>
         <script vm framework code>
             //=================================================
@@ -61,7 +61,8 @@
             var hearder_height=$('#header').height();
             var footer_height=$('#footer').height();
             var g_nav_height=$('#g_nav').height();
-            $vm.min_height=$(window).height()-hearder_height-footer_height-g_nav_height+3;
+            $vm.min_height=$(window).height()-hearder_height-footer_height;
+            //$vm.min_height=$(window).height()-hearder_height-footer_height-g_nav_height-1;
             console.log("w:"+$(window).height()+" - h:"+hearder_height+" - "+"f:"+footer_height+" - mh:"+$vm.min_height)
             $('#content').css('min-height',$vm.min_height);
             $('#content').css('padding-top',hearder_height);

@@ -58,7 +58,7 @@
     z-index: 99999;
 }
 #layout__ID{
-    height:95px;
+    height:101px;
     display: grid;
     grid-template-columns: auto 1fr auto;
     overflow:auto;
