@@ -1,6 +1,6 @@
 <div id=D__ID>
     <div>
-            <!--VmInclude:__HOST__/assets/html/grid.01.html-->
+            <!--VmInclude:__HOST__/assets/html/grid.01.filter.html-->
         </div>
     <script>
         function F__ID(){
@@ -9,14 +9,25 @@
             //-------------------------------------
             $('#title__ID').text('Control Panel');            
             //-------------------------------------
-            var fields="_Participant_ID|Participant,Group,name,phone,email,cont_pref,Notes - added in Particpants form|Notes,BL,Access_Code,Start_Date,W0 Sleep Health|SMOD1,W1 Sleep Health|SMOD2,W2 Sleep Health|SMOD3,w4_email,W4,w4_rem_1,w4_rem_2,w8_email,W8,w8_rem_1,w8_rem_2,AC_Sent";
+            var fields="_Participant_ID|Participant,Group,name,phone,email,cont_pref,Study_Status,Notes - added in Particpants form|Notes,BL,Access_Code,Start_Date,W0 Sleep Health|SMOD1,W1 Sleep Health|SMOD2,W2 Sleep Health|SMOD3,w4_email,W4,w4_rem_1,w4_rem_2,w8_email,W8,w8_rem_1,w8_rem_2,AC_Sent";
             m.fields=""+fields+",Submit_date,Submitted_by,_Delete";
             //-------------------------------------
             var today;
             m.load=function(){
-                m.query={"Data.Group": {"$eq" : "Sleep Health Education"}}
+                m.query={or:[{"Data.Group": {"$eq" : "Sleep Health Education"}},{"Data.Study_Status": {"$eq" : ""}}]}
                 today = new Date();                
             }
+            //-------------------------------------
+            $('#active_only__ID').on('change',function(){
+                if($('#active_only__ID').is(':checked')) {
+                    m.query={or:[{"Data.Group": {"$eq" : "Sleep Health Education"}},{"Data.Study_Status": {"$eq" : ""}}]}
+                }
+                else{
+                    m.query={"Data.Group": {"$eq" : "Sleep Health Education"}}
+                }
+                m.set_req(); m.request_data();
+            })
+            
             //-------------------------------------
             m.cell_render=function(records,I,field,td,set_value,source){
                 switch(field){
