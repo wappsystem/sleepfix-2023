@@ -1,6 +1,6 @@
 <div id=D__ID>
     <div>
-            <!--VmInclude:__HOST__/assets/html/grid.01.html-->
+            <!--VmInclude:__HOST__/assets/html/grid.01.filter.html-->
         </div>
     <script>
         function F__ID(){
@@ -10,14 +10,29 @@
             $('#title__ID').text('Progress of Baseline Questionnaire');            
             //-------------------------------------
             //-------------------------------------
-            var fields="_Participant_ID|Participant,name,phone,email,cont_pref,Notes - added in Particpants form|Notes,BL,W4,W8";
+            var fields="_Participant_ID|Participant,name,phone,email,cont_pref,Study_Status,Notes - added in Particpants form|Notes,BL,W4,W8";
             //var fields="_Participant_ID,Group,name,telephone,email,cont_pref,Access_Code";
             m.fields=""+fields+",Submit_date,Submitted_by,_Delete";
             //-------------------------------------
             m.load=function(){
-                //m.query={"Data.first_name": {"$ne" : ""}}
-                
+                if($('#active_only__ID').is(':checked')) {
+                    m.query={"Data.Study_Status": {"$eq" : ""}}
+                }
+                else{
+                    m.query={};
+                }
             }
+            //-------------------------------------
+            $('#active_only__ID').on('change',function(){
+                if($('#active_only__ID').is(':checked')) {
+                    m.query={"Data.Study_Status": {"$eq" : ""}}
+                }
+                else{
+                    m.query={};
+                }
+                m.set_req(); m.request_data();
+            })
+            //-------------------------------------
             m.cell_render=function(records,I,field,td,set_value,source){
                 switch(field){
                     case '_Participant_ID':

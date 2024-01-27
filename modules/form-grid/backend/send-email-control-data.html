@@ -14,13 +14,18 @@
             //-------------------------------------
             var today;
             m.load=function(){
-                m.query={or:[{"Data.Group": {"$eq" : "Sleep Health Education"}},{"Data.Study_Status": {"$eq" : ""}}]}
+                if($('#active_only__ID').is(':checked')) {
+                    m.query={$and:[{"Data.Group": {"$eq" : "Sleep Health Education"}},{"Data.Study_Status": {"$eq" : ""}}]}
+                }
+                else{
+                    m.query={"Data.Group": {"$eq" : "Sleep Health Education"}}
+                }
                 today = new Date();                
             }
             //-------------------------------------
             $('#active_only__ID').on('change',function(){
                 if($('#active_only__ID').is(':checked')) {
-                    m.query={or:[{"Data.Group": {"$eq" : "Sleep Health Education"}},{"Data.Study_Status": {"$eq" : ""}}]}
+                    m.query={$and:[{"Data.Group": {"$eq" : "Sleep Health Education"}},{"Data.Study_Status": {"$eq" : ""}}]}
                 }
                 else{
                     m.query={"Data.Group": {"$eq" : "Sleep Health Education"}}

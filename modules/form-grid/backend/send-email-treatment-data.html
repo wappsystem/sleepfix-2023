@@ -1,6 +1,6 @@
 <div id=D__ID>
     <div>
-            <!--VmInclude:__HOST__/assets/html/grid.01.html-->
+            <!--VmInclude:__HOST__/assets/html/grid.01.filter.html-->
         </div>
     <script>
         function F__ID(){
@@ -9,14 +9,29 @@
             //-------------------------------------
             $('#title__ID').text('Control Panel');            
             //-------------------------------------
-            var fields="_Participant_ID|Participant,Group,name,phone,email,cont_pref,Notes - added in Particpants form|Notes,BL,Access_Code,AC_Sent,Start_Date,w4_email,W4,w4_rem_1,w4_rem_2,w8_email,W8,w8_rem_1,w8_rem_2";
+            var fields="_Participant_ID|Participant,Group,name,phone,email,cont_pref,Study_Status,Notes - added in Particpants form|Notes,BL,Access_Code,AC_Sent,Start_Date,w4_email,W4,w4_rem_1,w4_rem_2,w8_email,W8,w8_rem_1,w8_rem_2";
             m.fields=""+fields+",Submit_date,Submitted_by,_Delete";
             //-------------------------------------
             var today;
             m.load=function(){
-                m.query={"Data.Group": {"$eq" : "dBBTi"}}
+                if($('#active_only__ID').is(':checked')) {
+                    m.query={$and:[{"Data.Group": {"$eq" : "dBBTi"}},{"Data.Study_Status": {"$eq" : ""}}]}
+                }
+                else{
+                    m.query={"Data.Group": {"$eq" : "dBBTi"}}
+                }
                 today = new Date();                
             }
+            //-------------------------------------
+            $('#active_only__ID').on('change',function(){
+                if($('#active_only__ID').is(':checked')) {
+                    m.query={$and:[{"Data.Group": {"$eq" : "dBBTi"}},{"Data.Study_Status": {"$eq" : ""}}]}
+                }
+                else{
+                    m.query={"Data.Group": {"$eq" : "dBBTi"}}
+                }
+                m.set_req(); m.request_data();
+            })
             //-------------------------------------
             m.cell_render=function(records,I,field,td,set_value,source){
                 switch(field){

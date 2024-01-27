@@ -206,12 +206,14 @@
 						$('#F__ID input[name=Randomisation_Number').val('R'+max_I1.toString().padStart(3, "0"));
 						$('#F__ID input[name=Randomised_by').val($vm.user_name);
                         new_rd=true;
+						//console.log("AAA"+'R'+max_I1.toString().padStart(3, "0"))
 					})
 				}
 			})
 			//-------------------------------------
 			m.before_submit = function (data, index) {
                 if(new_rd) {
+					var max_I1 = 0;
                     jQuery.ajaxSetup({ async: false });
                     console.log("find max")
                     $vm.request({ cmd: "find", table: m.Table, sort: { I1: -1 }, skip: 0, limit: 1 }, function (res) {
@@ -219,20 +221,20 @@
 							$vm.alert("No permission. Private database table, ask the table's owner for permissions.");
 							return;
 						}
-						var max_I1 = 0;
+						max_I1 = 0;
 						if (res.result.length > 0) {
 							if (res.result[0].I1 !== undefined) max_I1 = res.result[0].I1
 						}
 						max_I1++;
                         console.log(max_I1.toString())
 						//$('#F__ID input[name=Randomisation_Number').val(max_I1.toString());
-                        data.Randomisation_Number=max_I1.toString()
+                        data.Randomisation_Number='R'+max_I1.toString().padStart(3, "0")
 						//$('#F__ID input[name=Randomised_by').val($vm.user_name);
                         data.Randomised_by=$vm.user_name
                         new_rd=true;
 					})
                     console.log("new randomisation")
-                    var I1 = data.Randomisation_Number
+                    var I1 = max_I1;
                     if (I1 != '' && I1 != '-') index.I1 = parseInt(I1);
                     var nd=new Date()
                     index.I2=nd.getFullYear()+"-"+$vm.pad(nd.getMonth()+1,2)+"-"+$vm.pad(nd.getDate(),2);                
@@ -246,6 +248,7 @@
                             //if(index.I3=="Control") data.Start_Date=index.I2;
                         }
                     });
+					console.log("access code")
                     var tb = $vm.module_list["access-code-data"].Table;
                     var query={UID:index.I1}
                     $vm.request({ cmd: "find", table: tb,query:query, limit:1 }, function (res) {
@@ -255,6 +258,7 @@
                         }
                     });
                     jQuery.ajaxSetup({ async: true });
+					return;
                 }
 			}
             //-------------------------------------
@@ -280,6 +284,8 @@
                         //record.Data.Start_date=index.result.I2;
                         record.Data.access_code=data.access_code;
                         record.Data.Notes=data.Notes;
+                        record.Data.Study_Status=data.Study_Status;
+                        record.Data.Group=data.Group;
                         //console.log(JSON.stringify(record))
                         $vm.request({cmd:'update',id:record._id,table:tb,data:record.Data},function(res){
                             //-----------------------------

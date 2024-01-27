@@ -3,6 +3,7 @@
         var P_record=$vm.vm['__ID'].input.participant_record;
         var tp=$vm.module_list[$vm.vm['__ID'].name].timepoint;
         var task=$vm.module_list[$vm.vm['__ID'].name].task_name;
+        console.log("Task Name:"+task)
         var records={};
         var first_progress_form=false;
         jQuery.ajaxSetup({async:false});
