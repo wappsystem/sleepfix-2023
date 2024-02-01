@@ -163,7 +163,7 @@ padding:24px
   }
   #D__ID .grid-container-3-special {
     display: grid;
-    grid-template-columns: 120px 500px 120px;
+    grid-template-columns: 50px 600px 50px;
   }
   #D__ID .grid-container-2 {
     display: grid;
@@ -410,7 +410,7 @@ padding:24px
   /* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
   #D__ID .slider::-moz-range-thumb {
     width: 25px;
-    /* Set a specific slider handle width */
+    /* Set a SUScific slider handle width */
     height: 25px;
     /* Slider handle height */
     background: #167d7f;
