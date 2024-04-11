@@ -254,9 +254,11 @@
                     $vm.request({ cmd: "find", table: tb,query:query, limit:1 }, function (res) {
                         if (res.result.length != 0) {
                             //console.log(JSON.stringify(res.result[0].Data.Group))
-                            data.access_code=res.result[0].Data.access_code;
+							console.log("access code: "+res.result[0].Data.Access_Code)
+                            data.Access_Code=res.result[0].Data.Access_Code;
                         }
                     });
+					console.log(JSON.stringify(data))
                     jQuery.ajaxSetup({ async: true });
 					return;
                 }
@@ -282,7 +284,7 @@
                         record=res.result[0]
                         record.Data.group=data.Group;
                         //record.Data.Start_date=index.result.I2;
-                        record.Data.access_code=data.access_code;
+                        record.Data.Access_Code=data.Access_Code;
                         record.Data.Notes=data.Notes;
                         record.Data.Study_Status=data.Study_Status;
                         record.Data.Group=data.Group;

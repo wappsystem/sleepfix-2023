@@ -51,6 +51,7 @@
 			$('#ErrMsg__ID').text("");
             var username=$('#username__ID').val();
             var password=$('#password__ID').val();
+            if(m.Table=="demo-contact-sleepfix") m.Table='contact-sleepfix';
             $vm.request({cmd:"client-signin",table:m.Table,field:'_Password',username:username,password:password},function(res){
                 if(res.status=="np"){
                     $('#ErrMsg__ID').text("Invalid Username or Password.")

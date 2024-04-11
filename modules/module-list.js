@@ -62,7 +62,7 @@
     m[p+"w8-data"]      ={url:H+"/form-grid/backend/date-w8-form.html",   Table:"progress-sleepfix", task_name:"Week 8"};
     m[p+"ac-data"]      ={url:H+"/form-grid/backend/date-ac-form.html",   Table:"progress-sleepfix", task_name:"Sending Access Code"};
     m[p+"progress-data"]      ={url:H+"/form-grid/backend/progress-data.html",   Table:"progress-sleepfix",router:1};
-    m[p+"control-panel--data"]      ={url:H+"/form-grid/backend/control-panel-data.html",   Table:"progress-sleepfix",router:1};
+    m[p+"control-panel-data"]      ={url:H+"/form-grid/backend/control-panel-data.html",   Table:"progress-sleepfix",router:1};
     m[p+"treatment-panel-data"]      ={url:H+"/form-grid/backend/treatment-panel-data.html",   Table:"progress-sleepfix",router:1};
     m[p+"randomisation-check-data"]      ={url:H+"/form-grid/backend/randomisation-check-data.html",   Table:"progress-sleepfix"};
     m[p+"send-email-control-data"]      ={url:H+"/form-grid/backend/send-email-control-data.html",   Table:"progress-sleepfix"};
@@ -113,6 +113,23 @@
         for(p in $vm.module_list){
             $vm.module_list[p].Table="demo-"+$vm.module_list[p].Table;
         }
+        $vm.module_list['progress-new-form'].Table="progress-sleepfix"
+        $vm.module_list['progress-mod-form'].Table="progress-sleepfix"
+        $vm.module_list['start-date'].Table="progress-sleepfix"
+        $vm.module_list['shem-data'].Table="progress-sleepfix"
+        $vm.module_list['w4-data'].Table="progress-sleepfix"
+        $vm.module_list['w8-data'].Table="progress-sleepfix"
+        $vm.module_list['ac-data'].Table="progress-sleepfix"
+        $vm.module_list['progress-data'].Table="progress-sleepfix"
+        $vm.module_list['control-panel-data'].Table="progress-sleepfix"
+        $vm.module_list['treatment-panel-data'].Table="progress-sleepfix"
+        $vm.module_list['randomisation-check-data'].Table="progress-sleepfix"
+        $vm.module_list['send-email-control-data'].Table="progress-sleepfix"
+        $vm.module_list['send-email-treatment-data'].Table="progress-sleepfix"
+        $vm.module_list['send-email'].Table="progress-sleepfix"
+        $vm.module_list['contact-data'].Table="contact-sleepfix"
+        $vm.module_list['contact-form'].Table="contact-sleepfix"
+        $vm.module_list['participant-data'].Table="contact-sleepfix"
+        $vm.module_list['participant-form'].Table="contact-sleepfix"
     //}
-
 })();
